@@ -3,7 +3,7 @@ import React from 'react'
 
 export default function test() {
   return (
-    <section className="max-w-[1200px] mx-auto py-20 px-2 mt-10 lg:mt-0">
+    <div className="max-w-[1200px] mx-auto py-20 px-2 mt-10 lg:mt-0">
         <div className="grid md:grid-cols-2  lg:grid-cols-4 gap-5">
           <div className="flex items-center justify-center ">
             {/* style="background-image: linear-gradient(rgba(255, 255, 255, 0.07), rgb(23, 23, 23));" */}
@@ -116,6 +116,6 @@ export default function test() {
             </div>
           </div>
         </div>
-      </section>
+      </div>
   )
 }

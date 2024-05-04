@@ -10,11 +10,12 @@ import JoinTelegram from "@/components/JoinTelegram";
 export default function Index() {
   return (
     <Layout>
-      <section className="max-w-[1200px] grid mx-auto grid-cols-1 md:grid-cols-2 px-2 gap-y-5  lg:py-20">
+      <div className="max-w-[1200px] grid mx-auto grid-cols-1 md:grid-cols-2 px-2 gap-y-5  lg:py-20">
         <div className="w-full gap-5 flex flex-col justify-center ">
           <h1 className="text-2xl lg:text-5xl font-bold text-white p-0 m-0">
             We focus your freedom,
             <br />
+            <Link href="/faq">test</Link>
             Keep your dream alive
           </h1>
           <p className="text-lg font-normal text-white/60 ">{`Our HFT-prop firm is unique: we're the only one offering a challenge refund fee on your second payout, with the first payout guaranteed within 14 days.`}</p>
@@ -46,8 +47,8 @@ export default function Index() {
             className="w-full md:w-11/12 aspect-[531/332]"
           />
         </div>
-      </section>
-      <section className="flex flex-col md:flex-row justify-between items-center max-w-[1200px] mx-auto">
+      </div>
+      <div className="flex flex-col md:flex-row justify-between items-center max-w-[1200px] mx-auto">
         <div className="flex flex-col md:flex-row justify-center items-center w-full md:w-1/2  ">
           <div className="md:border-r-[1px]  border-primary p-4 md:pr-4 w-full md:w-1/2">
             <div className="m-4 md:text-left text-center">
@@ -92,8 +93,8 @@ export default function Index() {
             </div>
           </div>
         </div>
-      </section>
-      <section className="max-w-[1200px] mx-auto py-20 px-2 mt-10 lg:mt-0">
+      </div>
+      <div className="max-w-[1200px] mx-auto py-20 px-2 mt-10 lg:mt-0">
         <div className="w-full grid grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="flex flex-col-reverse items-center border-tb-g rounded-3xl p-2">
             <Image
@@ -146,7 +147,7 @@ export default function Index() {
             </h2>
           </div>
         </div>
-      </section>
+      </div>
       <OurChallenges />
       <WhatPeopleSay />
       <JoinTelegram />

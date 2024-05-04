@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     domains: ['sureleveragefunding.com'],
-    unoptimized:true
+    unoptimized:true,
   },
 };
 

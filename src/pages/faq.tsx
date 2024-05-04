@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { ArrowIcon } from "../svgs/faq";
-import Layout from "../components/Layout";
+import { ArrowIcon } from "@/svgs/faq";
 import Image from "next/image";
+import Layout from "@/components/Layout";
 const faqData = [
   {
     id: 1,

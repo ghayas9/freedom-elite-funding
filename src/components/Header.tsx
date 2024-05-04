@@ -11,7 +11,9 @@ export default function Header() {
           <Link href="/">Home </Link>
         </li>
         <li>Buy Challenge</li>
-        <li><Link href="/faq">FAQ </Link></li>
+        <li>
+          <Link href="/faq">FAQ </Link>
+        </li>
         <li>Payout</li>
         <li>About us</li>
         <li>Contact us</li>
