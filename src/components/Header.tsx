@@ -9,7 +9,7 @@ export default function Header() {
       <div className="mx-auto max-w-[1200px] flex justify-between items-center py-[16px] px-2 lg:py-4">
         <Image src="/images/logo.png" alt="logo" width={244} height={35} />
         <div
-          className={`  ${open ? "lef-0" : "-left-[100%]"} flex flex-col lg:flex-row absolute lg:justify-end lg:relative lg:top-0 lg:bg-transparent lg:p-0 bg-black w-full gap-4 p-4 left-0 top-16 lg:items-center text-white gap-x-[40px] text-[14px] transition-all duration-700 ease-in `}
+          className={`  ${open ? "left-0" : "-left-[100%] lg:left-0"} flex flex-col lg:flex-row absolute lg:justify-end lg:relative lg:top-0 lg:bg-transparent lg:p-0 bg-black w-full gap-4 p-4 top-16 lg:items-center text-white gap-x-[40px] text-[14px] transition-all duration-700 ease-in `}
         >
           <Link href="/">Home </Link>
           <Link href="/">Buy Challenge </Link>
