@@ -4,10 +4,10 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <section className="bg-[#000000]">
+    <section className="bg-[#000000] px-2">
       <div className="max-w-[1200px] mx-auto pt-16 ">
         <div className="py-5">
-          <div className="flex flex-col gap-10 md:gap-5 lg:flex-row justify-between lg:items-center text-white  ">
+          <div className="flex flex-col gap-10 md:gap-5 lg:flex-row justify-between lg:items-center text-white ">
             <div className="flex items-center gap-2">
               <Link href="/">
                 <Image

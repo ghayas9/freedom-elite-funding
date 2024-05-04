@@ -15,12 +15,11 @@ export default function Index() {
           <h1 className="text-2xl lg:text-5xl font-bold text-white p-0 m-0">
             We focus your freedom,
             <br />
-            <Link href="/faq">test</Link>
             Keep your dream alive
           </h1>
           <p className="text-lg font-normal text-white/60 ">{`Our HFT-prop firm is unique: we're the only one offering a challenge refund fee on your second payout, with the first payout guaranteed within 14 days.`}</p>
 
-          <div className="flex items-center gap-5 text-[16px] font-semibold">
+          <div className="flex items-center gap-2 lg:gap-5 text-[16px] font-semibold">
             <Link
               href="#"
               className="flex items-center justify-center px-[12px] py-[10px] gap-2  bg-primary rounded-[30px]"
@@ -94,8 +93,8 @@ export default function Index() {
           </div>
         </div>
       </div>
-      <div className="max-w-[1200px] mx-auto py-20 px-2 mt-10 lg:mt-0">
-        <div className="w-full grid grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="max-w-[1200px] mx-auto py-4 lg:py-20 px-2 lg:mt-0">
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           <div className="flex flex-col-reverse items-center border-tb-g rounded-3xl p-2">
             <Image
               width={0}
