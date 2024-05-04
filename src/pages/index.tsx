@@ -6,6 +6,7 @@ import Link from "next/link";
 import WhatPeopleSay from "@/components/WhatPeopleSay";
 import OurChallenges from "@/components/OurChallenges";
 import JoinTelegram from "@/components/JoinTelegram";
+import Head from "@/components/Head";
 
 export default function Index() {
   return (
@@ -93,57 +94,92 @@ export default function Index() {
           </div>
         </div>
       </div>
-      <div className="max-w-[1200px] mx-auto py-4 lg:py-20 px-2 lg:mt-0">
-        <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-          <div className="flex flex-col-reverse items-center border-tb-g rounded-3xl p-2">
-            <Image
-              width={0}
-              height={0}
-              className="w-[145px] aspect-square"
-              src="/images/Group-1.png"
-              alt=""
-            />
-            <h2 className="text-white text-[24px] md:text-[28px] font-semibold">
-              <span className="text-primary">Refund Challenge</span> Fees on
-              Your Second Payout
-            </h2>
+      <div className="max-w-[1200px] mx-auto py-20 px-2 lg:mt-0">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 gap-y-10">
+          <div className="flex items-start justify-center h-full">
+            <div className=" p-[2px] rounded-[25px] border-tb-g h-full">
+              <div className="rounded-[25px]  justify-center items-start">
+                <div className="lg:w-full w-[294px] flex flex-col-reverse justify-center items-center">
+                  <Image
+                    className="  w-[116px] h-[102px] "
+                    src="/images/Group-1.png"
+                    alt=""
+                    width={0}
+                    height={0}
+                  />
+                  <div className="w-full px-2">
+                    <h2 className="text-white text-[24px] md:text-[28px] font-semibold">
+                      <span className="text-primary">
+                        Refund <br />
+                        Challenge
+                      </span>{" "}
+                      Fees on Your Second Payout
+                    </h2>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="flex flex-col items-center border-bt-g rounded-3xl p-2">
-            <Image
-              width={0}
-              height={0}
-              className="w-[145px] aspect-square"
-              src="/images/Group-2.png"
-              alt=""
-            />
-            <h2 className="text-white text-[24px] text-center md:text-[28px] font-semibold">
-              Guaranteed Payout Within 14days
-            </h2>
+          <div className="flex items-start justify-center h-full">
+            <div className=" p-[2px] rounded-[25px] border-bt-g h-full">
+              <div className="rounded-[25px]  justify-center items-start">
+                <div className="lg:w-full w-[294px] flex flex-col justify-start items-center gap-5">
+                  <Image
+                    className="  w-[116px] h-[102px] "
+                    src="/images/Group-2.png"
+                    alt=""
+                    width={0}
+                    height={0}
+                  />
+                  <div className="w-full px-2">
+                    <h2 className="text-white text-center text-[24px] md:text-[28px] font-semibold">
+                      Guaranteed Payout Within 14days
+                    </h2>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="flex flex-col-reverse items-center justify-end border-tb-g rounded-3xl px-2">
-            <Image
-              width={0}
-              height={0}
-              className="w-[145px] aspect-square"
-              src="/images/Group-3.png"
-              alt=""
-            />
-            <h2 className="text-white text-[24px] text-center md:text-[28px] font-semibold">
-              <span className="text-primary">HFT</span> ALLOWED
-              <span className="text-primary"> AND</span>
-            </h2>
+          <div className="flex items-start justify-center h-full">
+            <div className=" p-[2px] rounded-[25px] border-tb-g h-full">
+              <div className="rounded-[25px]  justify-center items-start">
+                <div className="lg:w-full w-[294px] flex flex-col-reverse justify-center items-center gap-5">
+                  <Image
+                    className="  w-[116px] h-[102px] "
+                    src="/images/Group-3.png"
+                    alt=""
+                    width={0}
+                    height={0}
+                  />
+                  <div className="w-full px-2">
+                    <h2 className="text-white text-[24px] text-center md:text-[28px] font-semibold">
+                      <span className="text-primary"> HFT </span> ALLOWED{" "}
+                      <span className="text-primary"> AND </span>
+                    </h2>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="flex flex-col items-center border-bt-g rounded-3xl px-2">
-            <Image
-              width={0}
-              height={0}
-              className="w-[145px] aspect-square"
-              src="/images/Group-4.png"
-              alt=""
-            />
-            <h2 className="text-white text-[24px] text-center md:text-[28px] font-semibold">
-              Enjoy Zero Brokerage Fees on Forex and Indices Trading
-            </h2>
+          <div className="flex items-start justify-center h-full">
+            <div className=" p-[2px] rounded-[25px] border-bt-g h-full">
+              <div className="rounded-[25px]  justify-center items-start">
+                <div className="lg:w-full w-[294px] flex flex-col justify-start items-center gap-5">
+                  <Image
+                    className="  w-[116px] h-[102px] "
+                    src="/images/Group-4.png"
+                    alt=""
+                    width={0}
+                    height={0}
+                  />
+                  <div className="w-full px-2">
+                    <h2 className="text-white text-center text-[24px] md:text-[28px] font-semibold">
+                      Enjoy Zero Brokerage Fees on Forex and Indices Trading
+                    </h2>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

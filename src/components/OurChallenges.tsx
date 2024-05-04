@@ -10,9 +10,9 @@ export default function OurChallenges() {
       <p className="lg:text-lg font-medium text-white/60 text-center md:text-left">
         {`Each of our challenges offer unique benefits: Freedom Challenges - no consistency rule and HFT - quick pass.`}
       </p>
-      <div className="grid grid-cols-1 lg:grid-cols-2 py-[10px] px-2  md:p-[10px]  gap-2 md:gap-10 md:bg-white/10 rounded-lg md:rounded-full mb-10 mt-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 py-[10px] px-2  md:p-[10px]  gap-2 md:gap-10 md:bg-white/10 rounded-lg md:rounded-full mb-10 mt-5">
         <div>
-          <div className="text-primary -mb-2 md:mb-1 md:-mt-5 px-2 text-[10px] flex items-center   justify-center">
+          <div className=" text-primary -mb-2 md:mb-1 md:-mt-5 px-2 text-[10px] flex items-center justify-center">
             <div className=" border border-primary rounded-full px-2 text-[10px] flex items-center gap-1 justify-center">
               <span>No Consistency Rules</span>
             </div>
@@ -31,7 +31,7 @@ export default function OurChallenges() {
             </div>
           </div>
           <button
-            type="submit"
+            // type="submit"
             className="flex justify-center items-center gap-2 rounded-full px-3 py-2 lg:px-8 lg:py-3 font-medium   w-full sm:py-2   text-white bg-white/10 md:bg-transparent "
           >
             HFT
