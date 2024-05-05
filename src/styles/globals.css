@@ -83,6 +83,12 @@ body * {
   linear-gradient(transparent,#fbff005c , #FAFF00) border-box;
 }
 
+.about-border-all {
+  border: 1px solid transparent;
+  background:linear-gradient(#161616,#161616) padding-box,
+  linear-gradient(#FAFF00 , #FAFF00) border-box;
+}
+
 @media screen and (max-width: 800px) {
   .border-bt-g {
     border: 1px solid transparent;
