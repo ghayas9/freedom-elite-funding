@@ -12,7 +12,7 @@ export default function Header() {
     { name: "FAQ", link: "/faq" },
     { name: "Payout", link: "/payout" },
     { name: "About us", link: "/about" },
-    { name: "Contact us", link: "/contact" },
+    { name: "Contact us", link: "/contact-us" },
   ];
   return (
     <div className="mx-auto max-w-[1200px] flex justify-between items-center py-[16px] px-2 lg:py-4">
@@ -31,12 +31,12 @@ export default function Header() {
             {link.name}
           </Link>
         ))}
-        <Link
+        {/* <Link
           className="rounded-[16px] px-5 py-2 font-medium text-black bg-primary w-full lg:w-auto text-center"
           href="#"
         >
           Login
-        </Link>
+        </Link> */}
       </div>
 
       <div
