@@ -14,7 +14,7 @@ export default function Review() {
                 src="/images/star.png"
                 alt=""
                 width={15}
-                height={0}
+                height={15}
               />
             ))}
           </div>
