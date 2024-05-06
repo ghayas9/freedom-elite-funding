@@ -11,7 +11,7 @@ export default function Review() {
             {Array.from({ length: 5 })?.map((_, index) => (
               <Image
                 key={index}
-                src="/images/star.png"
+                src="/images/Star.png"
                 alt=""
                 width={15}
                 height={15}
