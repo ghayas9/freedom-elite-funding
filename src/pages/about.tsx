@@ -1,4 +1,5 @@
 import Layout from "@/components/Layout";
+import WhatPeopleSay from "@/components/WhatPeopleSay";
 import Image from "next/image";
 import React from "react";
 
@@ -90,6 +91,7 @@ export default function about() {
           </div>
         ))}
       </div>
+      <WhatPeopleSay />
     </Layout>
   );
 }

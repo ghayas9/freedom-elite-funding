@@ -1,5 +1,7 @@
 import Link from "next/link";
 import React from "react";
+import Review from "./Review";
+import Marquee from "react-fast-marquee";
 
 export default function WhatPeopleSay() {
   return (
@@ -8,6 +10,18 @@ export default function WhatPeopleSay() {
         <span className="text-white/60 text-lg">Testimonials</span> <br />
         What People Say?
       </h2>
+      
+
+      <div className="w-full my-12">
+        <Marquee>
+          <Review />
+          <Review />
+          <Review />
+          <Review />
+          <Review />
+        </Marquee>
+      </div>
+
       <Link href="#">
         <p className="text-center text-base text-white underline underline-offset-4 mt-4 font-bold">
           Show Latest Reviews

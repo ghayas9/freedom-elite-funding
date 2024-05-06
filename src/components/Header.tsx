@@ -8,7 +8,7 @@ export default function Header() {
   const router = useRouter();
   const links = [
     { name: "Home", link: "/" },
-    { name: "Buy Challenge", link: "/buy-challenge" },
+    { name: "Buy Challenge", link: "/buy-challenges" },
     { name: "FAQ", link: "/faq" },
     { name: "Payout", link: "/payout" },
     { name: "About us", link: "/about" },
@@ -22,12 +22,6 @@ export default function Header() {
           open ? "left-0" : "-left-[100%] lg:left-0"
         } flex flex-col lg:flex-row absolute  items-center lg:justify-end lg:relative lg:top-0 lg:bg-transparent lg:p-0 bg-black w-full gap-4 p-4 top-16 lg:items-center text-white gap-x-[40px] text-[14px] transition-all duration-700 ease-in `}
       >
-        {/* <Link href="/">Home </Link>
-          <Link href="/">Buy Challenge </Link>
-          <Link href="/faq">FAQ </Link>
-          <Link href="/payout">Payout</Link>
-          <Link href="/payout">About us</Link>
-          <Link href="/payout">Contact us</Link> */}
         {links.map((link, index) => (
           <Link
             key={index}
