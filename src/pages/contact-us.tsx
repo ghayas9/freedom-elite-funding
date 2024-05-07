@@ -1,9 +1,49 @@
 import JoinTelegram from "@/components/JoinTelegram";
 import Layout from "@/components/Layout";
+import Spanner from "@/components/Spanner";
+import axios from "axios";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
+import { toast } from "react-toastify";
 
-export default function contactUs() {
+export default function ContactUs() {
+  const [loading, setLoading] = useState<boolean>(false);
+  const [value, setValue] = useState({
+    email: "",
+    first: "",
+    last: "",
+    message: "",
+  });
+
+  const onChange = (e: any) => {
+    setValue((pre) => ({ ...pre, [e.target.name]: e.target.value }));
+  };
+
+  const onSubmit = async (e: any) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      const response = (await axios({
+        method: "POST",
+        url: "/api/email",
+        data: value,
+        headers: {
+          "Content-Type": "application/json",
+        },
+      })) as { success: boolean; message: string };
+      toast.success(response?.message || "Email has been sent successfully");
+      setValue({
+        email: "",
+        first: "",
+        last: "",
+        message: "",
+      });
+    } catch (err) {
+      toast.error("something went wrong please try again later");
+    } finally {
+      setLoading(false);
+    }
+  };
   return (
     <Layout>
       <div className="flex flex-col items-center justify-center">
@@ -23,7 +63,7 @@ export default function contactUs() {
             <div className="p-[2px]  rounded-[25px]  justify-center items-center flex ">
               <div className="rounded-[25px]  justify-start items-start  flex bg-primary-bg-color ">
                 <div className="lg:w-[636px] lg:h-[676px] w-fit h-fit pt-9   px-5 ">
-                  <form>
+                  <form onSubmit={onSubmit}>
                     <div className="grid md:grid-cols-2 gap-7">
                       <div>
                         <label
@@ -34,9 +74,11 @@ export default function contactUs() {
                         </label>
                         <div className="w-full rounded-lg mt-2">
                           <input
-                            id="firstName"
-                            name="firstName"
+                            id="first"
+                            name="first"
                             type="text"
+                            onChange={onChange}
+                            value={value?.first}
                             placeholder="First Name"
                             className="text-white p-3 w-full focus:outline-none rounded-lg bg-[#2E2E2E]  "
                           />
@@ -51,9 +93,11 @@ export default function contactUs() {
                         </label>
                         <div className="w-full rounded-lg mt-2">
                           <input
-                            id="lastName"
-                            name="lastName"
+                            id="last"
+                            name="last"
                             type="text"
+                            onChange={onChange}
+                            value={value?.last}
                             placeholder="Last Name"
                             className="text-white p-3 w-full focus:outline-none rounded-lg bg-[#2E2E2E]  "
                           />
@@ -72,6 +116,8 @@ export default function contactUs() {
                           id="email"
                           name="email"
                           type="email"
+                          value={value?.email}
+                          onChange={onChange}
                           placeholder="Email"
                           className="text-white p-3  focus:outline-none rounded-lg bg-[#2E2E2E] w-full "
                         />
@@ -90,6 +136,8 @@ export default function contactUs() {
                           name="message"
                           placeholder="message"
                           rows={10}
+                          onChange={onChange}
+                          value={value?.message}
                           className="text-white p-3  focus:outline-none rounded-lg bg-[#2E2E2E] w-full "
                         ></textarea>
                       </div>
@@ -97,9 +145,15 @@ export default function contactUs() {
                     <div className="mb-8 flex justify-center">
                       <button
                         type="submit"
-                        className="flex justify-center items-center gap-2 rounded-full px-3 py-2 lg:px-8 lg:py-3 font-medium text-black bg-primary w-1/2 "
+                        disabled={
+                          !value?.first ||
+                          !value?.email ||
+                          !value?.message ||
+                          loading
+                        }
+                        className="flex justify-center items-center gap-2 rounded-full px-3 py-2 lg:px-8 lg:py-3 font-medium text-black bg-primary w-1/2 disabled:bg-opacity-60 cursor-pointer "
                       >
-                        Contact Us
+                        {loading ? <Spanner /> : "Contact Us"}
                       </button>
                     </div>
                   </form>

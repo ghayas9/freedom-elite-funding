@@ -6,7 +6,6 @@ import Link from "next/link";
 import WhatPeopleSay from "@/components/WhatPeopleSay";
 import OurChallenges from "@/components/OurChallenges";
 import JoinTelegram from "@/components/JoinTelegram";
-import Head from "@/components/Head";
 
 export default function Index() {
   return (
