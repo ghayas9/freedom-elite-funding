@@ -16,7 +16,7 @@ export default function Header() {
   ];
   return (
     <div className="mx-auto max-w-[1200px] flex justify-between items-center py-[16px] px-2 lg:py-4">
-      <Image src="/images/logo.png" alt="logo" width={244} height={35} />
+      <Image src="/images/logo.png" alt="logo" width={244} height={35} onClick={()=>router?.push("/")} />
       <div
         className={`  ${
           open ? "left-0" : "-left-[100%] lg:left-0"

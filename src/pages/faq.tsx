@@ -1,34 +1,53 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ArrowIcon } from "@/svgs/faq";
 import Image from "next/image";
 import Layout from "@/components/Layout";
-const faqData = [
-  {
-    id: 1,
-    question: "How is drawdown calculated?",
-    answer:
-      "Daily Drawdown:\n\nThe daily drawdown is calculated as 4% or 5% (depending on the challenge) of your start of day balance. This calculation must include any floating losses, swaps and commission rates. This limit will be reset at midnight as per the server time.\n\nMax Drawdown:\n\nThe max drawdown on the Power Challenge is 10% of your initial account balance. The max drawdown on the Liberty & HFT Challenge is 8% of your initial account balance. It is important to note that the max drawdown limit does not reset like the daily drawdown limit.",
-  },
-  {
-    id: 2,
-    question: "How is drawdown calculated?",
-    answer:
-      "The daily drawdown is calculated as 4% or 5% (depending on the challenge) of your start of day balance",
-  },
-  {
-    id: 3,
-    question: "How is drawdown calculated?",
-    answer:
-      "The daily drawdown is calculated as 4% or 5% (depending on the challenge) of your start of day balance",
-  },
-];
+import Faq from "@/data/faq";
+import { useRouter } from "next/router";
+
+interface Faqs {
+  question: string;
+  answer: string;
+}
+
 export default function Home() {
+  const router = useRouter();
+  const [data, setData] = useState<Faqs[]>([]);
+
+  useEffect(() => {
+    setData(Faq({ key: router?.query?.tab?.toString() || "" }));
+  }, [router?.query?.tab]);
+
   const [openId, setOpenId] = useState(null);
 
   const handleToggle = (id: any) => {
-    console.log(id)
+    console.log(id);
     setOpenId(openId === id ? null : id);
   };
+
+  const tabs = [
+    {
+      name: "Rules",
+      key: "rules",
+    },
+    {
+      name: "Promotions & Fees",
+      key: "promotion",
+    },
+    {
+      name: "Challenge Details",
+      key: "challenge",
+    },
+    {
+      name: "Freedom Challenge Rules",
+      key: "freedom",
+    },
+    {
+      name: "HFT",
+      key: "hft",
+    },
+  ];
+
   return (
     <Layout>
       <div className="max-w-[1200px] mx-auto">
@@ -54,29 +73,53 @@ export default function Home() {
         </div>
         <div className="w-full flex justify-center items-center">
           <div className="flex flex-wrap justify-center py-[10px] px-2 md:p-[10px] w-fit gap-2 xl:gap-6 md:bg-white/10 rounded-lg xl:rounded-full mb-2 mt-12">
-            <button
+            {tabs?.slice(0, 3)?.map((item, index) => (
+              <button
+                key={index}
+                type="button"
+                onClick={() => router.push(`/faq?tab=${item?.key}`)}
+                className={`flex justify-center items-center rounded-full px-3 py-2 lg:px-8 lg:py-3 font-medium w-fit    ${
+                  router?.query?.tab == item?.key ||
+                  (index === 0 && !router?.query?.tab)
+                    ? "bg-primary text-black"
+                    : "bg-white/10 text-white"
+                } `}
+              >
+                {item?.name}
+              </button>
+            ))}
+
+            {/* <button
               type="submit"
-              className="flex justify-center items-center gap-2 rounded-full px-3 py-2 lg:px-8 lg:py-3 font-medium w-fit  bg-white/10 text-white "
-            >
-              Rules
-            </button>
-            <button
-              type="submit"
-              className="flex justify-center items-center gap-2 rounded-full px-3 py-2 lg:px-8 lg:py-3 font-medium  w-fit  text-white bg-white/10  "
+              className="flex justify-center items-center rounded-full px-3 py-2 lg:px-8 lg:py-3 font-medium  w-fit  text-white bg-white/10  "
             >
               Promotions & Fees
             </button>
             <button
               type="submit"
-              className="flex justify-center items-center gap-2 rounded-full px-3 py-2 lg:px-8 lg:py-3 font-medium  w-fit  text-white bg-white/10  "
+              className="flex justify-center items-center  rounded-full px-3 py-2 lg:px-8 lg:py-3 font-medium  w-fit  text-white bg-white/10  "
             >
               Challenge Details
-            </button>
+            </button> */}
           </div>
         </div>
         <div className="flex justify-center items-center">
           <div className="flex flex-wrap justify-center py-[10px] px-2 md:p-[10px] w-fit gap-2 xl:gap-6 md:bg-white/10 rounded-lg xl:rounded-full mb-2 mt-4">
-            <button
+            {tabs?.slice(3)?.map((item, index) => (
+              <button
+                key={index}
+                type="button"
+                onClick={() => router.push(`/faq?tab=${item?.key}`)}
+                className={`flex justify-center items-center rounded-full px-3 py-2 lg:px-8 lg:py-3 font-medium w-fit    ${
+                  router?.query?.tab == item?.key
+                    ? "bg-primary text-black"
+                    : "bg-white/10 text-white"
+                } `}
+              >
+                {item?.name}
+              </button>
+            ))}
+            {/* <button
               type="submit"
               className="flex justify-center items-center gap-2 rounded-full px-3 py-2 lg:px-8 lg:py-3 font-medium w-fit  bg-white/10 text-white "
             >
@@ -87,37 +130,34 @@ export default function Home() {
               className="flex justify-center items-center gap-2 rounded-full px-3 py-2 lg:px-8 lg:py-3 font-medium  w-fit  text-white bg-white/10  "
             >
               HFT
-            </button>
+            </button> */}
           </div>
         </div>
-        <div className="p-[1px] rounded-lg bg-primary-bg-color w-full">
-          {faqData.map((faq) => (
+        <div className="p-[1px] rounded-lg w-full">
+          {data.map((faq, index) => (
             <div
-              key={faq.id}
-              className="p-[1px] rounded-lg justify-center my-5 items-center flex w-full bg-gradient-1"
+              key={index}
+              className="p-[1px] rounded-lg justify-center my-5 items-center flex w-full  border-tb-g"
             >
-              <div className="rounded-lg justify-center items-start flex bg-primary-bg-color w-full">
+              <div className="rounded-lg justify-center items-start flex w-full">
                 <div className="w-full">
                   <div
-                    className="w-full flex border border-white/5 rounded-lg justify-between items-center  bg-gradient-4 text-white px-4 py-2 backdrop-blur-lg shadow-xl"
+                    className="w-full flex border border-white/5 rounded-lg justify-between items-center  text-white px-4 py-2 backdrop-blur-lg shadow-xl bg-gradient-to-r from-primary/20 to-black/60"
                     // style={{
                     //   background:
                     //     "linear-gradient(#000, #000)",
                     // }}
-                    onClick={() => handleToggle(faq?.id)}
+                    onClick={() => handleToggle(index)}
                   >
                     <p className="text-xl">{faq.question}</p>
                     <ArrowIcon />
                   </div>
                   <div
-                    className={`w-full flex flex-col border justify-start border-white/5 rounded-lg border-white bg-opacity-60 text-white px-4 py-2 backdrop-blur-lg shadow-xl ${
-                      openId === faq.id ? "" : "hidden"
+                    className={`w-full flex flex-col border justify-start border-white/5 rounded-lg border-white bg-opacity-60 text-white px-4 py-2 backdrop-blur-lg shadow-xl transition-all duration-1000 ease-in-out  ${
+                      openId === index ? "" : "hidden"
                     }`}
                   >
                     <div className="p-5">{faq.answer}</div>
-                    <p>
-                      <a className="text-sm text-green-400"></a>
-                    </p>
                   </div>
                 </div>
               </div>
