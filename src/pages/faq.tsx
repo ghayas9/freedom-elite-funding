@@ -143,10 +143,6 @@ export default function Home() {
                 <div className="w-full">
                   <div
                     className="w-full flex border border-white/5 rounded-lg justify-between items-center  text-white px-4 py-2 backdrop-blur-lg shadow-xl bg-gradient-to-r from-primary/20 to-black/60"
-                    // style={{
-                    //   background:
-                    //     "linear-gradient(#000, #000)",
-                    // }}
                     onClick={() => handleToggle(index)}
                   >
                     <p className="text-xl">{faq.question}</p>

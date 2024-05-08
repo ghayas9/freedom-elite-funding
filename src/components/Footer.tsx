@@ -22,9 +22,9 @@ const Footer = () => {
             <div className="">
               <ul className="flex flex-row gap-5 flex-wrap">
                 <li>
-                  <a className="text-white" href="/buyChallenges">
+                  <Link className="text-white" href="/buy-challenges">
                     <span>Buy Challenges</span>
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <Link
@@ -36,22 +36,22 @@ const Footer = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link className="text-white" href="/payouts">
+                  <Link className="text-white" href="/payout">
                     <span>Payout</span>
                   </Link>
                 </li>
                 <li>
-                  <Link className="text-white" href="/about-us">
+                  <Link className="text-white" href="/about">
                     <span>Our Team</span>
                   </Link>
                 </li>
                 <li>
-                  <Link className="text-white" href="/blog">
+                  <Link className="text-white" href="#">
                     <span>Blog</span>
                   </Link>
                 </li>
                 <li>
-                  <Link className="text-white" href="/contact">
+                  <Link className="text-white" href="/contact-us">
                     <span>Contact Us</span>
                   </Link>
                 </li>
