@@ -11,6 +11,7 @@ const config: Config = {
       colors: {
         primary: "#FAFF00",
         secondary: "#171717",
+          customYellow: '#FAFF00',
         // "primary-bg-color": "#14F194",
         // "secondary-bg-color": "#FFE500",
         // "primary-text-color": "#14F194",
