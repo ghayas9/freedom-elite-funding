@@ -47,7 +47,7 @@ export default function ContactUs() {
   return (
     <Layout>
       <div className="flex flex-col items-center justify-center">
-        <h2 className="bg-gradient-to-r from-primary to-[#ffffff] text-transparent bg-clip-text text-3xl lg:text-5xl font-bold mb-[15px] mt-[78px] undefined">
+        <h2 className="bg-gradient-to-r from-primary to-[#ffffff] text-transparent bg-clip-text text-3xl lg:text-5xl font-bold mb-[15px] mt-[78px]">
           Contact Us
         </h2>
         <p className="lg:text-lg font-medium text-white/60 text-center  md:w-[684px] w-full mb-[84px]">

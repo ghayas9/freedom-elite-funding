@@ -184,6 +184,61 @@ export default function Index() {
       </div>
       <OurChallenges />
       <WhatPeopleSay />
+      <div className="max-w-[1200px]  mx-auto  flex flex-col md:flex-row justify-between items-center gap-10 mb-10 px-2 relative overflow-hidden lg:py-8 xl:py-10">
+        <div className=" space-y-4 w-fit md:w-1/2  text-center md:text-left">
+          <span className="text-lg text-white/60 font-medium ">
+            The Platform we use.
+          </span>
+          <h2 className="text-3xl lg:text-5xl font-bold bg-gradient-to-r from-primary to-white text-transparent bg-clip-text">
+            MetaTrader 4 <br /> Trusted and Reliable
+          </h2>
+          <div className=" flex justify-center items-center gap-4">
+            <Image
+              width={20}
+              height={20}
+              src="/images/vector.png"
+             alt="mark"
+            />
+            <p className="text-white text-sm text-left lg:text-base font-medium ">
+              Get a superior trading edge by utilizing a familiar platform. It
+              offers intuitive features that empower swift decision-making.
+            </p>
+          </div>
+          <div className=" flex justify-center items-center gap-4">
+            <Image
+              width={20}
+              height={20}
+              src="/images/vector.png"
+             alt="mark"
+            />
+            <p className="text-white text-sm text-left lg:text-base font-medium ">
+              Exclusive access to a renowned and trusted platform reserved for
+              select firms..
+            </p>
+          </div>
+          <div className=" flex justify-center items-center gap-4">
+            <Image
+              width={20}
+              height={20}
+              src="/images/vector.png"
+              alt="mark"
+            />
+            <p className="text-white text-sm text-left lg:text-base font-medium ">
+              Seize opportunities with speed and precision on this intuitive and
+              user-friendly platform designed to facilitate swift action.
+            </p>
+          </div>
+        </div>
+        <div className="w-1/2">
+          <Image
+            width={0}
+            height={0}
+            src="/images/mobile.png"
+            alt=""
+            className="w-full scale-150 "
+          />
+        </div>
+      </div>
       <JoinTelegram />
     </Layout>
   );

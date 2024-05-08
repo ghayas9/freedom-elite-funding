@@ -32,7 +32,8 @@ export default async function handler(
       from: SENDER_EMAIL,
       to: [
         "ghayasudin999@gmail.com",
-        "jashiforlife@gmail.com"
+        "jashiforlife@gmail.com",
+        "support@freedomelitefunding.com"
       ],
       subject: `Mail from ${first + " "+ last} | ${email}`,
       text: message,
