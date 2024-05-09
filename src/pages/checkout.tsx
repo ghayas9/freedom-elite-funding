@@ -8,9 +8,11 @@ import { Eye, Tick } from "../svgs/faq";
 import Header from "@/components/Header";
 import FooterCheckout from "@/components/FooterCheckout";
 import Image from "next/image";
+import { useRouter } from "next/router";
 // import countryList from 'react-select-country-list'
 
 export default function Checkout() {
+  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [country, setCountry] = useState<SelectMenuOption["value"]>("BE");
   const [checkedItems, setCheckedItems] = useState({
@@ -457,7 +459,7 @@ export default function Checkout() {
                     </div>
                   </label>
                 </div>
-                <button className="w-full bg-customYellow rounded-full h-[58px] mt-6 font-semibold">
+                <button  onClick={()=>router.push("/payment")} className="w-full bg-customYellow rounded-full h-[58px] mt-6 font-semibold">
                   Process to payment
                 </button>
               </div>
