@@ -10,7 +10,7 @@ import FooterCheckout from "@/components/FooterCheckout";
 import Image from "next/image";
 // import countryList from 'react-select-country-list'
 
-export default function checkout() {
+export default function Checkout() {
   const [isOpen, setIsOpen] = useState(false);
   const [country, setCountry] = useState<SelectMenuOption["value"]>("BE");
   const [checkedItems, setCheckedItems] = useState({
@@ -19,7 +19,9 @@ export default function checkout() {
     assessment: false,
   });
 
-  const handleCheckboxChange = (key: any) => {
+  const handleCheckboxChange = (
+    key: "terms" | "privacyPolicy" | "assessment"
+  ) => {
     setCheckedItems((prev) => ({
       ...prev,
       [key]: !prev[key],
@@ -98,9 +100,9 @@ export default function checkout() {
                   open={isOpen}
                   onToggle={() => setIsOpen(!isOpen)}
                   onChange={setCountry}
-                  selectedValue={COUNTRIES.find(
-                    (option) => option.value === country
-                  )}
+                  selectedValue={
+                    COUNTRIES.find((option) => option.value === country) as any
+                  }
                 />
               </div>
 

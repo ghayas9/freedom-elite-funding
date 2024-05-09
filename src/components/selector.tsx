@@ -96,8 +96,15 @@ export default function CountrySelector({
               aria-labelledby="listbox-label"
               aria-activedescendant="listbox-option-3"
             >
-              <div className="sticky top-0 z-10 bg-white">
-                <li className=" text-gray-900 cursor-default select-none relative px-2">
+              
+
+              <div
+                className={
+                  "max-h-64 bg-black/30 scrollbar scrollbar-track-gray-100 scrollbar-thumb-gray-300 hover:scrollbar-thumb-gray-600 scrollbar-thumb-rounded scrollbar-thin scroll-m-0 overflow-y-scroll"
+                }
+              >
+                <div className="sticky top-0 z-10">
+                <li className=" text-gray-900 cursor-default select-none relative ">
                   <input
                     type="search"
                     name="search"
@@ -109,12 +116,6 @@ export default function CountrySelector({
                 </li>
                 <hr />
               </div>
-
-              <div
-                className={
-                  "max-h-64 bg-black scrollbar scrollbar-track-gray-100 scrollbar-thumb-gray-300 hover:scrollbar-thumb-gray-600 scrollbar-thumb-rounded scrollbar-thin overflow-y-scroll"
-                }
-              >
                 {COUNTRIES.filter((country) =>
                   country.title.toLowerCase().startsWith(query.toLowerCase())
                 ).length === 0 ? (
