@@ -7,11 +7,10 @@ import Select from "react-select";
 import { Eye, Tick } from "../svgs/faq";
 import Header from "@/components/Header";
 import FooterCheckout from "@/components/FooterCheckout";
-import { useRouter } from "next/router";
+import Image from "next/image";
 // import countryList from 'react-select-country-list'
 
-export default function Checkout() {
-  const router = useRouter()
+export default function checkout() {
   const [isOpen, setIsOpen] = useState(false);
   const [country, setCountry] = useState<SelectMenuOption["value"]>("BE");
   const [checkedItems, setCheckedItems] = useState({
@@ -35,31 +34,20 @@ export default function Checkout() {
   };
   return (
     <>
-    <div className="bg-secondary relative z-10 px-4 md:px-0">
-      <div className="absolute w-[350px] aspect-square left-1/2 -translate-x-1/2 bg-primary rounded-full -top-[250px] blur-[240px] -z-10 " />
-      <Header />
-      <div className="max-w-[1200px] mx-auto flex flex-col items-center mt-20">
-        <div className="w-full flex items-center justify-between px-8 py-4 bg-white border-t-4 border-[#8fae1b]">
-          <p>2 Step - Power Challenge (10K)” has been added to your cart</p>
-          <button className="bg-gray-300 flex justify-center  items-center px-2 py-1 rounded font-medium text-[#515151]">
-            View cart
-          </button>
-        </div>
-        <div className="w-full grid grid-cols-6 gap-4 mt-8">
-          <div className="bg-white col-span-3 rounded-lg px-6 py-5">
-            <p className="font-bold text-4xl">Billing Details</p>
-            <div className="mb-4 mt-8">
-              <label className=" text-gray-700 text-lg mb-2">
-                Email Address
-              </label>
-              <input
-                className="border border-gray-400 rounded w-full py-4 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                type="email"
-                placeholder="Email Address"
-              />
-            </div>
-            <div className="mb-4 w-full grid grid-cols-6 gap-6">
-              <div className="flex flex-col col-span-3">
+      <div className="bg-secondary relative z-10 px-4 md:px-0">
+        <div className="absolute w-[350px] aspect-square left-1/2 -translate-x-1/2 bg-primary rounded-full -top-[250px] blur-[240px] -z-10 " />
+        <Header />
+        <div className="max-w-[1200px] mx-auto flex flex-col items-center mt-20 flex-col">
+          <div className="w-full flex items-center justify-between px-8 py-3 bg-white border-t-4 border-[#8fae1b]">
+            <p>2 Step - Power Challenge (10K)” has been added to your cart</p>
+            <button className="bg-gray-300 flex justify-center  items-center px-2 py-1 rounded font-medium text-[#515151]">
+              View cart
+            </button>
+          </div>
+          <div className="w-full grid grid-cols-6 gap-4 mt-8">
+            <div className="bg-white col-span-3 rounded-lg px-6 py-5">
+              <p className="font-bold text-4xl">Billing Details</p>
+              <div className="mb-4 mt-8">
                 <label className=" text-gray-700 text-lg mb-2">
                   Email Address
                 </label>
@@ -115,31 +103,6 @@ export default function Checkout() {
                   )}
                 />
               </div>
-            </div>
-            <div className="mb-4">
-              <label className=" text-gray-700 text-lg mb-2">
-                Company Name (optional)
-              </label>
-              <input
-                className="border border-gray-400 rounded w-full py-4 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                type="text"
-                placeholder="Email Address"
-              />
-            </div>
-            <div className="mb-4">
-              <label className=" text-gray-700 text-lg mb-2">
-                Country / Region
-              </label>
-              <CountrySelector
-                id={"country-selector"}
-                open={isOpen}
-                onToggle={() => setIsOpen(!isOpen)}
-                onChange={setCountry}
-                selectedValue={COUNTRIES.find(
-                  (option) => option.value === country
-                ) as any}
-              />
-            </div>
 
               <div className="mb-4">
                 <label
@@ -497,21 +460,12 @@ export default function Checkout() {
                 </button>
               </div>
             </div>
-            <div className="bg-black rounded-lg px-6 h-[541px] py-3 mt-4">
-            <p className="font-bold text-4xl mt-2">Billing Details</p>
-             <button onClick={()=>router?.push('payment')} className="w-full bg-[#FAFF00] rounded-full h-[58px] font-semibold">
-              Process to payment
-             </button>
           </div>
         </div>
         <div className="w-full mt-5">
           <FooterCheckout />
         </div>
       </div>
-      <div className="w-full py-12 bg-black">
-        <FooterCheckout/>
-      </div>
-  </div>
-  </>
-  )
+    </>
+  );
 }
