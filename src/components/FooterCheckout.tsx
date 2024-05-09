@@ -2,16 +2,22 @@ import Image from "next/image";
 
 const FooterCheckout = () => {
   return (
-    <div className="max-w-[1200px] mx-auto">
-      <div className="border-customYellow border-2 rounded-lg w-full p-6">
+    <div className="max-w-[1200px] pb-5 mx-auto">
+      <div className="border-customYellow border rounded-2xl w-full p-6">
         <Image src="/images/logo.png" alt="logo" width={244} height={35} />
         <div className="flex justify-between mt-4">
-          <div className="w-1/4 flex ">
+          <div className="w-1/4 flex flex-col">
             <p className="text-gray-700">
               Freedom Elite Funding stands as a testament to the convergence of
               cutting-edge technologies. By harmonizing Ethereum Virtual Machine
               (EVM) compatibility with the Cosmos SDK, we offer a platform.
             </p>
+            <div className="flex mt-2 gap-4">
+               <Image width={30} height={30} src='/images/one.png' alt="" />
+               <Image width={30} height={30} src='/images/one.png' alt="" />
+               <Image width={30} height={30} src='/images/one.png' alt="" />
+               <Image width={30} height={30} src='/images/one.png' alt="" />
+            </div>
           </div>
           <div className="w-1/4  flex flex-col items-center">
             <p className="text-white text-center">Company</p>
@@ -46,6 +52,13 @@ const FooterCheckout = () => {
               </p>
             </div>
           </div>
+        </div>
+        <div className="border-b opacity-50 w-full border-customYellow mt-5">
+      
+        </div>
+        <div className="flex w-full justify-between mt-4">
+          <p className="text-gray-700 text-sm">Copyright @2024 Freedom Elite Funding</p>
+          <p className="text-gray-700 text-sm">Privacy - Trams - startup</p>
         </div>
       </div>
     </div>
