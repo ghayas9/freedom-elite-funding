@@ -1,9 +1,11 @@
 import Layout from "@/components/Layout";
 import WhatPeopleSay from "@/components/WhatPeopleSay";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import React from "react";
 
-export default function payout() {
+export default function Payout() {
+  const router  = useRouter();
   return (
     <Layout>
       <div className="max-w-[1200px] mx-auto px-2 flex flex-col items-center justify-center ">
@@ -24,6 +26,7 @@ export default function payout() {
               unoptimized
               width={0}
               height={0}
+              onClick={()=>router?.push("/checkout")}
               className="w-full aspect-square"
             />
           ))}

@@ -7,9 +7,11 @@ import Select from "react-select";
 import { Eye } from "../svgs/faq";
 import Header from "@/components/Header";
 import FooterCheckout from "@/components/FooterCheckout";
+import { useRouter } from "next/router";
 // import countryList from 'react-select-country-list'
 
-export default function checkout() {
+export default function Checkout() {
+  const router = useRouter()
   const [isOpen, setIsOpen] = useState(false);
   const [country, setCountry] = useState<SelectMenuOption["value"]>("BE");
 
@@ -18,7 +20,7 @@ export default function checkout() {
     <div className="bg-secondary relative z-10 px-4 md:px-0">
       <div className="absolute w-[350px] aspect-square left-1/2 -translate-x-1/2 bg-primary rounded-full -top-[250px] blur-[240px] -z-10 " />
       <Header />
-      <div className="max-w-[1200px] mx-auto flex flex-col items-center mt-20 flex-col">
+      <div className="max-w-[1200px] mx-auto flex flex-col items-center mt-20">
         <div className="w-full flex items-center justify-between px-8 py-4 bg-white border-t-4 border-[#8fae1b]">
           <p>2 Step - Power Challenge (10K)” has been added to your cart</p>
           <button className="bg-gray-300 flex justify-center  items-center px-2 py-1 rounded font-medium text-[#515151]">
@@ -81,7 +83,7 @@ export default function checkout() {
                 onChange={setCountry}
                 selectedValue={COUNTRIES.find(
                   (option) => option.value === country
-                )}
+                ) as any}
               />
             </div>
 
@@ -207,7 +209,7 @@ export default function checkout() {
             </div>
             <div className="bg-black rounded-lg px-6 h-[541px] py-3 mt-4">
             <p className="font-bold text-4xl mt-2">Billing Details</p>
-             <button className="w-full bg-[#FAFF00] rounded-full h-[58px] font-semibold">
+             <button onClick={()=>router?.push('payment')} className="w-full bg-[#FAFF00] rounded-full h-[58px] font-semibold">
               Process to payment
              </button>
           </div>
@@ -215,7 +217,7 @@ export default function checkout() {
         
         </div>
       </div>
-      <div className="w-full mt-5">
+      <div className="w-full py-12 bg-black">
         <FooterCheckout/>
       </div>
   </div>

@@ -49,6 +49,6 @@ const FooterCheckout = () => {
         </div>
       </div>
     </div>
-  );
+  )
 };
 export default FooterCheckout;
