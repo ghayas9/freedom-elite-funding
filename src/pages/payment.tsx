@@ -8,6 +8,17 @@ export default function Payment() {
   const router = useRouter();
   const [time, setTime] = useState(900);
   const [isCopied, setIsCopied] = useState(0);
+  const [showdropdown, setShowDropdown] = useState(false);
+  const [selectedImage, setSelectedImage] = useState("/images/Tether_Logo.png");
+
+  const handleClick = () => {
+    setShowDropdown(!showdropdown);
+  };
+
+  const handleItemClick = (image: any) => {
+    setSelectedImage(image);
+    setShowDropdown(false);
+  };
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -37,10 +48,25 @@ export default function Payment() {
       })
       .catch((error) => {});
   };
+
+  const dropdown = [
+    {
+      image: "/images/Tether_Logo1.png",
+    },
+    {
+      image: "/images/bitcoin.webp",
+    },
+    {
+      image: "/images/ethereum.png",
+    },
+    {
+      image: "/images/litecoin.png",
+    },
+  ];
   return (
     <div className="bg-secondary">
       <Header />
-      <div className="max-w-[450px] lg:w-1/3 mx-auto bg-white rounded overflow-hidden mt-12 pb-6">
+      <div className="max-w-[450px] lg:w-1/3 mx-auto bg-white rounded mt-12 pb-6">
         <h1 className="w-full bg-primary text-center font-semibold text-[16px] py-2">
           Complete process within {minutes}:{seconds < 10 ? "0" : ""}
           {seconds} minutes
@@ -52,35 +78,63 @@ export default function Payment() {
           width={0}
           height={0}
         />
-        <div className="w-6/12 mx-auto flex items-start gap-2">
-        <Image
-            className="aspect-square"
-            src="/images/notification.png"
+        <div className="w-full mx-auto flex items-start justify-center gap-2">
+          <Image
+            className="w-8 h-6"
+            src={"/images/tether.jpg"}
             alt=""
-            width={18}
-            height={18}
+            width={0}
+            height={0}
           />
-          <p className="text-[12px] font-normal">
-          If  this QR is not populating your wallet, please use this one.
+          <p className="text-[12px] font-normal w-[260px]">
+            If this QR is not populating your wallet, please use this one.
           </p>
         </div>
 
-        <div className="flex items-center bg-[#EDEDED] px-4 py-2 rounded relative w-11/12 mx-auto my-2">
+        <div
+          className="flex items-center justify-between bg-[#EDEDED] px-4 py-2 rounded relative w-11/12 mx-auto my-2 cursor-pointer mt-8"
+          onClick={handleClick}
+        >
           <Image
+            src={selectedImage}
             alt=""
-            src="/images/Tether_Logo.png"
-            className=""
-            width={100}
-            height={26}
+            width={0}
+            height={0}
+            className="w-[100px] h-8"
           />
+
           <Image
+            src="/images/vector.png"
             alt=""
-            src="/images/drop.png"
-            width={24}
-            height={18}
-            onClick={() => {}}
-            className={`absolute top-1/2 -translate-y-1/2 right-4 cursor-pointer`}
+            width={0}
+            height={0}
+            className={`w-3 ${
+              showdropdown
+                ? "rotate-180 transition-all duration-300 ease-in-out"
+                : ""
+            }`}
           />
+          {showdropdown && (
+            <div
+              className={`bg-[#EDEDED] w-full shadow-lg rounded-bl-lg rounded-br-lg absolute top-11 left-0 px-4 py-3 flex flex-col justify-center`}
+            >
+              {dropdown?.map((e, index) => (
+                <span
+                  key={index}
+                  className="hover:bg-white cursor-pointer block px-3 py-1"
+                  onClick={() => handleItemClick(e.image)}
+                >
+                  <Image
+                    src={e?.image}
+                    alt=""
+                    width={0}
+                    height={0}
+                    className="w-[60px] h-5 mb-2"
+                  />
+                </span>
+              ))}
+            </div>
+          )}
         </div>
 
         <div className="flex items-start gap-2 w-11/12 mx-auto">

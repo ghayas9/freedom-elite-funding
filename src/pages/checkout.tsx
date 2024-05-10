@@ -41,7 +41,7 @@ export default function Checkout() {
       <div className="bg-secondary relative z-10 px-4 md:px-0">
         <div className="absolute w-[350px] aspect-square left-1/2 -translate-x-1/2 bg-primary rounded-full -top-[250px] blur-[240px] -z-10 " />
         <Header />
-        <div className="max-w-[1200px] mx-auto flex flex-col items-center mt-20 flex-col">
+        <div className="max-w-[1200px] mx-auto flex flex-col items-center mt-20">
           <div className="w-full flex items-center justify-between px-8 py-3 bg-white border-t-4 border-[#8fae1b]">
             <p>2 Step - Power Challenge (10K)” has been added to your cart</p>
             <button className="bg-gray-300 flex justify-center  items-center px-2 py-1 rounded font-medium text-[#515151]">
@@ -459,7 +459,10 @@ export default function Checkout() {
                     </div>
                   </label>
                 </div>
-                <button  onClick={()=>router.push("/payment")} className="w-full bg-customYellow rounded-full h-[58px] mt-6 font-semibold">
+                <button
+                  onClick={() => router.push("/order")}
+                  className="w-full bg-customYellow rounded-full h-[58px] mt-6 font-semibold"
+                >
                   Process to payment
                 </button>
               </div>

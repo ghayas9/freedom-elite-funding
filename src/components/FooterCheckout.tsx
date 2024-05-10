@@ -13,10 +13,38 @@ const FooterCheckout = () => {
               (EVM) compatibility with the Cosmos SDK, we offer a platform.
             </p>
             <div className="flex mt-2 gap-4">
-               <Image width={30} height={30} src='/images/one.png' alt="" />
-               <Image width={30} height={30} src='/images/one.png' alt="" />
-               <Image width={30} height={30} src='/images/one.png' alt="" />
-               <Image width={30} height={30} src='/images/one.png' alt="" />
+              <span className="w-9 aspect-square rounded-lg bg-[#FAFF00] flex items-center justify-center cursor-pointer">
+                <Image
+                  src="/images/linkedin.png"
+                  alt=""
+                  width={30}
+                  height={30}
+                />
+              </span>
+              <span className="w-9 aspect-square rounded-lg bg-[#FAFF00] flex items-center justify-center cursor-pointer">
+                <Image
+                  src="/images/instagram.png"
+                  alt="instagram"
+                  width={30}
+                  height={30}
+                />
+              </span>
+              <span className="w-9 aspect-square rounded-lg bg-[#FAFF00] flex items-center justify-center cursor-pointer">
+                <Image
+                  src="/images/twitter.png"
+                  alt=""
+                  width={30}
+                  height={30}
+                />
+              </span>
+              <span className="w-9 aspect-square rounded-lg bg-[#FAFF00] flex items-center justify-center cursor-pointer">
+                <Image
+                  src="/images/facebook.png"
+                  alt=""
+                  width={30}
+                  height={30}
+                />
+              </span>
             </div>
           </div>
           <div className="w-1/4  flex flex-col items-center">
@@ -53,15 +81,15 @@ const FooterCheckout = () => {
             </div>
           </div>
         </div>
-        <div className="border-b opacity-50 w-full border-customYellow mt-5">
-      
-        </div>
+        <div className="border-b opacity-50 w-full border-customYellow mt-5"></div>
         <div className="flex w-full justify-between mt-4">
-          <p className="text-gray-700 text-sm">Copyright @2024 Freedom Elite Funding</p>
+          <p className="text-gray-700 text-sm">
+            Copyright @2024 Freedom Elite Funding
+          </p>
           <p className="text-gray-700 text-sm">Privacy - Trams - startup</p>
         </div>
       </div>
     </div>
-  )
+  );
 };
 export default FooterCheckout;
