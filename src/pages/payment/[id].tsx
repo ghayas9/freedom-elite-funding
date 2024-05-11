@@ -2,14 +2,19 @@ import FooterCheckout from "@/components/FooterCheckout";
 import Header from "@/components/Header";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 
 export default function Payment() {
   const router = useRouter();
   const [time, setTime] = useState(900);
   const [isCopied, setIsCopied] = useState(0);
   const [showdropdown, setShowDropdown] = useState(false);
-  const [selectedImage, setSelectedImage] = useState("/images/Tether_Logo.png");
+  const [selectedImage, setSelectedImage] = useState({
+    image: "/images/Tether_Logo.png",
+    name: "Tether",
+    wallet: "TjrQ0qi3rQetpCZ4Q1E7n4UYWjh3H1Hsg",
+    icon: "",
+  });
 
   const handleClick = () => {
     setShowDropdown(!showdropdown);
@@ -52,17 +57,72 @@ export default function Payment() {
   const dropdown = [
     {
       image: "/images/Tether_Logo1.png",
+      name: "Tether",
+      wallet: "TjrQ0qi3rQetpCZ4Q1E7n4UYWjh3H1Hsg",
+      icon: "",
     },
     {
       image: "/images/bitcoin.webp",
+      name: "Bitcoin",
+      wallet: "TjrQ0qi3rQetpCZ4Q1E7n4UYWjh3H1Hsg",
+      icon: "",
     },
     {
       image: "/images/ethereum.png",
+      name: "Ethereum",
+      wallet: "TjrQ0qi3rQetpCZ4Q1E7n4UYWjh3H1Hsg",
+      icon: "",
     },
     {
       image: "/images/litecoin.png",
+      name: "Litecoin",
+      wallet: "TjrQ0qi3rQetpCZ4Q1E7n4UYWjh3H1Hsg",
+      icon: "",
     },
   ];
+
+  const payments = [
+    {
+      id: "640a22c5-01ab-436f-b2b8-1cb6b129dc0c",
+      price: "2698.11",
+    },
+    {
+      id: "ef2ee873-bbd2-4bcb-9eeb-6b2923b5a161",
+      price: "1056.88",
+    },
+    {
+      id: "fd57d661-3657-4294-98bb-d21b49aee61a",
+      price: "450.78",
+    },
+    {
+      id: "669500e5-9148-469a-8b73-5c416185aa1b",
+      price: "2167.00",
+    },
+    {
+      id: "5b41ca5f-45c6-4272-ac13-fdde9b0421a5",
+      price: "1589.45",
+    },
+    {
+      id: "0862154f-ac72-467d-9bd1-b063eeca4652",
+      price: "2800.43",
+    },
+    {
+      id: "28a92ff0-420a-44c6-8de8-fd1dc600bbfe",
+      price: "1757.94",
+    },
+    {
+      id: "cbf2a5eb-4bc0-4a32-97bc-aa47fab2f7b8",
+      price: "320.55",
+    },
+    {
+      id: "6c6b9989-db3c-40ee-9426-0cf14f07ac49",
+      price: "3056.10",
+    },
+  ];
+
+  const payment = useMemo(() => {
+    return payments.find((payment) => payment.id === router.query.id);
+  }, []);
   return (
     <div className="bg-secondary">
       <Header />
@@ -81,7 +141,7 @@ export default function Payment() {
         <div className="w-full mx-auto flex items-start justify-center gap-2">
           <Image
             className="w-8 h-6"
-            src={"/images/tether.jpg"}
+            src={selectedImage?.icon}
             alt=""
             width={0}
             height={0}
@@ -96,11 +156,11 @@ export default function Payment() {
           onClick={handleClick}
         >
           <Image
-            src={selectedImage}
+            src={selectedImage?.image}
             alt=""
             width={0}
             height={0}
-            className="w-[100px] h-8"
+            className="h-8 w-auto"
           />
 
           <Image
@@ -122,7 +182,7 @@ export default function Payment() {
                 <span
                   key={index}
                   className="hover:bg-white cursor-pointer block px-3 py-1"
-                  onClick={() => handleItemClick(e.image)}
+                  onClick={() => handleItemClick(e)}
                 >
                   <Image
                     src={e?.image}
@@ -158,13 +218,15 @@ export default function Payment() {
         <div className="mt-2">
           <h1 className="text-[20px] font-semibold ">Amount</h1>
           <div className="w-full flex justify-between bg-[#EDEDED] px-4 py-2 rounded relative">
-            548.16 ETH (ERC20)
+            {payment?.price} ETH (ERC20)
             <Image
               alt=""
               src="/images/bxs_copy.png"
               width={24}
               height={18}
-              onClick={() => copyToClipboard("548.16 ETH (ERC20)", 1)}
+              onClick={() =>
+                copyToClipboard(`${payment?.price} ETH (ERC20)`, 1)
+              }
               className={`absolute top-1/2 -translate-y-1/2 right-4 cursor-pointer ${
                 isCopied == 1 ? "opacity-50" : ""
               }`}
@@ -175,15 +237,13 @@ export default function Payment() {
         <div className="mt-2">
           <h1 className="text-[20px] font-semibold ">Address</h1>
           <div className="w-full flex justify-between bg-[#EDEDED] px-4 py-2 rounded relative">
-            TjrQ0qi3rQetpCZ4Q1E7n4UYWjh3H1Hsg
+            {selectedImage?.wallet}
             <Image
               alt=""
               src="/images/bxs_copy.png"
               width={24}
               height={18}
-              onClick={() =>
-                copyToClipboard("TjrQ0qi3rQetpCZ4Q1E7n4UYWjh3H1Hsg", 2)
-              }
+              onClick={() => copyToClipboard(selectedImage?.wallet, 2)}
               className={`absolute top-1/2 -translate-y-1/2 right-4 cursor-pointer ${
                 isCopied === 2 ? "opacity-50" : ""
               }`}
