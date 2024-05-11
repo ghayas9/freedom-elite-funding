@@ -3,9 +3,11 @@ import Layout from "@/components/Layout";
 import OurChallengeTable from "@/components/OurChallengeTable";
 import WhatPeopleSay from "@/components/WhatPeopleSay";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 
 export default function Page() {
+
+  const [selected , setSelected] = useState(0)
   return (
     <Layout>
       <div className="max-w-[1200px] mx-auto mb-24 px-2 ">
@@ -117,8 +119,9 @@ export default function Page() {
             </div>
           </div>
           <button
-            type="submit"
-            className="flex justify-center items-center gap-2 rounded-full px-3 py-2 lg:px-8 lg:py-3 font-medium  w-full sm:py-2  bg-primary text-black "
+            // type="submit"
+            onClick={()=>setSelected(0)}
+            className={`flex justify-center items-center gap-2 rounded-full px-3 py-2 lg:px-8 lg:py-3 font-medium  w-full sm:py-2  ${selected === 0 ? "bg-primary text-black " :"text-white"}  `}
           >
             Freedom Challenges
           </button>
@@ -131,13 +134,14 @@ export default function Page() {
           </div>
           <button
             // type="submit"
-            className="flex justify-center items-center gap-2 rounded-full px-3 py-2 lg:px-8 lg:py-3 font-medium   w-full sm:py-2   text-white bg-white/10 md:bg-transparent "
+            onClick={()=>setSelected(1)}
+            className={`flex justify-center items-center gap-2 rounded-full px-3 py-2 lg:px-8 lg:py-3 font-medium   w-full sm:py-2  ${selected === 1 ? "bg-primary text-black" :"text-white"}`}
           >
             HFT
           </button>
         </div>
       </div>
-      <OurChallengeTable />
+      <OurChallengeTable selected={selected}/>
     </div>
 
     <WhatPeopleSay />

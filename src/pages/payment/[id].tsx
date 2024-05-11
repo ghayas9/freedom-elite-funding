@@ -13,7 +13,7 @@ export default function Payment() {
     image: "/images/Tether_Logo.png",
     name: "Tether",
     wallet: "TjrQ0qi3rQetpCZ4Q1E7n4UYWjh3H1Hsg",
-    icon: "",
+    icon: "/images/tether-usdt.png",
   });
 
   const handleClick = () => {
@@ -59,25 +59,25 @@ export default function Payment() {
       image: "/images/Tether_Logo1.png",
       name: "Tether",
       wallet: "TjrQ0qi3rQetpCZ4Q1E7n4UYWjh3H1Hsg",
-      icon: "",
+      icon: "/images/tether-usdt.png",
     },
     {
       image: "/images/bitcoin.webp",
       name: "Bitcoin",
       wallet: "TjrQ0qi3rQetpCZ4Q1E7n4UYWjh3H1Hsg",
-      icon: "",
+      icon: "/images/Bitcoin-usdt.png",
     },
     {
       image: "/images/ethereum.png",
       name: "Ethereum",
       wallet: "TjrQ0qi3rQetpCZ4Q1E7n4UYWjh3H1Hsg",
-      icon: "",
+      icon: "/images/ethereum-usdt.png",
     },
     {
       image: "/images/litecoin.png",
       name: "Litecoin",
       wallet: "TjrQ0qi3rQetpCZ4Q1E7n4UYWjh3H1Hsg",
-      icon: "",
+      icon: "/images/litecoin-ltc-logo.png",
     },
   ];
 
@@ -140,7 +140,7 @@ export default function Payment() {
         />
         <div className="w-full mx-auto flex items-start justify-center gap-2">
           <Image
-            className="w-8 h-6"
+            className="w-5 aspect-square"
             src={selectedImage?.icon}
             alt=""
             width={0}

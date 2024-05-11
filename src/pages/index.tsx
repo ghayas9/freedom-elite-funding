@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Layout from "@/components/Layout";
 import Image from "next/image";
 import { Arrow, Telegram } from "../svgs/home";
@@ -8,6 +8,8 @@ import OurChallenges from "@/components/OurChallenges";
 import JoinTelegram from "@/components/JoinTelegram";
 
 export default function Index() {
+ 
+  
   return (
     <Layout>
       <div className="max-w-[1200px] grid mx-auto grid-cols-1 md:grid-cols-2 px-2 gap-y-5  lg:py-20">

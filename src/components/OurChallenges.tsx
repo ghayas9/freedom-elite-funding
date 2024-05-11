@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import OurChallengeTable from "./OurChallengeTable";
 
 export default function OurChallenges() {
+
+  const [selected , setSelected] = useState(0)
+
   return (
     <div className="max-w-[1200px] mx-auto px-2 flex flex-col items-center justify-center">
       <h2 className="bg-gradient-to-r from-primary to-[#ffffff] text-transparent bg-clip-text text-3xl lg:text-5xl font-bold py-2">
@@ -18,8 +21,9 @@ export default function OurChallenges() {
             </div>
           </div>
           <button
-            type="submit"
-            className="flex justify-center items-center gap-2 rounded-full px-3 py-2 lg:px-8 lg:py-3 font-medium  w-full sm:py-2  bg-primary text-black "
+            // type="submit"
+            onClick={()=>setSelected(0)}
+            className={`flex justify-center items-center gap-2 rounded-full px-3 py-2 lg:px-8 lg:py-3 font-medium  w-full sm:py-2  ${selected === 0 ? "bg-primary text-black " :"text-white"}  `}
           >
             Freedom Challenges
           </button>
@@ -32,13 +36,14 @@ export default function OurChallenges() {
           </div>
           <button
             // type="submit"
-            className="flex justify-center items-center gap-2 rounded-full px-3 py-2 lg:px-8 lg:py-3 font-medium   w-full sm:py-2   text-white bg-white/10 md:bg-transparent "
+            onClick={()=>setSelected(1)}
+            className={`flex justify-center items-center gap-2 rounded-full px-3 py-2 lg:px-8 lg:py-3 font-medium   w-full sm:py-2  ${selected === 1 ? "bg-primary text-black" :"text-white"}`}
           >
             HFT
           </button>
         </div>
       </div>
-      <OurChallengeTable />
+      <OurChallengeTable selected={selected} />
     </div>
   );
 }
