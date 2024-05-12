@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+// @ts-nocheck
+import React, { useEffect, useRef, useState } from "react";
 import Layout from "@/components/Layout";
 import Image from "next/image";
 import { Arrow, Telegram } from "../svgs/home";
@@ -6,13 +7,116 @@ import Link from "next/link";
 import WhatPeopleSay from "@/components/WhatPeopleSay";
 import OurChallenges from "@/components/OurChallenges";
 import JoinTelegram from "@/components/JoinTelegram";
+import { useCountUp } from "react-countup";
 
 export default function Index() {
+  const indicatorRef = useRef(null);
+  const countriesRef = useRef(null);
+  const twentyRef = useRef(null);
+  const sevenRef = useRef(null);
+  const fundedRef = useRef(null);
  
-  
+  const [isVisible, setIsVisible] = React.useState(false);
+
+  const { countUp: indicatorCount, start: startIndicator } = useCountUp({
+    start: 1300,
+    end: 2000,
+    duration: 1,
+    ref: indicatorRef,
+    startOnMount: false,
+  });
+
+  const { countUp: countriesCount, start: startCountries } = useCountUp({
+    start: 0,
+    end: 140,
+    duration: 1.5,
+    ref: countriesRef,
+    startOnMount: false,
+  });
+
+  const { countUp: tewntyCount, start: startTwenty } = useCountUp({
+    start: 0,
+    end: 20,
+    duration: 2,
+    ref: twentyRef,
+    startOnMount: false,
+  });
+  const { countUp: sevenCount, start: startSeven } = useCountUp({
+    start: 0,
+    end: 7,
+    duration: 2,
+    ref: sevenRef,
+    startOnMount: false,
+  });
+  const { countUp: fundedCount, start: startFunded } = useCountUp({
+    start: 0,
+    end: 30,
+    duration: 2,
+    ref: fundedRef,
+    startOnMount: false,
+  });
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      const offsetTopIndicator = indicatorRef?.current?.offsetTop;
+      const offsetTopCountries = countriesRef?.current?.offsetTop;
+      const offsetTwenty = tewntyCount?.current?.offsetTop;
+      const offsetSeven = sevenCount?.current?.offsetTop;
+      const offsetFunded = fundedCount?.current?.offsetTop;
+      const sectionHeight = window.innerHeight;
+
+      if (
+        scrollTop > offsetTopIndicator - sectionHeight &&
+        scrollTop < offsetTopIndicator
+      ) {
+        setIsVisible(true);
+      } else if (
+        scrollTop > offsetTopCountries - sectionHeight &&
+        scrollTop < offsetTopCountries
+      ) {
+        setIsVisible(true);
+      } else if (
+        scrollTop > offsetTwenty - sectionHeight &&
+        scrollTop < offsetTwenty
+      ) {
+        setIsVisible(true);
+      }
+       else if (
+        scrollTop > offsetFunded - sectionHeight &&
+        scrollTop < offsetFunded
+      ) {
+        setIsVisible(true);
+      }
+      else if (
+        scrollTop > offsetSeven - sectionHeight &&
+        scrollTop < offsetSeven
+      ) {
+        setIsVisible(true);
+      }
+      else {
+        setIsVisible(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isVisible) {
+      startIndicator();
+      startCountries();
+      startTwenty();
+      startSeven()
+      startFunded()
+    }
+  }, [isVisible, startIndicator, startCountries, startTwenty,startSeven,startFunded]);
+
   return (
     <Layout>
-      <div className="max-w-[1200px] grid mx-auto grid-cols-1 md:grid-cols-2 px-2 gap-y-5  lg:py-20">
+      <div className="max-w-[1200px] grid mx-auto grid-cols-1 md:grid-cols-2 px-2 mt-16 p-10 gap-y-5  lg:py-20">
         <div className="w-full gap-5 flex flex-col justify-center ">
           <h1 className="text-2xl lg:text-5xl font-bold text-white p-0 m-0">
             We focus your freedom,
@@ -49,12 +153,12 @@ export default function Index() {
           />
         </div>
       </div>
-      <div className="flex flex-col md:flex-row justify-between items-center max-w-[1200px] mx-auto">
+      <div className="flex flex-col md:flex-row justify-between items-center mt-1 max-w-[1200px] mx-auto">
         <div className="flex flex-col md:flex-row justify-center items-center w-full md:w-1/2  ">
           <div className="md:border-r-[1px]  border-primary p-4 md:pr-4 w-full md:w-1/2">
             <div className="m-4 md:text-left text-center">
               <h1 className="text-white  text-lg md:text-3xl font-semibold">
-                <span>2000</span>
+              <div ref={indicatorRef}>{indicatorCount} </div>
               </h1>
               <p className="text-[#9C9C9C] md:text-sm lg:text-lg text-nowrap font-normal">
                 Free custom indicator
@@ -64,7 +168,7 @@ export default function Index() {
           <div className="md:border-r-[1px]  border-primary  p-4 md:pr-4 w-full md:w-1/2">
             <div className="m-4 md:text-left text-center">
               <h1 className="text-white  text-lg md:text-3xl font-semibold">
-                <span>140</span>+
+              <span ref={countriesRef}>{countriesCount}</span>+
               </h1>
               <p className="text-[#9C9C9C] md:text-sm lg:text-lg font-normal">
                 Total no of countries
@@ -76,7 +180,7 @@ export default function Index() {
           <div className="p-4 md:pr-4 w-full md:w-1/2">
             <div className="m-4 md:text-left text-center">
               <h1 className="text-white  text-lg md:text-3xl font-semibold">
-                <span>24</span> / <span>7</span>
+                <span ref={twentyRef}>{tewntyCount}</span> / <span ref={sevenRef}>{sevenCount}</span>
               </h1>
               <p className="text-[#9C9C9C]  tex md:text-sm lg:text-lg font-normal">
                 24/7 funded customer support
@@ -86,7 +190,7 @@ export default function Index() {
           <div className="md:border-l-[1px]  border-primary p-4 md:pr-4 w-full md:w-1/2">
             <div className="m-4 md:text-left text-center">
               <h1 className="text-white text-lg md:text-3xl font-semibold">
-                <span>30M</span>+
+                <span ref={fundedRef}>{fundedCount}</span><span>M</span> +
               </h1>
               <p className="text-[#9C9C9C] md:text-sm lg:text-lg font-normal">
                 Total funded Allocation
@@ -195,36 +299,21 @@ export default function Index() {
             MetaTrader 4 <br /> Trusted and Reliable
           </h2>
           <div className=" flex justify-center items-center gap-4">
-            <Image
-              width={20}
-              height={20}
-              src="/images/vector.png"
-             alt="mark"
-            />
+            <Image width={20} height={20} src="/images/vector.png" alt="mark" />
             <p className="text-white text-sm text-left lg:text-base font-medium ">
               Get a superior trading edge by utilizing a familiar platform. It
               offers intuitive features that empower swift decision-making.
             </p>
           </div>
           <div className=" flex justify-center items-center gap-4">
-            <Image
-              width={20}
-              height={20}
-              src="/images/vector.png"
-             alt="mark"
-            />
+            <Image width={20} height={20} src="/images/vector.png" alt="mark" />
             <p className="text-white text-sm text-left lg:text-base font-medium ">
               Exclusive access to a renowned and trusted platform reserved for
               select firms..
             </p>
           </div>
           <div className=" flex justify-center items-center gap-4">
-            <Image
-              width={20}
-              height={20}
-              src="/images/vector.png"
-              alt="mark"
-            />
+            <Image width={20} height={20} src="/images/vector.png" alt="mark" />
             <p className="text-white text-sm text-left lg:text-base font-medium ">
               Seize opportunities with speed and precision on this intuitive and
               user-friendly platform designed to facilitate swift action.
