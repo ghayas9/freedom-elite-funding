@@ -16,6 +16,7 @@ import { useRouter } from "next/router";
 export default function Checkout() {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
+  const [addOn,setAddOn]=useState('rest10')
   const [country, setCountry] = useState<SelectMenuOption["value"]>("BE");
   const [checkedItems, setCheckedItems] = useState({
     terms: false,
@@ -38,7 +39,12 @@ export default function Checkout() {
       prevMethod === method ? "" : method
     );
   };
-
+  const handleAdsOnChange = (ad: any) => {
+    setAddOn((prevAd) =>
+      prevAd === ad ? "" : ad
+    );
+  };
+  
   const payout = [
     {
       id: "640a22c5-01ab-436f-b2b8-1cb6b129dc0c",
@@ -90,12 +96,13 @@ export default function Checkout() {
         <div className="max-w-[1200px] mx-auto flex flex-col items-center mt-20">
           <div className="w-full flex items-center justify-between px-8 py-3 bg-white border-t-4 border-[#8fae1b]">
             <p>2 Step - Power Challenge (10K)” has been added to your cart</p>
-            <button className="bg-gray-300 flex justify-center  items-center px-2 py-1 rounded font-medium text-[#515151]">
+            <button className="bg-gray-300 flex justify-center  items-center px-2 min-w-24 py-1 rounded font-medium text-[#515151]">
               View cart
             </button>
           </div>
           <div className="w-full grid grid-cols-6 gap-4 mt-8">
-            <div className="bg-white col-span-3 rounded-lg px-6 py-5">
+            <div className="lg:col-span-3 col-span-12">
+              <div className="bg-white rounded-lg px-6 py-5">
               <p className="font-bold text-4xl">Billing Details</p>
               <div className="mb-4 mt-8">
                 <label className=" text-gray-700 text-lg mb-2">
@@ -237,9 +244,146 @@ export default function Checkout() {
                   </div>
                 </div>
               </div>
+              </div>
+              <div className="flex flex-col mt-4">
+                <p className="text-white text-lg my-3">Freedom Funding Add-Ons</p>
+              <div className="flex gap-3 items-center mt-3">
+                    <input
+                      type="radio"
+                      id="rest10"
+                      name="rest10"
+                      value="rest10"
+                      checked={addOn === "rest10"}
+                      onChange={() => handleAdsOnChange("rest10")}
+                      className={`appearance-none border border-customYellow rounded-full w-3 h-3 ${
+                        addOn === "rest10"
+                          ? " bg-yellow-300 checked:bg-yellow-300"
+                          : "bg-black"
+                      }`}
+                  
+                    />
+                    <label
+                      htmlFor="rest10"
+                      className="font-medium text-white"
+                    >
+                     Reset(10 Days) ($49.90)
+                    </label>
+                  </div>
+                  <div className="flex gap-3 items-center mt-1">
+                    <input
+                      type="radio"
+                      id="rest20"
+                      name="rest20"
+                      value="rest20"
+                      checked={addOn === "rest20"}
+                      onChange={() => handleAdsOnChange("rest20")}
+                      className={`appearance-none border border-customYellow rounded-full w-3 h-3 ${
+                        addOn === "rest20"
+                          ? " bg-yellow-300 checked:bg-yellow-300 "
+                          : "bg-black"
+                      }`}
+                    />
+                    <label
+                      htmlFor="rest20"
+                      className="font-medium text-white"
+                    >
+                    Reset(20 Days) ($99.80)
+                    </label>
+                  
+                  </div>
+                  <div className="flex gap-3 items-center mt-1">
+                    <input
+                      type="radio"
+                      id="rest30"
+                      name="rest30"
+                      value="rest30"
+                      checked={addOn === "rest30"}
+                      onChange={() => handleAdsOnChange("rest30")}
+                      className={`appearance-none border border-customYellow rounded-full w-3 h-3 ${
+                        addOn === "rest30"
+                          ? " bg-yellow-300 checked:bg-yellow-300 "
+                          : "bg-black"
+                      }`}
+                    />
+                    <label
+                      htmlFor="rest30"
+                      className="font-medium text-white"
+                    >
+                    Reset(30 Days) ($149.70)
+                    </label>
+                  
+                  </div>
+                  <div className="flex gap-3 items-center mt-1">
+                    <input
+                      type="radio"
+                      id="noreset"
+                      name="noreset"
+                      value="noreset"
+                      checked={addOn === "noreset"}
+                      onChange={() => handleAdsOnChange("noreset")}
+                      className={`appearance-none border border-customYellow rounded-full w-3 h-3 ${
+                        addOn === "noreset"
+                          ? " bg-yellow-300 checked:bg-yellow-300 "
+                          : "bg-black"
+                      }`}
+                    />
+                    <label
+                      htmlFor="noreset"
+                      className="font-medium text-white"
+                    >
+                   No Reset
+                    </label>
+                  
+                  </div>
+                  <p className="my-3 text-white text-lg">Freedom Funding Add-Ons</p>
+                  <div className="flex gap-3 items-center mt-1">
+                    <input
+                      type="radio"
+                      id="100%"
+                      name="100%"
+                      value="100%"
+                      checked={addOn === "100%"}
+                      onChange={() => handleAdsOnChange("100%")}
+                      className={`appearance-none border border-customYellow rounded-full w-3 h-3 ${
+                        addOn === "100%"
+                          ? " bg-yellow-300 checked:bg-yellow-300 "
+                          : "bg-black"
+                      }`}
+                    />
+                    <label
+                      htmlFor="100%"
+                      className="font-medium text-white"
+                    >
+                  100% ($149.70)
+                    </label>
+                  
+                  </div>
+                  <div className="flex gap-3 items-center mt-1">
+                    <input
+                      type="radio"
+                      id="none"
+                      name="none"
+                      value="none"
+                      checked={addOn === "none"}
+                      onChange={() => handleAdsOnChange("none")}
+                      className={`appearance-none border border-customYellow rounded-full w-3 h-3 ${
+                        addOn === "none"
+                          ? " bg-yellow-300 checked:bg-yellow-300 "
+                          : "bg-black"
+                      }`}
+                    />
+                    <label
+                      htmlFor="none"
+                      className="font-medium text-white"
+                    >
+                  None
+                    </label>
+                  
+                  </div>
+              </div>
             </div>
-
-            <div className=" col-span-3">
+          
+            <div className=" lg:col-span-3 col-span-12">
               <div className="bg-white rounded-lg px-6 h-[354px] py-5">
                 <p className="font-bold text-4xl mt-2">Billing Details</p>
                 <div className="flex justify-between items-center w-full mt-4 py-3">
@@ -515,7 +659,7 @@ export default function Checkout() {
             </div>
           </div>
         </div>
-        <div className="w-full mt-5">
+        <div className="w-full mt-24">
           <FooterCheckout />
         </div>
       </div>
