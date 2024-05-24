@@ -20,7 +20,7 @@ export default function Page() {
             <br />
           </p>
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-14">
+        <div className="grid grid-cols-2 md:grid-cols-3  gap-14 ">
           <div className="flex items-center justify-center ">
             <div className=" p-[2px]  rounded-[25px] border-tb-g ">
               <div className="p-[1px]  rounded-[25px] bg-primary-bg-color">
@@ -79,8 +79,8 @@ export default function Page() {
               </div>
             </div>
           </div>
-          <div className="flex items-center justify-center ">
-            <div className=" p-[2px]  rounded-[25px] border-tb-g ">
+          <div className="col-span-2 md:col-span-1 flex justify-center items-center ">
+            <div className=" p-[2px]  rounded-[25px] border-tb-g w-1/2 md:w-auto">
               <div className="p-[1px]  rounded-[25px] bg-primary-bg-color">
                 <div className="p-[2px]  rounded-[25px]  justify-center items-center flex ">
                   <div className="rounded-[25px]  justify-center items-start  flex bg-primary-bg-color ">

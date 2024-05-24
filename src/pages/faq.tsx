@@ -50,7 +50,7 @@ export default function Home() {
 
   return (
     <Layout>
-      <div className="max-w-[1200px] mx-auto">
+      <div className="max-w-[1200px] mx-auto relative">
         <div className="w-full flex justify-between text-center">
           <div className="flex flex-col items-center justify-center">
             <h2 className="bg-gradient-to-r from-primary to-[#ffffff] text-transparent bg-clip-text text-3xl lg:text-5xl font-bold mb-[15px] mt-[78px] text-center">
@@ -61,18 +61,18 @@ export default function Home() {
               <br />
             </p>
           </div>
-          <div className="hidden lg:flex">
+          <div className="flex absolute right-0 top-10">
             <Image
               src="/images/faqImage.png"
               alt=""
               width={0}
               height={0}
-              className="w-[260px] lg:w-[320px] xl:w-[400px]"
+              className="w-[260px] "
             />
           </div>
         </div>
         <div className="w-full flex justify-center items-center">
-          <div className="flex flex-wrap justify-center py-[10px] px-2 md:p-[10px] w-fit gap-2 xl:gap-6 md:bg-white/10 rounded-lg xl:rounded-full mb-2 mt-12">
+          <div className="flex flex-wrap justify-center py-[10px] px-2 md:p-[10px] w-fit gap-2 xl:gap-6 sm:bg-white/10 rounded-full mb-2 mt-12">
             {tabs?.slice(0, 3)?.map((item, index) => (
               <button
                 key={index}
@@ -104,7 +104,7 @@ export default function Home() {
           </div>
         </div>
         <div className="flex justify-center items-center">
-          <div className="flex flex-wrap justify-center py-[10px] px-2 md:p-[10px] w-fit gap-2 xl:gap-6 md:bg-white/10 rounded-lg xl:rounded-full mb-2 mt-4">
+          <div className="flex flex-wrap justify-center py-[10px] px-2 md:p-[10px] w-fit gap-2 xl:gap-6 sm:bg-white/10 rounded-full mb-2 mt-4">
             {tabs?.slice(3)?.map((item, index) => (
               <button
                 key={index}
