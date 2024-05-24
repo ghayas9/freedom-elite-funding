@@ -72,7 +72,13 @@ function Order() {
           </div>
           <div className="mt-2">
             <h1 className="text-white text-sm font-medium">Date:</h1>
-            <h1 className="text-white text-xl font-semibold">{(new Date().toLocaleDateString())}</h1>
+            <h1 className="text-white text-xl font-semibold">
+              {new Date().toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })}
+            </h1>
             <div className="w-full border border-[#FAFF00] mt-2" />
           </div>
           <div className="mt-2">
