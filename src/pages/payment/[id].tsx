@@ -122,7 +122,7 @@ export default function Payment() {
 
   const payment = useMemo(() => {
     return payments.find((payment) => payment.id === router.query.id);
-  }, []);
+  }, [router.query.id]);
   return (
     <div className="bg-secondary">
       <Header />

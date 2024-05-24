@@ -16,7 +16,12 @@ import { useRouter } from "next/router";
 export default function Checkout() {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
-  const [addOn,setAddOn]=useState('rest10')
+  const [addOn, setAddOn] = useState("rest10");
+  const [add, setAdd] = useState({
+    addon: "Reset(10 Days)",
+    price: 49.9,
+  });
+
   const [country, setCountry] = useState<SelectMenuOption["value"]>("BE");
   const [checkedItems, setCheckedItems] = useState({
     terms: false,
@@ -40,11 +45,9 @@ export default function Checkout() {
     );
   };
   const handleAdsOnChange = (ad: any) => {
-    setAddOn((prevAd) =>
-      prevAd === ad ? "" : ad
-    );
+    setAddOn((prevAd) => (prevAd === ad ? "" : ad));
   };
-  
+
   const payout = [
     {
       id: "640a22c5-01ab-436f-b2b8-1cb6b129dc0c",
@@ -86,7 +89,7 @@ export default function Checkout() {
 
   const price = useMemo(() => {
     return payout?.find((e) => e?.id === router?.query?.id);
-  }, []);
+  }, [router?.query?.id]);
 
   return (
     <>
@@ -103,286 +106,304 @@ export default function Checkout() {
           <div className="w-full grid grid-cols-6 gap-4 mt-8">
             <div className="lg:col-span-3 col-span-12">
               <div className="bg-white rounded-lg px-6 py-5">
-              <p className="font-bold text-4xl">Billing Details</p>
-              <div className="mb-4 mt-8">
-                <label className=" text-gray-700 text-lg mb-2">
-                  Email Address
-                </label>
-                <input
-                  className="border border-gray-400 rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  type="email"
-                  placeholder="Email Address"
-                />
-              </div>
-              <div className="mb-4 w-full grid grid-cols-6 gap-6">
-                <div className="flex flex-col col-span-3">
+                <p className="font-bold text-4xl">Billing Details</p>
+                <div className="mb-4 mt-8">
                   <label className=" text-gray-700 text-lg mb-2">
-                    First Name
+                    Email Address
                   </label>
                   <input
                     className="border border-gray-400 rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    type="text"
-                    placeholder="First Name"
+                    type="email"
+                    placeholder="Email Address"
                   />
                 </div>
-                <div className="flex flex-col col-span-3">
-                  <label className=" text-gray-700 text-lg mb-2">
-                    First Name
-                  </label>
-                  <input
-                    className="border border-gray-400 rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    type="text"
-                    placeholder="First Name"
-                  />
-                </div>
-              </div>
-              <div className="mb-4">
-                <label className=" text-gray-700 text-lg mb-2">
-                  Company Name (optional)
-                </label>
-                <input
-                  className="border border-gray-400 rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  type="text"
-                  placeholder="Email Address"
-                />
-              </div>
-              <div className="mb-4">
-                <label className=" text-gray-700 text-lg mb-2">
-                  Country / Region
-                </label>
-                <CountrySelector
-                  id={"country-selector"}
-                  open={isOpen}
-                  onToggle={() => setIsOpen(!isOpen)}
-                  onChange={setCountry}
-                  selectedValue={
-                    COUNTRIES.find((option) => option.value === country) as any
-                  }
-                />
-              </div>
-
-              <div className="mb-4">
-                <label
-                  className=" text-gray-700 text-lg mb-2"
-                  htmlFor="street address"
-                >
-                  Street Address
-                </label>
-                <input
-                  className="border border-gray-400 rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  id="street address"
-                  type="text"
-                  placeholder="House number and street name"
-                />
-                <input
-                  className="border border-gray-400 rounded w-full py-3 mt-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  id="street address"
-                  type="text"
-                  placeholder="Apartment,suite,unit,etc.(optional)"
-                />
-              </div>
-              <div className="mb-4">
-                <label className=" text-gray-700 text-lg mb-2">
-                  Town / City
-                </label>
-                <input
-                  className="border border-gray-400 rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  type="text"
-                  placeholder=""
-                />
-              </div>
-              <div className="mb-4">
-                <label className=" text-gray-700 text-lg mb-2">
-                  State / Country
-                </label>
-                <input
-                  className="border border-gray-400 rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  type="text"
-                  placeholder="Select an option"
-                />
-              </div>
-              <div className="mb-4">
-                <label className=" text-gray-700 text-lg mb-2">
-                  Postcode / Zip (optional)
-                </label>
-                <input
-                  className="border border-gray-400 rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  type="text"
-                  placeholder=""
-                />
-              </div>
-              <div className="mb-4">
-                <label className=" text-gray-700 text-lg mb-2">Phone</label>
-                <input
-                  className="border border-gray-400 rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  type="text"
-                  placeholder="Phone"
-                />
-              </div>
-              <div className="mb-4">
-                <label className=" text-gray-700 text-lg mb-2">
-                  Account username
-                </label>
-                <input
-                  className="border border-gray-400 rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                  type="text"
-                  placeholder="Account username"
-                />
-              </div>
-              <div className="mb-4">
-                <label className="text-gray-700 text-lg mb-2">
-                  Create account password
-                </label>
-                <div className="relative">
-                  <input
-                    className="border border-gray-400 rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                    type="password"
-                    placeholder="Password"
-                  />
-                  <div className="absolute inset-y-0 right-0 flex items-center px-3">
-                    <Eye />
+                <div className="mb-4 w-full grid grid-cols-6 gap-6">
+                  <div className="flex flex-col col-span-3">
+                    <label className=" text-gray-700 text-lg mb-2">
+                      First Name
+                    </label>
+                    <input
+                      className="border border-gray-400 rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                      type="text"
+                      placeholder="First Name"
+                    />
+                  </div>
+                  <div className="flex flex-col col-span-3">
+                    <label className=" text-gray-700 text-lg mb-2">
+                      First Name
+                    </label>
+                    <input
+                      className="border border-gray-400 rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                      type="text"
+                      placeholder="First Name"
+                    />
                   </div>
                 </div>
-              </div>
+                <div className="mb-4">
+                  <label className=" text-gray-700 text-lg mb-2">
+                    Company Name (optional)
+                  </label>
+                  <input
+                    className="border border-gray-400 rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    type="text"
+                    placeholder="Email Address"
+                  />
+                </div>
+                <div className="mb-4">
+                  <label className=" text-gray-700 text-lg mb-2">
+                    Country / Region
+                  </label>
+                  <CountrySelector
+                    id={"country-selector"}
+                    open={isOpen}
+                    onToggle={() => setIsOpen(!isOpen)}
+                    onChange={setCountry}
+                    selectedValue={
+                      COUNTRIES.find(
+                        (option) => option.value === country
+                      ) as any
+                    }
+                  />
+                </div>
+
+                <div className="mb-4">
+                  <label
+                    className=" text-gray-700 text-lg mb-2"
+                    htmlFor="street address"
+                  >
+                    Street Address
+                  </label>
+                  <input
+                    className="border border-gray-400 rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="street address"
+                    type="text"
+                    placeholder="House number and street name"
+                  />
+                  <input
+                    className="border border-gray-400 rounded w-full py-3 mt-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    id="street address"
+                    type="text"
+                    placeholder="Apartment,suite,unit,etc.(optional)"
+                  />
+                </div>
+                <div className="mb-4">
+                  <label className=" text-gray-700 text-lg mb-2">
+                    Town / City
+                  </label>
+                  <input
+                    className="border border-gray-400 rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    type="text"
+                    placeholder=""
+                  />
+                </div>
+                <div className="mb-4">
+                  <label className=" text-gray-700 text-lg mb-2">
+                    State / Country
+                  </label>
+                  <input
+                    className="border border-gray-400 rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    type="text"
+                    placeholder="Select an option"
+                  />
+                </div>
+                <div className="mb-4">
+                  <label className=" text-gray-700 text-lg mb-2">
+                    Postcode / Zip (optional)
+                  </label>
+                  <input
+                    className="border border-gray-400 rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    type="text"
+                    placeholder=""
+                  />
+                </div>
+                <div className="mb-4">
+                  <label className=" text-gray-700 text-lg mb-2">Phone</label>
+                  <input
+                    className="border border-gray-400 rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    type="text"
+                    placeholder="Phone"
+                  />
+                </div>
+                <div className="mb-4">
+                  <label className=" text-gray-700 text-lg mb-2">
+                    Account username
+                  </label>
+                  <input
+                    className="border border-gray-400 rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                    type="text"
+                    placeholder="Account username"
+                  />
+                </div>
+                <div className="mb-4">
+                  <label className="text-gray-700 text-lg mb-2">
+                    Create account password
+                  </label>
+                  <div className="relative">
+                    <input
+                      className="border border-gray-400 rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                      type="password"
+                      placeholder="Password"
+                    />
+                    <div className="absolute inset-y-0 right-0 flex items-center px-3">
+                      <Eye />
+                    </div>
+                  </div>
+                </div>
               </div>
               <div className="flex flex-col mt-4">
-                <p className="text-white text-lg my-3">Freedom Funding Add-Ons</p>
-              <div className="flex gap-3 items-center mt-3">
-                    <input
-                      type="radio"
-                      id="rest10"
-                      name="rest10"
-                      value="rest10"
-                      checked={addOn === "rest10"}
-                      onChange={() => handleAdsOnChange("rest10")}
-                      className={`appearance-none border border-customYellow rounded-full w-3 h-3 ${
-                        addOn === "rest10"
-                          ? " bg-yellow-300 checked:bg-yellow-300"
-                          : "bg-black"
-                      }`}
-                  
-                    />
-                    <label
-                      htmlFor="rest10"
-                      className="font-medium text-white"
-                    >
-                     Reset(10 Days) ($49.90)
-                    </label>
-                  </div>
-                  <div className="flex gap-3 items-center mt-1">
-                    <input
-                      type="radio"
-                      id="rest20"
-                      name="rest20"
-                      value="rest20"
-                      checked={addOn === "rest20"}
-                      onChange={() => handleAdsOnChange("rest20")}
-                      className={`appearance-none border border-customYellow rounded-full w-3 h-3 ${
-                        addOn === "rest20"
-                          ? " bg-yellow-300 checked:bg-yellow-300 "
-                          : "bg-black"
-                      }`}
-                    />
-                    <label
-                      htmlFor="rest20"
-                      className="font-medium text-white"
-                    >
+                <p className="text-white text-lg my-3">
+                  Freedom Funding Add-Ons
+                </p>
+                <div className="flex gap-3 items-center mt-3">
+                  <input
+                    type="radio"
+                    id="rest10"
+                    name="rest10"
+                    value="rest10"
+                    checked={addOn === "rest10"}
+                    onChange={() => [
+                      handleAdsOnChange("rest10"),
+                      setAdd({
+                        addon: "Reset(10 Days)",
+                        price: 49.9,
+                      }),
+                    ]}
+                    className={`appearance-none border border-customYellow rounded-full w-3 h-3 ${
+                      addOn === "rest10"
+                        ? " bg-yellow-300 checked:bg-yellow-300"
+                        : "bg-black"
+                    }`}
+                  />
+                  <label htmlFor="rest10" className="font-medium text-white">
+                    Reset(10 Days) ($49.90)
+                  </label>
+                </div>
+                <div className="flex gap-3 items-center mt-1">
+                  <input
+                    type="radio"
+                    id="rest20"
+                    name="rest20"
+                    value="rest20"
+                    checked={addOn === "rest20"}
+                    onChange={() => [
+                      handleAdsOnChange("rest20"),
+                      setAdd({
+                        addon: "Reset(20 Days)",
+                        price: 99.8,
+                      }),
+                    ]}
+                    className={`appearance-none border border-customYellow rounded-full w-3 h-3 ${
+                      addOn === "rest20"
+                        ? " bg-yellow-300 checked:bg-yellow-300 "
+                        : "bg-black"
+                    }`}
+                  />
+                  <label htmlFor="rest20" className="font-medium text-white">
                     Reset(20 Days) ($99.80)
-                    </label>
-                  
-                  </div>
-                  <div className="flex gap-3 items-center mt-1">
-                    <input
-                      type="radio"
-                      id="rest30"
-                      name="rest30"
-                      value="rest30"
-                      checked={addOn === "rest30"}
-                      onChange={() => handleAdsOnChange("rest30")}
-                      className={`appearance-none border border-customYellow rounded-full w-3 h-3 ${
-                        addOn === "rest30"
-                          ? " bg-yellow-300 checked:bg-yellow-300 "
-                          : "bg-black"
-                      }`}
-                    />
-                    <label
-                      htmlFor="rest30"
-                      className="font-medium text-white"
-                    >
+                  </label>
+                </div>
+                <div className="flex gap-3 items-center mt-1">
+                  <input
+                    type="radio"
+                    id="rest30"
+                    name="rest30"
+                    value="rest30"
+                    checked={addOn === "rest30"}
+                    onChange={() => [
+                      handleAdsOnChange("rest30"),
+                      setAdd({
+                        addon: "Reset(30 Days)",
+                        price: 149.7,
+                      }),
+                    ]}
+                    className={`appearance-none border border-customYellow rounded-full w-3 h-3 ${
+                      addOn === "rest30"
+                        ? " bg-yellow-300 checked:bg-yellow-300 "
+                        : "bg-black"
+                    }`}
+                  />
+                  <label htmlFor="rest30" className="font-medium text-white">
                     Reset(30 Days) ($149.70)
-                    </label>
-                  
-                  </div>
-                  <div className="flex gap-3 items-center mt-1">
-                    <input
-                      type="radio"
-                      id="noreset"
-                      name="noreset"
-                      value="noreset"
-                      checked={addOn === "noreset"}
-                      onChange={() => handleAdsOnChange("noreset")}
-                      className={`appearance-none border border-customYellow rounded-full w-3 h-3 ${
-                        addOn === "noreset"
-                          ? " bg-yellow-300 checked:bg-yellow-300 "
-                          : "bg-black"
-                      }`}
-                    />
-                    <label
-                      htmlFor="noreset"
-                      className="font-medium text-white"
-                    >
-                   No Reset
-                    </label>
-                  
-                  </div>
-                  <p className="my-3 text-white text-lg">Freedom Funding Add-Ons</p>
-                  <div className="flex gap-3 items-center mt-1">
-                    <input
-                      type="radio"
-                      id="100%"
-                      name="100%"
-                      value="100%"
-                      checked={addOn === "100%"}
-                      onChange={() => handleAdsOnChange("100%")}
-                      className={`appearance-none border border-customYellow rounded-full w-3 h-3 ${
-                        addOn === "100%"
-                          ? " bg-yellow-300 checked:bg-yellow-300 "
-                          : "bg-black"
-                      }`}
-                    />
-                    <label
-                      htmlFor="100%"
-                      className="font-medium text-white"
-                    >
-                  100% ($149.70)
-                    </label>
-                  
-                  </div>
-                  <div className="flex gap-3 items-center mt-1">
-                    <input
-                      type="radio"
-                      id="none"
-                      name="none"
-                      value="none"
-                      checked={addOn === "none"}
-                      onChange={() => handleAdsOnChange("none")}
-                      className={`appearance-none border border-customYellow rounded-full w-3 h-3 ${
-                        addOn === "none"
-                          ? " bg-yellow-300 checked:bg-yellow-300 "
-                          : "bg-black"
-                      }`}
-                    />
-                    <label
-                      htmlFor="none"
-                      className="font-medium text-white"
-                    >
-                  None
-                    </label>
-                  
-                  </div>
+                  </label>
+                </div>
+                <div className="flex gap-3 items-center mt-1">
+                  <input
+                    type="radio"
+                    id="noreset"
+                    name="noreset"
+                    value="noreset"
+                    checked={addOn === "noreset"}
+                    onChange={() => [
+                      handleAdsOnChange("noreset"),
+                      setAdd({
+                        addon: "No Reset",
+                        price: 0.0,
+                      }),
+                    ]}
+                    className={`appearance-none border border-customYellow rounded-full w-3 h-3 ${
+                      addOn === "noreset"
+                        ? " bg-yellow-300 checked:bg-yellow-300 "
+                        : "bg-black"
+                    }`}
+                  />
+                  <label htmlFor="noreset" className="font-medium text-white">
+                    No Reset
+                  </label>
+                </div>
+                <p className="my-3 text-white text-lg">
+                  Freedom Funding Add-Ons
+                </p>
+                <div className="flex gap-3 items-center mt-1">
+                  <input
+                    type="radio"
+                    id="100%"
+                    name="100%"
+                    value="100%"
+                    checked={addOn === "100%"}
+                    onChange={() => [
+                      handleAdsOnChange("100%"),
+                      setAdd({
+                        addon: "100%",
+                        price: 149.7,
+                      }),
+                    ]}
+                    className={`appearance-none border border-customYellow rounded-full w-3 h-3 ${
+                      addOn === "100%"
+                        ? " bg-yellow-300 checked:bg-yellow-300 "
+                        : "bg-black"
+                    }`}
+                  />
+                  <label htmlFor="100%" className="font-medium text-white">
+                    100% ($149.70)
+                  </label>
+                </div>
+                <div className="flex gap-3 items-center mt-1">
+                  <input
+                    type="radio"
+                    id="none"
+                    name="none"
+                    value="none"
+                    checked={addOn === "none"}
+                    onChange={() => [
+                      handleAdsOnChange("none"),
+                      setAdd({
+                        addon: "None",
+                        price: 0.0,
+                      }),
+                    ]}
+                    className={`appearance-none border border-customYellow rounded-full w-3 h-3 ${
+                      addOn === "none"
+                        ? " bg-yellow-300 checked:bg-yellow-300 "
+                        : "bg-black"
+                    }`}
+                  />
+                  <label htmlFor="none" className="font-medium text-white">
+                    None
+                  </label>
+                </div>
               </div>
             </div>
-          
+
             <div className=" lg:col-span-3 col-span-12">
               <div className="bg-white rounded-lg px-6 h-[354px] py-5">
                 <p className="font-bold text-4xl mt-2">Billing Details</p>
@@ -403,13 +424,15 @@ export default function Checkout() {
                 </div>
                 <div className="flex justify-between items-center w-full py-3">
                   <p className="text-black font-medium">
-                    Freedom Funding Add-Ons - Reset(10Days)
+                    Freedom Funding Add-Ons - {add?.addon}
                   </p>
-                  <p className="text-gray-400 font-medium">${price?.price}</p>
+                  <p className="text-gray-400 font-medium">${add?.price}</p>
                 </div>
                 <div className="flex justify-between items-center w-full py-3">
                   <p className="text-black font-medium">Total</p>
-                  <p className="text-black font-medium">${price?.price}</p>
+                  <p className="text-black font-medium">
+                    ${parseInt(price?.price || "0") + add?.price}
+                  </p>
                 </div>
               </div>
               <div className="bg-white col-span-3 rounded-lg px-2 py-2 mt-8">

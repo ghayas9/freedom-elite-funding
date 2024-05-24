@@ -57,7 +57,7 @@ function Order() {
 
   const order = useMemo(() => {
     return orders?.find((o) => o.id === router?.query?.id);
-  }, []);
+  }, [router?.query?.id]);
   return (
     <div className="w-full bg-secondary">
       <Header />
