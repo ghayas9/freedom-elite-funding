@@ -150,6 +150,8 @@ export default function Index() {
             height={0}
             alt="hero-image"
             unoptimized
+            priority
+            quality={100}
             className="w-full md:w-11/12 aspect-[531/332]"
           />
         </div>
@@ -216,9 +218,9 @@ export default function Index() {
                   <div className="w-full px-2">
                     <h2 className="text-white text-[24px] md:text-[28px] font-semibold">
                       <span className="text-primary">
-                        Refund <br />
+                        Refund 
                         Challenge
-                      </span>{" "}
+                      </span> <br />
                       Fees on Your Second Payout
                     </h2>
                   </div>
@@ -259,8 +261,8 @@ export default function Index() {
                   />
                   <div className="w-full px-2">
                     <h2 className="text-white text-[24px] text-center md:text-[28px] font-semibold">
-                      <span className="text-primary"> HFT </span> ALLOWED{" "}
-                      <span className="text-primary"> AND </span>
+                      <span className="text-primary"> HFT </span> AND
+                      <span className="text-primary"> EA </span> ALLOWED
                     </h2>
                   </div>
                 </div>
@@ -300,21 +302,21 @@ export default function Index() {
             MetaTrader 4 <br /> Trusted and Reliable
           </h2>
           <div className=" flex justify-center items-center gap-4">
-            <Image width={20} height={20} src="/images/vector.png" alt="mark" />
+            <Image width={20} height={20} src="/images/Vector-new.png" alt="mark" />
             <p className="text-white text-sm text-left lg:text-base font-medium ">
               Get a superior trading edge by utilizing a familiar platform. It
               offers intuitive features that empower swift decision-making.
             </p>
           </div>
           <div className=" flex justify-center items-center gap-4">
-            <Image width={20} height={20} src="/images/vector.png" alt="mark" />
+            <Image width={20} height={20} src="/images/Vector-new.png" alt="mark" />
             <p className="text-white text-sm text-left lg:text-base font-medium ">
               Exclusive access to a renowned and trusted platform reserved for
               select firms..
             </p>
           </div>
           <div className=" flex justify-center items-center gap-4">
-            <Image width={20} height={20} src="/images/vector.png" alt="mark" />
+            <Image width={20} height={20} src="/images/Vector-new.png" alt="mark" />
             <p className="text-white text-sm text-left lg:text-base font-medium ">
               Seize opportunities with speed and precision on this intuitive and
               user-friendly platform designed to facilitate swift action.
