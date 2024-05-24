@@ -27,7 +27,8 @@ export default function JoinTelegram() {
         <a
           //   type="submit"
           className="flex justify-center items-center gap-2 rounded-full px-3 py-2 lg:px-8 lg:py-3 font-medium text-black bg-primary  "
-          href="https://discord.com/invite/EfAkCKM6Qv"
+          href="https://t.me/freedomelitefunding"
+          target="_blank"
         >
           <Telegram />
           Join Now

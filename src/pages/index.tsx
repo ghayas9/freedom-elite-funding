@@ -127,19 +127,20 @@ export default function Index() {
 
           <div className="flex items-center gap-2 lg:gap-5 text-[16px] font-semibold">
             <Link
-              href="#"
+              href="/buy-challenges"
               className="flex items-center justify-center px-[12px] py-[10px] gap-2  bg-primary rounded-[30px]"
             >
               <Arrow />
               Buy Challenges
             </Link>
-            <Link
+            <a
               className="flex items-center justify-center px-[12px] py-[10px] gap-2  bg-primary rounded-[30px]"
-              href=""
+              href="https://t.me/freedomelitefunding"
+              target="_blank"
             >
               <Telegram />
               Telegram
-            </Link>
+            </a>
           </div>
         </div>
         <div className="w-full flex justify-end items-start">

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Facebook, Instagram, TikTok, Twitter } from "../svgs/faq";
+import { Instagram, Twitter } from "../svgs/faq";
 import Image from "next/image";
 
 const Footer = () => {
@@ -43,11 +43,6 @@ const Footer = () => {
                 <li>
                   <Link className="text-white" href="/about">
                     <span>Our Team</span>
-                  </Link>
-                </li>
-                <li>
-                  <Link className="text-white" href="#">
-                    <span>Blog</span>
                   </Link>
                 </li>
                 <li>
