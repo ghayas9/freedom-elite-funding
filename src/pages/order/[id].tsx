@@ -38,7 +38,7 @@ function Order() {
     <div className="w-full bg-secondary">
       <Header />
       <div className="w-full flex items-center justify-center py-40">
-        <div className="w-1/3 rounded-lg border border-[#FAFF00] px-3 py-3">
+        <div className="w-11/12 md:w-1/3 rounded-lg border border-[#FAFF00] px-3 py-3">
           <div>
             <h1 className="text-white text-sm font-medium">order Number:</h1>
             <h1 className="text-white text-xl font-semibold">

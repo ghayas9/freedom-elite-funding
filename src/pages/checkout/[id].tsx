@@ -106,9 +106,11 @@ export default function Checkout() {
         <div className="absolute w-[350px] aspect-square left-1/2 -translate-x-1/2 bg-primary rounded-full -top-[250px] blur-[240px] -z-10 " />
         <Header />
         <div className="max-w-[1200px] mx-auto flex flex-col items-center mt-20">
-          <div className="w-full flex items-center justify-between px-8 py-3 bg-white border-t-4 border-[#8fae1b]">
-            <p>2 Step - Power Challenge (10K)” has been added to your cart</p>
-            <button className="bg-gray-300 flex justify-center  items-center px-2 min-w-24 py-1 rounded font-medium text-[#515151]">
+          <div className="w-full flex flex-wrap items-center justify-between px-8 py-3 bg-white border-t-4 border-[#8fae1b] gap-2">
+            <p className="w-full md:w-auto">
+              2 Step - Power Challenge (10K)” has been added to your cart
+            </p>
+            <button className="w-full md:w-auto bg-gray-300 flex justify-center  items-center px-2 min-w-24 py-1 rounded font-medium text-[#515151]">
               View cart
             </button>
           </div>
@@ -133,7 +135,7 @@ export default function Checkout() {
                     </p>
                   </div>
                   <div className="mb-4 w-full grid grid-cols-6 gap-6">
-                    <div className="flex flex-col col-span-3">
+                    <div className="flex flex-col col-span-6 md:col-span-3">
                       <label className=" text-gray-700 text-lg mb-2">
                         First Name
                       </label>
@@ -147,14 +149,14 @@ export default function Checkout() {
                         {errors?.firstname?.message}
                       </p>
                     </div>
-                    <div className="flex flex-col col-span-3">
+                    <div className="flex flex-col col-span-6 d:col-span-3">
                       <label className=" text-gray-700 text-lg mb-2">
-                        Last Name <span className="text-sm">(Optional)</span>
+                        Last Name <span className="text-xs">(Optional)</span>
                       </label>
                       <input
                         className="border border-gray-400 rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         type="text"
-                        placeholder="First Name"
+                        placeholder="Last Name"
                       />
                     </div>
                   </div>
@@ -284,9 +286,7 @@ export default function Checkout() {
                         placeholder="Password"
                         {...register("password")}
                       />
-                      <p className="text-xs text-red-500">
-                        {errors?.password?.message}
-                      </p>
+
                       <div
                         className="absolute top-1/2 -translate-y-1/2 right-0 flex items-center px-3"
                         onClick={() =>
@@ -298,6 +298,9 @@ export default function Checkout() {
                         <Eye />
                       </div>
                     </div>
+                    <p className="text-xs text-red-500">
+                      {errors?.password?.message}
+                    </p>
                   </div>
                 </div>
                 <div className="flex flex-col mt-4">
@@ -376,7 +379,7 @@ export default function Checkout() {
                       Reset(30 Days) ($149.70)
                     </label>
                   </div>
-                  <div className="flex gap-3 items-center mt-1">
+                  {/* <div className="flex gap-3 items-center mt-1">
                     <input
                       type="radio"
                       id="noreset"
@@ -399,7 +402,7 @@ export default function Checkout() {
                     <label htmlFor="noreset" className="font-medium text-white">
                       No Reset
                     </label>
-                  </div>
+                  </div> */}
                   <p className="my-3 text-white text-lg">
                     Freedom Funding Add-Ons
                   </p>
@@ -455,7 +458,7 @@ export default function Checkout() {
               </div>
 
               <div className=" lg:col-span-3 col-span-12">
-                <div className="bg-white rounded-lg px-6 h-[354px] py-5">
+                <div className="bg-white rounded-lg px-6 py-5">
                   <p className="font-bold text-4xl mt-2">Billing Details</p>
                   <div className="flex justify-between items-center w-full mt-4 py-3">
                     <p className="text-black font-medium">Product</p>
@@ -486,12 +489,12 @@ export default function Checkout() {
                   </div>
                 </div>
                 <div className="bg-white col-span-3 rounded-lg px-2 py-2 mt-8">
-                  <div className="flex w-full items-center justify-between">
-                    <p className="w-1/3 ml-3 mr-4 font-medium">
+                  <div className="flex flex-wrap gap-y-2 w-full items-center justify-between">
+                    <p className="w-full md:w-1/3 ml-2 mr-4 font-medium">
                       Have a coupon ?
                     </p>
                     <input
-                      className="border flex flex-grow border-gray-400 rounded-lg py-3 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                      className="border flex flex-grow border-gray-400 rounded-lg py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline min-w-[0px]"
                       type="text"
                       placeholder="Enter a coupon"
                     />
@@ -681,8 +684,8 @@ export default function Checkout() {
                   </div>
 
                   <div className="w-full flex mt-6 flex-col">
-                    <label className="flex items-center gap-2 opacity-80 py-1">
-                      <div className="relative">
+                    <label className="flex items-start gap-2 opacity-80 py-1">
+                      <div className="relative mt-1">
                         <input
                           className="opacity-0 absolute"
                           type="checkbox"
@@ -707,8 +710,8 @@ export default function Checkout() {
                     <p className="text-sm text-red-500">
                       {errors?.terms?.message}
                     </p>
-                    <label className="flex items-center gap-2 py-1 opacity-80">
-                      <div className="relative">
+                    <label className="flex items-start gap-2 py-1 opacity-80">
+                      <div className="relative mt-1">
                         <input
                           className="opacity-0 absolute"
                           type="checkbox"
@@ -733,8 +736,8 @@ export default function Checkout() {
                     <p className="text-sm text-red-500">
                       {errors?.privacyPolicy?.message}
                     </p>
-                    <label className="flex items-center gap-2 opacity-80 py-1">
-                      <div className="relative">
+                    <label className="flex items-start gap-2 opacity-80 py-1">
+                      <div className="relative mt-1">
                         <input
                           className="opacity-0 absolute"
                           type="checkbox"

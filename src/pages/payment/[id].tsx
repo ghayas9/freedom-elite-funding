@@ -126,13 +126,13 @@ export default function Payment() {
   return (
     <div className="bg-secondary">
       <Header />
-      <div className="max-w-[450px] lg:w-1/3 mx-auto bg-white rounded mt-12 pb-6">
+      <div className="max-w-[450px] w-11/12 lg:w-1/3 mx-auto bg-white rounded mt-12 pb-6">
         <h1 className="w-full bg-primary text-center font-semibold text-[16px] py-2">
           Complete process within {minutes}:{seconds < 10 ? "0" : ""}
           {seconds} minutes
         </h1>
         <Image
-          className="w-8/12 aspect-square mx-auto"
+          className="w-3/6 md:w-8/12 aspect-square mx-auto"
           src="/images/tether.png"
           alt=""
           width={0}
