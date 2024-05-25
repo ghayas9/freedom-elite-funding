@@ -18,7 +18,7 @@ import * as yup from "yup";
 const schema = yup?.object()?.shape({
   email: yup?.string()?.required("Email is required"),
   firstname: yup?.string()?.required("First name is required"),
-  country: yup?.string()?.required("Country is required"),
+  country: yup?.string(),
   address: yup?.string()?.required("Address is required"),
   town: yup?.string()?.required("Town is required"),
   state: yup?.string()?.required("State is required"),
@@ -41,7 +41,7 @@ export default function Checkout() {
   });
 
   const [price, setPrice] = useState({
-    price: '0',
+    price: "0",
     id: "",
   });
   const {
@@ -526,16 +526,17 @@ export default function Checkout() {
                         Crypto
                       </label>
                       <div
-                        className={`rounded px-4 py-1 my-1 ${
-                          selectedPaymentMethod === "Bitcoin" ? "bg-white" : ""
-                        }`}
+                        className={`rounded px-4 py-1 my-1 flex items-center gap-2`}
                       >
                         <Image
-                          src="/images/bitcoin.png"
+                          src="/images/bitcoin-Logo.png"
                           alt=""
-                          width={100}
-                          height={15}
+                          width={35}
+                          height={35}
                         />
+                        <h1 className="text-base text-white font-semibold">
+                          Bitcoin
+                        </h1>
                       </div>
                     </div>
                   </div>
@@ -570,16 +571,17 @@ export default function Checkout() {
                         Crypto
                       </label>
                       <div
-                        className={`rounded px-4 py-1 my-1 ${
-                          selectedPaymentMethod === "Ethereum" ? "bg-white" : ""
-                        }`}
+                        className={`rounded px-4 py-1 flex items-center gap-2`}
                       >
                         <Image
-                          src="/images/ethereum.png"
+                          src="/images/etherium.png"
                           alt=""
-                          width={100}
-                          height={15}
+                          width={35}
+                          height={35}
                         />
+                        <h1 className="text-base font-semibold text-white">
+                          Etherium
+                        </h1>
                       </div>
                     </div>
                   </div>
@@ -612,16 +614,17 @@ export default function Checkout() {
                         Crypto
                       </label>
                       <div
-                        className={`rounded px-4 py-1 my-1 ${
-                          selectedPaymentMethod === "Tether" ? "bg-white" : ""
-                        }`}
+                        className={`rounded px-4 py-1 my-1 flex items-center gap-2`}
                       >
                         <Image
-                          src="/images/Tether_logo.png"
+                          src="/images/tether.png"
                           alt=""
-                          width={85}
-                          height={15}
+                          width={25}
+                          height={25}
                         />
+                        <h1 className="text-base text-white font-semibold">
+                          Tether
+                        </h1>
                       </div>
                     </div>
                   </div>
@@ -654,16 +657,17 @@ export default function Checkout() {
                         Crypto
                       </label>
                       <div
-                        className={`rounded px-4 py-1 my-1 ${
-                          selectedPaymentMethod === "Litecoin" ? "bg-white" : ""
-                        }`}
+                        className={`rounded px-4 py-1 my-1 flex items-center gap-2`}
                       >
                         <Image
-                          src="/images/litecoin.png"
+                          src="/images/litecoin-ltc-logo.png"
                           alt=""
-                          width={100}
-                          height={15}
+                          width={18}
+                          height={18}
                         />
+                        <h1 className="text-base text-white font-semibold">
+                          Litecoin
+                        </h1>
                       </div>
                     </div>
                   </div>
