@@ -526,17 +526,19 @@ export default function Checkout() {
                         Crypto
                       </label>
                       <div
-                        className={`rounded px-4 py-1 my-1 flex items-center gap-2`}
+                        className={`rounded px-4 py-1 my-1 flex items-center gap-2 ${
+                          selectedPaymentMethod === "Bitcoin"
+                            ? "bg-white text-black"
+                            : "text-white"
+                        }`}
                       >
                         <Image
-                          src="/images/bitcoin-Logo.png"
+                          src="/images/bitcoin-1.png"
                           alt=""
-                          width={35}
-                          height={35}
+                          width={18}
+                          height={18}
                         />
-                        <h1 className="text-base text-white font-semibold">
-                          Bitcoin
-                        </h1>
+                        <h1 className="text-base font-semibold">Bitcoin</h1>
                       </div>
                     </div>
                   </div>
@@ -550,7 +552,7 @@ export default function Checkout() {
                         : "border border-customYellow"
                     }`}
                   >
-                    <div className="flex gap-3 ml-4 items-center">
+                    <div className="flex gap-3 py-1.5 ml-4 items-center">
                       <input
                         type="radio"
                         id="cryptoEthereum"
@@ -571,17 +573,19 @@ export default function Checkout() {
                         Crypto
                       </label>
                       <div
-                        className={`rounded px-4 py-1 flex items-center gap-2`}
+                        className={`rounded px-4 py-1 flex items-center gap-2 ${
+                          selectedPaymentMethod === "Ethereum"
+                            ? "bg-white text-black"
+                            : "text-white"
+                        }`}
                       >
                         <Image
                           src="/images/etherium.png"
                           alt=""
-                          width={35}
-                          height={35}
+                          width={25}
+                          height={25}
                         />
-                        <h1 className="text-base font-semibold text-white">
-                          Etherium
-                        </h1>
+                        <h1 className="text-base font-semibold">Etherium</h1>
                       </div>
                     </div>
                   </div>
@@ -614,7 +618,11 @@ export default function Checkout() {
                         Crypto
                       </label>
                       <div
-                        className={`rounded px-4 py-1 my-1 flex items-center gap-2`}
+                        className={`rounded px-4 py-1 my-1 flex items-center gap-2 ${
+                          selectedPaymentMethod === "Tether"
+                            ? "bg-white text-black"
+                            : "text-white"
+                        }`}
                       >
                         <Image
                           src="/images/tether.png"
@@ -622,9 +630,7 @@ export default function Checkout() {
                           width={25}
                           height={25}
                         />
-                        <h1 className="text-base text-white font-semibold">
-                          Tether
-                        </h1>
+                        <h1 className="text-base font-semibold">Tether</h1>
                       </div>
                     </div>
                   </div>
@@ -657,7 +663,11 @@ export default function Checkout() {
                         Crypto
                       </label>
                       <div
-                        className={`rounded px-4 py-1 my-1 flex items-center gap-2`}
+                        className={`rounded px-4 py-1 my-1 flex items-center gap-2 ${
+                          selectedPaymentMethod === "Litecoin"
+                            ? "bg-white text-black"
+                            : "text-white"
+                        }`}
                       >
                         <Image
                           src="/images/litecoin-ltc-logo.png"
@@ -665,9 +675,7 @@ export default function Checkout() {
                           width={18}
                           height={18}
                         />
-                        <h1 className="text-base text-white font-semibold">
-                          Litecoin
-                        </h1>
+                        <h1 className="text-base font-semibold">Litecoin</h1>
                       </div>
                     </div>
                   </div>
