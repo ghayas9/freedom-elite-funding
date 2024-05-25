@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.4.2",
     "axios": "^1.6.8",
     "framer-motion": "^11.1.9",
     "next": "14.2.3",
@@ -17,9 +18,11 @@
     "react-countup": "^6.5.3",
     "react-dom": "^18",
     "react-fast-marquee": "^1.6.4",
+    "react-hook-form": "^7.51.5",
     "react-select": "^5.8.0",
     "react-select-country-list": "^2.2.3",
-    "react-toastify": "^10.0.5"
+    "react-toastify": "^10.0.5",
+    "yup": "^1.4.0"
   },
   "devDependencies": {
     "@types/node": "^20",

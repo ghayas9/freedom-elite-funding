@@ -25,7 +25,7 @@ export default function CountrySelector({
   useEffect(() => {
     const mutableRef = ref as MutableRefObject<HTMLDivElement | null>;
 
-    const handleClickOutside = (event:any) => {
+    const handleClickOutside = (event: any) => {
       if (
         mutableRef.current &&
         !mutableRef.current.contains(event.target) &&
@@ -46,7 +46,7 @@ export default function CountrySelector({
 
   return (
     <div ref={ref}>
-      <div className="mt-1 relative">
+      <div className="mt-1 relative border border-gray-400 rounded">
         <button
           type="button"
           className={`${
@@ -59,7 +59,6 @@ export default function CountrySelector({
           disabled={disabled}
         >
           <span className="truncate flex items-center">
-        
             {selectedValue.title}
           </span>
           <span
@@ -96,26 +95,23 @@ export default function CountrySelector({
               aria-labelledby="listbox-label"
               aria-activedescendant="listbox-option-3"
             >
-              
-
               <div
                 className={
                   "max-h-64 bg-black/30 scrollbar scrollbar-track-gray-100 scrollbar-thumb-gray-300 hover:scrollbar-thumb-gray-600 scrollbar-thumb-rounded scrollbar-thin scroll-m-0 overflow-y-scroll"
                 }
               >
                 <div className="sticky top-0 z-10">
-                <li className=" text-gray-900 cursor-default select-none relative ">
-                  <input
-                    type="search"
-                    name="search"
-                    autoComplete={"off"}
-                    className="focus:outline-none border py-2 px-4 block w-full sm:text-sm border-gray-300 rounded-md"
-                
-                    onChange={(e) => setQuery(e.target.value)}
-                  />
-                </li>
-                <hr />
-              </div>
+                  <li className=" text-gray-900 cursor-default select-none relative ">
+                    <input
+                      type="search"
+                      name="search"
+                      autoComplete={"off"}
+                      className="focus:outline-none border py-2 px-4 block w-full sm:text-sm border-gray-300 rounded-md"
+                      onChange={(e) => setQuery(e.target.value)}
+                    />
+                  </li>
+                  <hr />
+                </div>
                 {COUNTRIES.filter((country) =>
                   country.title.toLowerCase().startsWith(query.toLowerCase())
                 ).length === 0 ? (
@@ -129,7 +125,11 @@ export default function CountrySelector({
                     return (
                       <li
                         key={`${id}-${index}`}
-                        className={`text-gray-500 cursor-default select-none relative py-2 pl-3 pr-9 flex items-center  transition ${value.value === selectedValue.value ? "bg-white hover:bg-green-400":"hover:bg-green-400"}`}
+                        className={`text-gray-500 cursor-default select-none relative py-2 pl-3 pr-9 flex items-center  transition ${
+                          value.value === selectedValue.value
+                            ? "bg-white hover:bg-green-400"
+                            : "hover:bg-green-400"
+                        }`}
                         id="listbox-option-0"
                         role="option"
                         onClick={() => {
@@ -138,7 +138,6 @@ export default function CountrySelector({
                           onToggle();
                         }}
                       >
-                    
                         <span className="font-normal truncate">
                           {value.title}
                         </span>
