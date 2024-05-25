@@ -1,18 +1,45 @@
+import { useRouter } from "next/router";
 import React, { useState } from "react";
 
 export default function OurChallengeTable({ selected }: { selected: number }) {
   const [sub, setSub] = useState(0);
 
+  const router = useRouter();
+
   const challenges = [
     {
       name: "Freedom Challenges",
       prices: [
-        { title: "15,000", price: 104 },
-        { title: "25,000", price: 149 },
-        { title: "50,000", price: 259 },
-        { title: "100,000", price: 469 },
-        { title: "200,000", price: 779 },
-        { title: "500,000", price: 1399 },
+        {
+          title: "15,000",
+          price: 104,
+          id: "0f66b6a0-705a-4ad0-9ada-e0dbe3ac8fb9",
+        },
+        {
+          title: "25,000",
+          price: 149,
+          id: "2545b075-a88f-4fbf-894f-d82aa79ca0df",
+        },
+        {
+          title: "50,000",
+          price: 259,
+          id: "4e387751-ab69-40cb-917a-acdbad33f26e",
+        },
+        {
+          title: "100,000",
+          price: 469,
+          id: "4d11f6c0-7599-4f31-9d7f-44a12c18b1ff",
+        },
+        {
+          title: "200,000",
+          price: 779,
+          id: "72749b34-d6a4-479c-bbc4-94254beabd23",
+        },
+        {
+          title: "500,000",
+          price: 1399,
+          id: "98782907-4a54-4598-96f3-e3a5fcc20fdf",
+        },
       ],
       phaseHeader: ["phase 1", "phase 2", "funded"],
       phases: [
@@ -54,12 +81,36 @@ export default function OurChallengeTable({ selected }: { selected: number }) {
     {
       name: "HFT",
       prices: [
-        { title: "15,000", price: 159 },
-        { title: "25,000", price: 269 },
-        { title: "50,000", price: 379 },
-        { title: "100,000", price: 559 },
-        { title: "200,000", price: 949 },
-        { title: "500,000", price: 2799 },
+        {
+          title: "15,000",
+          price: 159,
+          id: "502ec166-f7bf-4dd9-8d92-c84a2b751656",
+        },
+        {
+          title: "25,000",
+          price: 269,
+          id: "b23a665e-bbf9-4596-b2ef-f7a931f3765f",
+        },
+        {
+          title: "50,000",
+          price: 379,
+          id: "324d5ef9-77c3-4684-b653-a51be6091882",
+        },
+        {
+          title: "100,000",
+          price: 559,
+          id: "5ab52b1a-2790-42fc-9f54-763fcc952126",
+        },
+        {
+          title: "200,000",
+          price: 949,
+          id: "ef7de249-d597-4f4c-92db-1db37c6c39ce",
+        },
+        {
+          title: "500,000",
+          price: 2799,
+          id: "35f2c6c1-37fd-487f-8140-b4a52bfb0d6b",
+        },
       ],
       phaseHeader: ["phase 1", "funded"],
       phases: [
@@ -129,10 +180,12 @@ export default function OurChallengeTable({ selected }: { selected: number }) {
                     <div className="min-w-[165%] md:min-w-[100%]">
                       <div className="h-5 flex">
                         <div className="w-2/5 md:w-1/3 lg:w-2/5"></div>
-                        <div className={
+                        <div
+                          className={
                             " grid  w-3/5 md:w-2/3 lg:w-3/5 " +
                             (selected ? "grid-cols-2" : "grid-cols-3")
-                          }>
+                          }
+                        >
                           <div className="border-x border-t border-primary/60 w-full rounded-t-2xl"></div>
                           <div className=""></div>
                           {selected === 0 ? (
@@ -168,10 +221,12 @@ export default function OurChallengeTable({ selected }: { selected: number }) {
                         <div className="w-2/5 md:w-1/3 lg:w-2/5 flex items-center justify-start lg:pl-20">
                           Max Daily Drawdown
                         </div>
-                        <div className={
+                        <div
+                          className={
                             " grid  w-3/5 md:w-2/3 lg:w-3/5 " +
                             (selected ? "grid-cols-2" : "grid-cols-3")
-                          }>
+                          }
+                        >
                           {challenges[selected]?.phases?.map((item, index) => (
                             <div
                               key={index}
@@ -190,10 +245,12 @@ export default function OurChallengeTable({ selected }: { selected: number }) {
                         <div className="w-2/5 md:w-1/3 lg:w-2/5 flex items-center justify-start lg:pl-20">
                           Max Drawdown
                         </div>
-                        <div className={
+                        <div
+                          className={
                             " grid  w-3/5 md:w-2/3 lg:w-3/5 " +
                             (selected ? "grid-cols-2" : "grid-cols-3")
-                          }>
+                          }
+                        >
                           {challenges[selected]?.phases?.map((item, index) => (
                             <div
                               key={index}
@@ -212,10 +269,12 @@ export default function OurChallengeTable({ selected }: { selected: number }) {
                         <div className="w-2/5 md:w-1/3 lg:w-2/5 flex items-center justify-start lg:pl-20">
                           Profit Target
                         </div>
-                        <div className={
+                        <div
+                          className={
                             " grid  w-3/5 md:w-2/3 lg:w-3/5 " +
                             (selected ? "grid-cols-2" : "grid-cols-3")
-                          }>
+                          }
+                        >
                           {challenges[selected]?.phases?.map((item, index) => (
                             <div
                               key={index}
@@ -234,10 +293,12 @@ export default function OurChallengeTable({ selected }: { selected: number }) {
                         <div className="w-2/5 md:w-1/3 lg:w-2/5 flex items-center justify-start lg:pl-20">
                           Max Trading Days
                         </div>
-                        <div className={
+                        <div
+                          className={
                             " grid  w-3/5 md:w-2/3 lg:w-3/5 " +
                             (selected ? "grid-cols-2" : "grid-cols-3")
-                          }>
+                          }
+                        >
                           {challenges[selected]?.phases?.map((item, index) => (
                             <div
                               key={index}
@@ -256,10 +317,12 @@ export default function OurChallengeTable({ selected }: { selected: number }) {
                         <div className="w-2/5 md:w-1/3 lg:w-2/5 flex items-center justify-start lg:pl-20">
                           Consistency Rule
                         </div>
-                        <div className={
+                        <div
+                          className={
                             " grid  w-3/5 md:w-2/3 lg:w-3/5 " +
                             (selected ? "grid-cols-2" : "grid-cols-3")
-                          }>
+                          }
+                        >
                           {challenges[selected]?.phases?.map((item, index) => (
                             <div
                               key={index}
@@ -278,10 +341,12 @@ export default function OurChallengeTable({ selected }: { selected: number }) {
                         <div className="w-2/5 md:w-1/3 lg:w-2/5 flex items-center justify-start lg:pl-20">
                           Min Trading Days
                         </div>
-                        <div className={
+                        <div
+                          className={
                             " grid  w-3/5 md:w-2/3 lg:w-3/5 " +
                             (selected ? "grid-cols-2" : "grid-cols-3")
-                          }>
+                          }
+                        >
                           {challenges[selected]?.phases?.map((item, index) => (
                             <div
                               key={index}
@@ -300,10 +365,12 @@ export default function OurChallengeTable({ selected }: { selected: number }) {
                         <div className="w-2/5 md:w-1/3 lg:w-2/5 flex items-center justify-start lg:pl-20">
                           Leverage
                         </div>
-                        <div className={
+                        <div
+                          className={
                             " grid  w-3/5 md:w-2/3 lg:w-3/5 " +
                             (selected ? "grid-cols-2" : "grid-cols-3")
-                          }>
+                          }
+                        >
                           {challenges[selected]?.phases?.map((item, index) => (
                             <div
                               key={index}
@@ -322,10 +389,12 @@ export default function OurChallengeTable({ selected }: { selected: number }) {
                         <div className="w-2/5 md:w-1/3 lg:w-2/5 flex items-center justify-start lg:pl-20">
                           Profit Split
                         </div>
-                        <div className={
+                        <div
+                          className={
                             " grid  w-3/5 md:w-2/3 lg:w-3/5 " +
                             (selected ? "grid-cols-2" : "grid-cols-3")
-                          }>
+                          }
+                        >
                           {challenges[selected]?.phases?.map((item, index) => (
                             <div
                               key={index}
@@ -342,10 +411,12 @@ export default function OurChallengeTable({ selected }: { selected: number }) {
                       </div>
                       <div className="h-5 flex">
                         <div className="w-2/5 md:w-1/3 lg:w-2/5"></div>
-                        <div className={
+                        <div
+                          className={
                             " grid  w-3/5 md:w-2/3 lg:w-3/5 " +
                             (selected ? "grid-cols-2" : "grid-cols-3")
-                          }>
+                          }
+                        >
                           <div className="border-x border-b border-primary/60 w-full rounded-b-2xl"></div>
                           <div className=""></div>
                           {selected === 0 ? (
@@ -356,10 +427,14 @@ export default function OurChallengeTable({ selected }: { selected: number }) {
                     </div>
                   </div>
                   <div className="flex justify-center items-center mt-10">
-                    <a
-                      type="submit"
+                    <button
+                      type="button"
                       className="flex justify-center items-center gap-2 rounded-full px-3 py-2 lg:px-8 lg:py-3 font-medium text-black  bg-primary "
-                      href=""
+                      onClick={() => {
+                        router?.push(
+                          `checkout/${challenges[selected]?.prices[sub]?.id}`
+                        );
+                      }}
                     >
                       <svg
                         stroke="currentColor"
@@ -376,7 +451,7 @@ export default function OurChallengeTable({ selected }: { selected: number }) {
                       </svg>
                       Buy Challenge - {challenges[selected]?.prices[sub]?.price}
                       $
-                    </a>
+                    </button>
                   </div>
                 </div>
               </div>
