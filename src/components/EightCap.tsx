@@ -3,7 +3,7 @@ import Image from "next/image";
 const EightCap = () => {
   return (
     <div className="max-w-[1200px] mx-auto flex  justify-between items-center gap-x-16 px-2">
-     <div className=" w-full border-4 border-blue-600 flex flex-col md:flex-row">
+     <div className=" w-full  flex flex-col md:flex-row">
      <div className="w-full md:w-1/2">
       <div className="relative w-full lg:w-3/4 h-[250px]">
         <Image
