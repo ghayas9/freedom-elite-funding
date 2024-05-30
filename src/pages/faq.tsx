@@ -104,7 +104,7 @@ export default function Home() {
           </div>
         </div>
         <div className="flex justify-center items-center">
-          <div className="flex flex-wrap justify-center py-[10px] px-2 md:p-[10px] w-fit gap-2 xl:gap-6 sm:bg-white/10 rounded-full mb-2 mt-4">
+          <div className="flex flex-wrap justify-center py-[10px] px-2 md:p-[10px] w-fit gap-2 xl:gap-6 bg-white/10 rounded-full mb-2 mt-4">
             {tabs?.slice(3)?.map((item, index) => (
               <button
                 key={index}

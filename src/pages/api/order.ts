@@ -19,6 +19,7 @@ const wallets = [
         name: "Tether",
         wallet: "TjrQ0qi3rQetpCZ4Q1E7n4UYWjh3H1Hsg",
         icon: "/images/tether-usdt.png",
+        method:'USDT (TRC20)',
     },
     {
         id: "58713051-edd0-4b43-8168-0ff999d2a951",
@@ -27,6 +28,7 @@ const wallets = [
         name: "Bitcoin",
         wallet: "TjrQ0qi3rQetpCZ4Q1E7n4UYWjh3H1Hsg",
         icon: "/images/Bitcoin-usdt.png",
+        method:'BITCOIN - BTC'
     },
     {
         id: "41b83df3-bc0a-432d-8a87-72daa12438a6",
@@ -35,6 +37,7 @@ const wallets = [
         name: "Ethereum",
         wallet: "TjrQ0qi3rQetpCZ4Q1E7n4UYWjh3H1Hsg",
         icon: "/images/ethereum-usdt.png",
+        method:'ETH (ERC20)'
     },
     {
         id: "fb506b12-dde6-4513-b987-eade02aa2c4d",
@@ -43,6 +46,7 @@ const wallets = [
         name: "Litecoin",
         wallet: "TjrQ0qi3rQetpCZ4Q1E7n4UYWjh3H1Hsg",
         icon: "/images/litecoin-ltc-logo.png",
+        method:'LITECOIN (LTC)'
     },
 ];
 

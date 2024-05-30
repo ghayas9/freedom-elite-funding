@@ -1,6 +1,8 @@
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 const EightCap = () => {
+  const router = useRouter()
   return (
     <div className="max-w-[1200px] mx-auto flex  justify-between items-center gap-x-16 px-2">
      <div className=" w-full  flex flex-col md:flex-row">
@@ -43,6 +45,7 @@ const EightCap = () => {
         <div className=" flex justify-start items-start md:justify-end md:items-end">
                     <button
                       type="button"
+                      onClick={()=>router.push('/buy-challenges')}
                       className="flex justify-center items-center gap-2 rounded-full px-3 py-2 lg:px-8 lg:py-3 font-medium text-black  bg-primary "
                 
                     >

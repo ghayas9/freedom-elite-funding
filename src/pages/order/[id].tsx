@@ -89,7 +89,7 @@ function Order() {
           <div className="mt-2">
             <h1 className="text-white text-sm font-medium">Payment Method:</h1>
             <h1 className="text-white text-xl font-semibold">
-              Crypto and other cryptocurrencuse
+              {order?.wallet?.method}
             </h1>
           </div>
         </div>

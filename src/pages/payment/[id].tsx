@@ -9,22 +9,6 @@ export default function Payment() {
   const router = useRouter();
   const [time, setTime] = useState(900);
   const [isCopied, setIsCopied] = useState(0);
-  const [showdropdown, setShowDropdown] = useState(false);
-  const [selectedImage, setSelectedImage] = useState({
-    image: "/images/Tether_Logo.png",
-    name: "Tether",
-    wallet: "TjrQ0qi3rQetpCZ4Q1E7n4UYWjh3H1Hsg",
-    icon: "/images/tether-usdt.png",
-  });
-
-  const handleClick = () => {
-    setShowDropdown(!showdropdown);
-  };
-
-  const handleItemClick = (image: any) => {
-    setSelectedImage(image);
-    setShowDropdown(false);
-  };
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -165,13 +149,13 @@ export default function Payment() {
         <div className="mt-2">
           <h1 className="text-[20px] font-semibold ">Amount</h1>
           <div className="w-full flex justify-between bg-[#EDEDED] px-4 py-2 rounded relative">
-            {order?.price} ETH (ERC20)
+            {order?.price} {order?.wallet?.method}
             <Image
               alt=""
               src="/images/bxs_copy.png"
               width={24}
               height={18}
-              onClick={() => copyToClipboard(`${order?.price} ETH (ERC20)`, 1)}
+              onClick={() => copyToClipboard(`${order?.price} ${order?.wallet?.method}}`, 1)}
               className={`absolute top-1/2 -translate-y-1/2 right-4 cursor-pointer ${
                 isCopied == 1 ? "opacity-50" : ""
               }`}
