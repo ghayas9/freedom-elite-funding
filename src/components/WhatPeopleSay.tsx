@@ -12,12 +12,6 @@ export default function WhatPeopleSay() {
         "The absolute draw down system they have is amazing for beginners as it gives lots of room for errors. Use this prop firm when first trying to pass and get used to beating these challenges.",
     },
     {
-      designation: "Trusted and reliable prop firm",
-      name: "Omor Faruq",
-      description:
-        "The absolute draw down system they have is amazing for beginners as it gives lots of room for errors. Use this prop firm when first trying to pass and get used to beating these challenges.",
-    },
-    {
       designation: "An amazing prop firm that stands out...",
       name: "Jannatul SR",
       description:
@@ -29,6 +23,24 @@ export default function WhatPeopleSay() {
       description:
         "Professional website and friendly user. Amazing challenges and very affordablel Profit Consistency rule is very good for all the traders to avoid oevertrade when you are already profit to that month..",
     },
+    {
+      designation:"Affordable price - I bought with 50% discount" ,
+      name:"Henrylarsen" ,
+      description:
+        "Everything is smoother with Freedom elite funding so far. Affordable price, No delay occured for account review after passing phase 1&2, KYC verification and getting my funded account. I didn't had my first withdrawal yet (just got my master account) and great firm!!! Fully recommend",
+    },
+    {
+      designation:"transparent from day one" ,
+      name:"Alexis landers" ,
+      description:
+        "Company has been transparent from day one! Even when they lost their meta quotes license the CEO responded literally I messaged him and he responded and then provided us with a few other options other then mt4! I got my payout in 2 days!! Love freedom elite",
+    },
+    {
+      designation:"Quick payout within 24hours" ,
+      name:"Rezik Yusuf" ,
+      description:
+        "I got 2 payouts so far, the first took 2-3 days and the 2nd payout took less than one hour which is crazy. I have tried many propfirms and there has always been a catch like slippage or high commissions but with freedom elite i have had zero negative issues so far. This is my honest",
+    }
   ];
   return (
     <div className=" pb-8 md:pb-4 px-2">

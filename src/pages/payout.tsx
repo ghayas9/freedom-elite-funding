@@ -2,7 +2,6 @@ import Layout from "@/components/Layout";
 import WhatPeopleSay from "@/components/WhatPeopleSay";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { it } from "node:test";
 import React from "react";
 
 export default function Payout() {
@@ -65,7 +64,7 @@ export default function Payout() {
               unoptimized
               width={0}
               height={0}
-              onClick={() => router?.push("/checkout/" + item?.id)}
+              onClick={() => router?.push("/buy-challenges")}
               className="w-full aspect-square"
             />
           ))}

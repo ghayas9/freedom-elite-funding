@@ -76,11 +76,6 @@ const Footer = () => {
               </h2>
             </a>
             <a href="#">
-              <h2 className=" underline underline-offset-4">
-                <span className="cursor-pointer">Schedule of Assesssment</span>
-              </h2>
-            </a>
-            <a href="#">
               <h2 className=" underline underline-offset-4  lg:mr-8 ">
                 <span className="cursor-pointer">Refund Policy</span>
               </h2>

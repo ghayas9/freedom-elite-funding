@@ -9,6 +9,7 @@ export default function OurChallengeTable({ selected }: { selected: number }) {
   const challenges = [
     {
       name: "Freedom Challenges",
+      subTitle:'2 Step - Freedom challenge',
       prices: [
         {
           title: "15,000",
@@ -80,6 +81,7 @@ export default function OurChallengeTable({ selected }: { selected: number }) {
     },
     {
       name: "HFT",
+      subTitle:'HFT - FAST PASSING',
       prices: [
         {
           title: "15,000",
@@ -170,7 +172,7 @@ export default function OurChallengeTable({ selected }: { selected: number }) {
                 <div className="w-full">
                   <div className="text-center md:text-left ">
                     <h3 className="text-3xl font-semibold mt-5 mb-3">
-                      2 Step - Power Challenge
+                    {challenges[selected]?.subTitle}
                     </h3>
                     <span className="text-4xl text-primary/60 font-semibold ">
                       ${challenges[selected]?.prices[sub]?.title}
@@ -205,7 +207,7 @@ export default function OurChallengeTable({ selected }: { selected: number }) {
                             (item, index) => (
                               <div
                                 key={index}
-                                className={`  border-primary/60 flex items-center justify-center ${
+                                className={`capitalize  border-primary/60 flex items-center justify-center ${
                                   index % 2 === 0
                                     ? " border-b border-x"
                                     : "text-white"
