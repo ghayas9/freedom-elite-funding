@@ -1,6 +1,5 @@
 "use client";
 
-import Footer from "@/components/Footer";
 import FooterCheckout from "@/components/FooterCheckout";
 import Header from "@/components/Header";
 import axios from "axios";
@@ -13,16 +12,24 @@ function Order() {
   const [order, setOrder] = useState<any>({});
 
   useEffect(() => {
-    setTimeout(() => {
-      router.push("/payment/" + order?.id);
-    }, 15000);
-  }, []);
+    let timer: NodeJS.Timeout | null = null;
+
+    if (order?.id) {
+      timer = setTimeout(() => {
+        router.push("/payment/" + order.id);
+      }, 1500);
+    }
+
+    return () => {
+      if (timer) clearTimeout(timer);
+    };
+  }, [order, router]);
 
   useEffect(() => {
     if (router?.query?.id) {
       axios({
         method: "POST",
-        url: "/api/payment",
+        url: "/api/order",
         data: {
           id: router?.query?.id,
         },
@@ -37,8 +44,15 @@ function Order() {
   return (
     <div className="w-full bg-secondary">
       <Header />
-      <div className="w-full flex items-center justify-center py-40">
-        <div className="w-11/12 md:w-1/3 rounded-lg border border-[#FAFF00] px-3 py-3">
+      <div className="w-full max-w-[800px] mx-auto flex items-center justify-center gap-10 py-40 relative">
+        <Image
+          src="/images/orderlogo.png"
+          alt=""
+          width={0}
+          height={0}
+          className="w-40 aspect-square absolute left-0"
+        />
+        <div className="w-11/12 md:w-1/2 rounded-lg border border-[#FAFF00] px-3 py-3">
           <div>
             <h1 className="text-white text-sm font-medium">order Number:</h1>
             <h1 className="text-white text-xl font-semibold">
@@ -79,6 +93,13 @@ function Order() {
             </h1>
           </div>
         </div>
+        <Image
+          src="/images/orderlogo.png"
+          alt=""
+          width={0}
+          height={0}
+          className="w-40 aspect-square absolute right-0"
+        />
       </div>
       <FooterCheckout />
     </div>

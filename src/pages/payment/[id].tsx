@@ -1,5 +1,6 @@
 import FooterCheckout from "@/components/FooterCheckout";
 import Header from "@/components/Header";
+import axios from "axios";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import React, { useEffect, useMemo, useState } from "react";
@@ -54,75 +55,24 @@ export default function Payment() {
       .catch((error) => {});
   };
 
-  const dropdown = [
-    {
-      image: "/images/Tether_Logo1.png",
-      name: "Tether",
-      wallet: "TjrQ0qi3rQetpCZ4Q1E7n4UYWjh3H1Hsg",
-      icon: "/images/tether-usdt.png",
-    },
-    {
-      image: "/images/bitcoin.webp",
-      name: "Bitcoin",
-      wallet: "TjrQ0qi3rQetpCZ4Q1E7n4UYWjh3H1Hsg",
-      icon: "/images/Bitcoin-usdt.png",
-    },
-    {
-      image: "/images/ethereum.png",
-      name: "Ethereum",
-      wallet: "TjrQ0qi3rQetpCZ4Q1E7n4UYWjh3H1Hsg",
-      icon: "/images/ethereum-usdt.png",
-    },
-    {
-      image: "/images/litecoin.png",
-      name: "Litecoin",
-      wallet: "TjrQ0qi3rQetpCZ4Q1E7n4UYWjh3H1Hsg",
-      icon: "/images/litecoin-ltc-logo.png",
-    },
-  ];
+  const [order, setOrder] = useState<any>({});
+  useEffect(() => {
+    if (router?.query?.id) {
+      axios({
+        method: "POST",
+        url: "/api/order",
+        data: {
+          id: router?.query?.id,
+        },
+      })
+        ?.then((res: any) => {
+          setOrder(res?.data);
+        })
+        .then(() => {});
+    }
+  }, [router?.query]);
 
-  const payments = [
-    {
-      id: "640a22c5-01ab-436f-b2b8-1cb6b129dc0c",
-      price: "2698.11",
-    },
-    {
-      id: "ef2ee873-bbd2-4bcb-9eeb-6b2923b5a161",
-      price: "1056.88",
-    },
-    {
-      id: "fd57d661-3657-4294-98bb-d21b49aee61a",
-      price: "450.78",
-    },
-    {
-      id: "669500e5-9148-469a-8b73-5c416185aa1b",
-      price: "2167.00",
-    },
-    {
-      id: "5b41ca5f-45c6-4272-ac13-fdde9b0421a5",
-      price: "1589.45",
-    },
-    {
-      id: "0862154f-ac72-467d-9bd1-b063eeca4652",
-      price: "2800.43",
-    },
-    {
-      id: "28a92ff0-420a-44c6-8de8-fd1dc600bbfe",
-      price: "1757.94",
-    },
-    {
-      id: "cbf2a5eb-4bc0-4a32-97bc-aa47fab2f7b8",
-      price: "320.55",
-    },
-    {
-      id: "6c6b9989-db3c-40ee-9426-0cf14f07ac49",
-      price: "3056.10",
-    },
-  ];
-
-  const payment = useMemo(() => {
-    return payments.find((payment) => payment.id === router.query.id);
-  }, [router.query.id]);
+  console.log(order);
   return (
     <div className="bg-secondary">
       <Header />
@@ -133,7 +83,7 @@ export default function Payment() {
         </h1>
         <Image
           className="w-3/6 md:w-8/12 aspect-square mx-auto"
-          src="/images/tether.png"
+          src={order?.wallet?.image}
           alt=""
           width={0}
           height={0}
@@ -141,7 +91,7 @@ export default function Payment() {
         <div className="w-full mx-auto flex items-start justify-center gap-2">
           <Image
             className="w-5 aspect-square"
-            src={selectedImage?.icon}
+            src={order?.wallet?.icon}
             alt=""
             width={0}
             height={0}
@@ -151,7 +101,7 @@ export default function Payment() {
           </p>
         </div>
 
-        <div
+        {/* <div
           className="flex items-center justify-between bg-[#EDEDED] px-4 py-2 rounded relative w-11/12 mx-auto my-2 cursor-pointer mt-8"
           onClick={handleClick}
         >
@@ -195,9 +145,9 @@ export default function Payment() {
               ))}
             </div>
           )}
-        </div>
+        </div> */}
 
-        <div className="flex items-start gap-2 w-11/12 mx-auto">
+        <div className="flex items-start gap-2 w-11/12 mx-auto mt-4">
           <Image
             className="aspect-square"
             src="/images/notification.png"
@@ -205,10 +155,7 @@ export default function Payment() {
             width={18}
             height={18}
           />
-          <p className="text-[14px] font-semibold">
-            You have selected to use USDT (TRC20) tokens. Please ensure you are
-            using USDT (TRC20) token or your payment will be lost.
-          </p>
+          <p className="text-[14px] font-semibold">{order?.wallet?.desc}</p>
         </div>
       </div>
       <div className="max-w-[450px] lg:w-1/3 mx-auto bg-white rounded overflow-hidden mt-5 px-8 py-4 mb-12">
@@ -218,15 +165,13 @@ export default function Payment() {
         <div className="mt-2">
           <h1 className="text-[20px] font-semibold ">Amount</h1>
           <div className="w-full flex justify-between bg-[#EDEDED] px-4 py-2 rounded relative">
-            {payment?.price} ETH (ERC20)
+            {order?.price} ETH (ERC20)
             <Image
               alt=""
               src="/images/bxs_copy.png"
               width={24}
               height={18}
-              onClick={() =>
-                copyToClipboard(`${payment?.price} ETH (ERC20)`, 1)
-              }
+              onClick={() => copyToClipboard(`${order?.price} ETH (ERC20)`, 1)}
               className={`absolute top-1/2 -translate-y-1/2 right-4 cursor-pointer ${
                 isCopied == 1 ? "opacity-50" : ""
               }`}
@@ -237,13 +182,13 @@ export default function Payment() {
         <div className="mt-2">
           <h1 className="text-[20px] font-semibold ">Address</h1>
           <div className="w-full flex justify-between bg-[#EDEDED] px-4 py-2 rounded relative">
-            {selectedImage?.wallet}
+            {order?.wallet?.wallet}
             <Image
               alt=""
               src="/images/bxs_copy.png"
               width={24}
               height={18}
-              onClick={() => copyToClipboard(selectedImage?.wallet, 2)}
+              onClick={() => copyToClipboard(order?.wallet?.wallet, 2)}
               className={`absolute top-1/2 -translate-y-1/2 right-4 cursor-pointer ${
                 isCopied === 2 ? "opacity-50" : ""
               }`}

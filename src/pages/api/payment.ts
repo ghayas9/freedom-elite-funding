@@ -41,61 +41,73 @@ const payments = [
     title: "15,000",
     price: "104",
     id: "0f66b6a0-705a-4ad0-9ada-e0dbe3ac8fb9",
+    desc:"2 Step - Freedom Funding Challenge (15K) * 1"
   },
   {
     title: "25,000",
     price: "149",
     id: "2545b075-a88f-4fbf-894f-d82aa79ca0df",
+    desc:"2 Step - Freedom Funding Challenge (25K) * 1"
   },
   {
     title: "50,000",
     price: "259",
     id: "4e387751-ab69-40cb-917a-acdbad33f26e",
+    desc:"2 Step - Freedom Funding Challenge (50K) * 1"
   },
   {
     title: "100,000",
     price: "469",
     id: "4d11f6c0-7599-4f31-9d7f-44a12c18b1ff",
+    desc:"2 Step - Freedom Funding Challenge (100k) * 1"
   },
   {
     title: "200,000",
     price: "779",
     id: "72749b34-d6a4-479c-bbc4-94254beabd23",
+    desc:"2 Step - Freedom Funding Challenge (200K) * 1"
   },
   {
     title: "500,000",
     price: "1399",
     id: "98782907-4a54-4598-96f3-e3a5fcc20fdf",
+    desc:"2 Step - Freedom Funding Challenge (500K) * 1"
   },
   {
     title: "15,000",
     price: "159",
     id: "502ec166-f7bf-4dd9-8d92-c84a2b751656",
+    desc:"HFT FAST PASSING (15K) * 1"
   },
   {
     title: "25,000",
     price: "269",
     id: "b23a665e-bbf9-4596-b2ef-f7a931f3765f",
+    desc:"HFT FAST PASSING (25K) * 1"
   },
   {
     title: "50,000",
     price: "379",
     id: "324d5ef9-77c3-4684-b653-a51be6091882",
+    desc:"HFT FAST PASSING (50K) * 1"
   },
   {
     title: "100,000",
     price: "559",
     id: "5ab52b1a-2790-42fc-9f54-763fcc952126",
+    desc:"HFT FAST PASSING (100K) * 1"
   },
   {
     title: "200,000",
     price: "949",
     id: "ef7de249-d597-4f4c-92db-1db37c6c39ce",
+    desc:"HFT FAST PASSING (200K) * 1"
   },
   {
     title: "500,000",
     price: "2799",
     id: "35f2c6c1-37fd-487f-8140-b4a52bfb0d6b",
+    desc:"HFT FAST PASSING (500K) * 1"
   },
 ];
 
