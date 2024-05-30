@@ -17,7 +17,7 @@ function Order() {
     if (order?.id) {
       timer = setTimeout(() => {
         router.push("/payment/" + order.id);
-      }, 1500);
+      }, 15000);
     }
 
     return () => {
