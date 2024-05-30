@@ -88,23 +88,10 @@ export default function Home() {
                 {item?.name}
               </button>
             ))}
-
-            {/* <button
-              type="submit"
-              className="flex justify-center items-center rounded-full px-3 py-2 lg:px-8 lg:py-3 font-medium  w-fit  text-white bg-white/10  "
-            >
-              Promotions & Fees
-            </button>
-            <button
-              type="submit"
-              className="flex justify-center items-center  rounded-full px-3 py-2 lg:px-8 lg:py-3 font-medium  w-fit  text-white bg-white/10  "
-            >
-              Challenge Details
-            </button> */}
           </div>
         </div>
         <div className="flex justify-center items-center">
-          <div className="flex flex-wrap justify-center py-[10px] px-2 md:p-[10px] w-fit gap-2 xl:gap-6 bg-white/10 rounded-full mb-2 mt-4">
+          <div className="flex flex-wrap justify-center py-[10px] px-2 md:p-[10px] w-fit gap-2 xl:gap-6 sm:bg-white/10 rounded-full mb-2 mt-4">
             {tabs?.slice(3)?.map((item, index) => (
               <button
                 key={index}
