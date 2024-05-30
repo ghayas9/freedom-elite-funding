@@ -8,6 +8,7 @@ import WhatPeopleSay from "@/components/WhatPeopleSay";
 import OurChallenges from "@/components/OurChallenges";
 import JoinTelegram from "@/components/JoinTelegram";
 import { useCountUp } from "react-countup";
+import EightCap from "@/components/EightCap";
 
 export default function Index() {
   const indicatorRef = useRef(null);
@@ -333,6 +334,7 @@ export default function Index() {
           />
         </div>
       </div>
+      <EightCap/>
       <JoinTelegram />
     </Layout>
   );
