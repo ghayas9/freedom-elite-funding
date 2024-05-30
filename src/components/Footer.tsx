@@ -13,7 +13,8 @@ const Footer = () => {
                 <Image
                   className="object-cover"
                   src="/images/logo.png"
-                  width={244} height={35}
+                  width={244}
+                  height={35}
                   unoptimized
                   alt=""
                 />
@@ -53,8 +54,16 @@ const Footer = () => {
               </ul>
             </div>
             <div className="flex items-center gap-5">
-              <Twitter />
-              <Instagram />
+              <a href="https://t.me/freedomelitefunding" target="_blank">
+                <Twitter />
+              </a>
+
+              <a
+                href="https://www.instagram.com/freedomelitefunding?igsh=ejJ5cWc3OTBncjV6"
+                target="_blank"
+              >
+                <Instagram />
+              </a>
             </div>
           </div>
         </div>
@@ -88,4 +97,4 @@ const Footer = () => {
   );
 };
 
-export default Footer
+export default Footer;

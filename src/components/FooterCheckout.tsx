@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { FaInstagram, FaTelegramPlane } from "react-icons/fa";
 
 const FooterCheckout = () => {
   return (
@@ -13,38 +14,38 @@ const FooterCheckout = () => {
               (EVM) compatibility with the Cosmos SDK, we offer a platform.
             </p>
             <div className="lg:grid grid-cols-4 mt-2 gap-12 lg:gap-2 hidden ">
-              <span className="w-9 aspect-square rounded-lg bg-[#FAFF00] flex items-center justify-center cursor-pointer">
-                <Image
-                  src="/images/linkedin.png"
-                  alt=""
-                  width={30}
-                  height={30}
-                />
-              </span>
-              <span className="w-9 aspect-square rounded-lg bg-[#FAFF00] flex items-center justify-center cursor-pointer">
-                <Image
-                  src="/images/instagram.png"
-                  alt="instagram"
-                  width={30}
-                  height={30}
-                />
-              </span>
-              <span className="w-9 aspect-square rounded-lg bg-[#FAFF00] flex items-center justify-center cursor-pointer">
+              <a
+                href="https://t.me/freedomelitefunding"
+                target="_blank"
+                className="w-9 aspect-square rounded-lg bg-[#FAFF00] flex items-center justify-center cursor-pointer"
+              >
+                <FaTelegramPlane className="text-xl text-gray-900" />
+              </a>
+              <a
+                href="https://www.instagram.com/freedomelitefunding?igsh=ejJ5cWc3OTBncjV6
+                "
+                target="_blank"
+                className="w-9 aspect-square rounded-lg bg-[#FAFF00] flex items-center justify-center cursor-pointer"
+              >
+                <FaInstagram className="text-xl text-gray-900" />
+              </a>
+
+              {/* <span className="w-9 aspect-square rounded-lg bg-[#FAFF00] flex items-center justify-center cursor-pointer">
                 <Image
                   src="/images/twitter.png"
                   alt=""
                   width={30}
                   height={30}
                 />
-              </span>
-              <span className="w-9 aspect-square rounded-lg bg-[#FAFF00] flex items-center justify-center cursor-pointer">
+              </span> */}
+              {/* <span className="w-9 aspect-square rounded-lg bg-[#FAFF00] flex items-center justify-center cursor-pointer">
                 <Image
                   src="/images/facebook.png"
                   alt=""
                   width={30}
                   height={30}
                 />
-              </span>
+              </span> */}
             </div>
           </div>
           <div className="w-1/2 lg:w-1/4  flex flex-col items-start md:items-center order-3">
