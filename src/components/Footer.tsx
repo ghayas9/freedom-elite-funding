@@ -74,12 +74,12 @@ const Footer = () => {
         </div>
         <div className=" flex flex-col lg:flex-row justify-between text-white text-sm md:text-base xl:text-lg items-center py-8">
           <div className="flex flex-col lg:flex-row justify-center items-center gap-5">
-            <a href="#">
+            <a download href="/douc/Terms and Conditions .pdf">
               <h2 className=" underline underline-offset-4">
                 <span className="cursor-pointer">Terms &amp; Conditions</span>
               </h2>
             </a>
-            <a href="#">
+            <a download href="/douc/Privacy policy .pdf">
               <h2 className=" underline underline-offset-4 ">
                 <span className="cursor-pointer">Privacy Policy</span>
               </h2>
