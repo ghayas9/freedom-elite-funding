@@ -65,6 +65,7 @@ export default function Checkout() {
         method: "POST",
         url: "/api/order",
         data: {
+          ...data ,
           price: parseInt(price?.price || "0") + add?.price,
           walletId: selectWallet,
         },

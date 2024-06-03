@@ -1,0 +1,38 @@
+[
+  {
+    "id": "430efdcd-be00-4e5f-af2a-29ef7572dc50",
+    "desc": "You have selected to use USDT (TRC20) tokens. Please ensure you are using the USDT (TRC20) token or your payment will be lost.",
+    "image": "/images/qr.png",
+    "name": "Tether",
+    "wallet": "TjrQ0qi3rQetpCZ4Q1E7n4UYWjh3H1Hsgsj",
+    "icon": "/images/tether-usdt.png",
+    "method": "USDT (TRC20)"
+  },
+  {
+    "id": "58713051-edd0-4b43-8168-0ff999d2a951",
+    "desc": "You have selected to use BITCOIN. Please ensure you are using the BITCOIN or your payment will be lost.",
+    "image": "/images/qr.png",
+    "name": "Bitcoin",
+    "wallet": "TjrQ0qi3rQetpCZ4Q1E7n4UYWjh3H1Hsg",
+    "icon": "/images/Bitcoin-usdt.png",
+    "method": "BITCOIN - BTC"
+  },
+  {
+    "id": "41b83df3-bc0a-432d-8a87-72daa12438a6",
+    "desc": "You have selected to use ETH (ERC20) tokens. Please ensure you are using the ETH (ERC20) token or your payment will be lost.",
+    "image": "/images/qr.png",
+    "name": "Ethereum",
+    "wallet": "TjrQ0qi3rQetpCZ4Q1E7n4UYWjh3H1Hsg",
+    "icon": "/images/ethereum-usdt.png",
+    "method": "ETH (ERC20)"
+  },
+  {
+    "id": "fb506b12-dde6-4513-b987-eade02aa2c4d",
+    "desc": "You have selected to use LITECOIN (LTC) tokens. Please ensure you are using the LITECOIN (LTC) token or your payment will be lost.",
+    "image": "/images/qr.png",
+    "name": "Litecoin",
+    "wallet": "TjrQ0qi3rQetpCZ4Q1E7n4UYWjh3H1Hsg sdhkajdh",
+    "icon": "/images/litecoin-ltc-logo.png",
+    "method": "LITECOIN (LTC)"
+  }
+]
