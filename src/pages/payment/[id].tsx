@@ -66,7 +66,7 @@ export default function Payment() {
           {seconds} minutes
         </h1>
         <Image
-          className="w-3/6 md:w-8/12 aspect-square mx-auto"
+          className="w-3/6 md:w-8/12 aspect-square mx-auto my-2"
           src={order?.wallet?.image}
           alt=""
           width={0}

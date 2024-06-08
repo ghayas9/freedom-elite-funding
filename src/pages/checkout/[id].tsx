@@ -32,6 +32,12 @@ const schema = yup?.object()?.shape({
   assessment: yup.boolean().oneOf([true], "Schedule must be accepted"),
 });
 
+interface Coupon {
+  id: string;
+  code: string;
+  discount: number;
+}
+
 export default function Checkout() {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
@@ -41,6 +47,9 @@ export default function Checkout() {
     addon: "Freedom Funding Reset Add-Ons Reset(10 Days)",
     price: 49.9,
   });
+
+  const [appliedCoupon, setAppliedCoupon] = useState<string>("");
+  const [couponResult, setCouponResult] = useState<Coupon | null>(null);
 
   const [selectWallet, setSelectWallet] = useState(
     "58713051-edd0-4b43-8168-0ff999d2a951"
@@ -65,9 +74,15 @@ export default function Checkout() {
         method: "POST",
         url: "/api/order",
         data: {
-          ...data ,
-          price: parseInt(price?.price || "0") + add?.price,
+          ...data,
+          price:
+            parseInt(price?.price || "0") +
+            add?.price -
+            ((couponResult?.discount ?? 0) *
+              (parseInt(price?.price || "0") + add?.price)) /
+              100,
           walletId: selectWallet,
+          coupon: couponResult,
         },
       })) as any;
       router.push("/order/" + order?.data?.order?.id);
@@ -117,6 +132,20 @@ export default function Checkout() {
         .then(() => {});
     }
   }, [router?.query]);
+
+  const applyCoupon = async () => {
+    try {
+      const response = await axios.post("/api/coupons", {
+        action: "apply",
+        code: appliedCoupon,
+      });
+      toast.success("applied coupon successfully");
+      setCouponResult(response.data.coupon as any);
+    } catch (err: any) {
+      setCouponResult(null);
+      toast?.error("invalid coupon code");
+    }
+  };
 
   return (
     <>
@@ -472,23 +501,53 @@ export default function Checkout() {
                     <p className="text-black font-medium">{add?.addon}</p>
                     <p className="text-gray-400 font-medium">${add?.price}</p>
                   </div>
+
+                  {couponResult ? (
+                    <div className="flex justify-between items-center w-full py-3">
+                      <p className="text-black font-medium">discount</p>
+                      <p className="text-black font-medium">
+                        {" "}
+                        - $
+                        {(couponResult?.discount *
+                          (parseInt(price?.price || "0") + add?.price)) /
+                          100}
+                      </p>
+                    </div>
+                  ) : null}
+
                   <div className="flex justify-between items-center w-full py-3">
                     <p className="text-black font-medium">Total</p>
                     <p className="text-black font-medium">
-                      ${parseInt(price?.price || "0") + add?.price}
+                      $
+                      {parseInt(price?.price || "0") +
+                        add?.price -
+                        ((couponResult?.discount ?? 0) *
+                          (parseInt(price?.price || "0") + add?.price)) /
+                          100}
                     </p>
                   </div>
                 </div>
                 <div className="bg-white col-span-3 rounded-lg px-2 py-2 mt-8">
                   <div className="flex flex-wrap gap-y-2 w-full items-center justify-between">
                     <p className="w-full md:w-1/3 ml-2 mr-4 font-medium">
-                      Have a coupon ?
+                      Have a coupon?
                     </p>
-                    <input
-                      className="border flex flex-grow border-gray-400 rounded-lg py-2 px-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline min-w-[0px]"
-                      type="text"
-                      placeholder="Enter a coupon"
-                    />
+                    <div className="border flex flex-grow rounded-lg border-gray-400 py-1 px-2">
+                      <input
+                        className="flex flex-grow rounded-lg text-gray-700 leading-tight focus:outline-none focus:shadow-outline min-w-[0px]"
+                        type="text"
+                        placeholder="Enter a coupon"
+                        value={appliedCoupon}
+                        onChange={(e) => setAppliedCoupon(e.target.value)}
+                      />
+                      <button
+                        type="button"
+                        onClick={applyCoupon}
+                        className="bg-gradient-to-r from-primary to-[#ffffff] border px-2 py-1 rounded-md"
+                      >
+                        Apply
+                      </button>
+                    </div>
                   </div>
                 </div>
                 <div className="bg-black rounded-lg p-6 mt-4">
