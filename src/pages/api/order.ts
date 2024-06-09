@@ -6,16 +6,20 @@ import path from 'path';
 const orderPath = path.resolve(process.cwd(), 'order.json');
 const walletPath = path.resolve(process.cwd(), 'wallet.json');
 
-let orders: any[] = [];
-if (fs.existsSync(orderPath)) {
-    const fileData = fs.readFileSync(orderPath, 'utf-8');
-    orders = JSON.parse(fileData);
+function readOrdersFromFile() {
+    if (fs.existsSync(orderPath)) {
+        const fileData = fs.readFileSync(orderPath, 'utf-8');
+        return JSON.parse(fileData);
+    }
+    return [];
 }
 
-let wallets: any[] = [];
-if (fs.existsSync(walletPath)) {
-    const fileData = fs.readFileSync(walletPath, 'utf-8');
-    wallets = JSON.parse(fileData);
+function readWalletsFromFile() {
+    if (fs.existsSync(walletPath)) {
+        const fileData = fs.readFileSync(walletPath, 'utf-8');
+        return JSON.parse(fileData);
+    }
+    return [];
 }
 
 function saveOrdersToFile(orders: any) {
@@ -24,6 +28,9 @@ function saveOrdersToFile(orders: any) {
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     try {
+        const orders = readOrdersFromFile();
+        const wallets = readWalletsFromFile();
+
         const { price, walletId, id, ...moreDetail } = req.body;
 
         if (id) {

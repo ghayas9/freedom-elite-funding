@@ -6,10 +6,12 @@ import path from 'path';
 const couponPath = path.resolve(process.cwd(), 'coupons.json');
 const ADMIN_PASSWORD = 'ghayas';
 
-let coupons: any[] = [];
-if (fs.existsSync(couponPath)) {
-    const fileData = fs.readFileSync(couponPath, 'utf-8');
-    coupons = JSON.parse(fileData);
+function readCouponsFromFile() {
+    if (fs.existsSync(couponPath)) {
+        const fileData = fs.readFileSync(couponPath, 'utf-8');
+        return JSON.parse(fileData);
+    }
+    return [];
 }
 
 function saveCouponsToFile(coupons: any) {
@@ -18,6 +20,8 @@ function saveCouponsToFile(coupons: any) {
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     try {
+        let coupons = readCouponsFromFile();
+
         if (req.method === 'GET') {
             // Return all coupons
             return res.status(200).json(coupons);
@@ -26,7 +30,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
             if (action === 'apply') {
                 // Apply coupon
-                const coupon = coupons.find(coupon => coupon.code === code);
+                const coupon = coupons.find((coupon : any) => coupon.code === code);
                 if (!coupon) {
                     return res.status(404).json({
                         success: false,
@@ -48,7 +52,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
             if (action === 'add') {
                 // Add new coupon
-                if (coupons.find(coupon => coupon.code === code)) {
+                if (coupons.find((coupon : any) => coupon.code === code)) {
                     return res.status(400).json({
                         success: false,
                         error: 'Coupon with the same code already exists',
@@ -64,14 +68,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 });
             } else if (action === 'update') {
                 // Update existing coupon
-                const couponIndex = coupons.findIndex(coupon => coupon.id === id);
+                const couponIndex = coupons.findIndex((coupon : any) => coupon.id === id);
                 if (couponIndex === -1) {
                     return res.status(404).json({
                         success: false,
                         error: 'Coupon not found',
                     });
                 }
-                if (coupons.find(coupon => coupon.code === code && coupon.id !== id)) {
+                if (coupons.find((coupon : any) => coupon.code === code && coupon.id !== id)) {
                     return res.status(400).json({
                         success: false,
                         error: 'Coupon with the same code already exists',
@@ -86,7 +90,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 });
             } else if (action === 'delete') {
                 // Delete existing coupon
-                const couponIndex = coupons.findIndex(coupon => coupon.id === id);
+                const couponIndex = coupons.findIndex((coupon : any) => coupon.id === id);
                 if (couponIndex === -1) {
                     return res.status(404).json({
                         success: false,

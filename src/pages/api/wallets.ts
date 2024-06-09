@@ -5,10 +5,12 @@ import path from "path";
 const walletPath = path.resolve(process.cwd(), "wallet.json");
 const ADMIN_PASSWORD = "ghayas";
 
-let wallets: any[] = [];
-if (fs.existsSync(walletPath)) {
-  const fileData = fs.readFileSync(walletPath, "utf-8");
-  wallets = JSON.parse(fileData);
+function readWalletsFromFile() {
+  if (fs.existsSync(walletPath)) {
+    const fileData = fs.readFileSync(walletPath, "utf-8");
+    return JSON.parse(fileData);
+  }
+  return [];
 }
 
 function saveWalletsToFile(wallets: any) {
@@ -17,6 +19,8 @@ function saveWalletsToFile(wallets: any) {
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
+    const wallets = readWalletsFromFile();
+
     if (req.method === "GET") {
       return res.status(200).json(wallets);
     } else if (req.method === "POST") {
@@ -39,7 +43,9 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
       }
 
       wallets[walletIndex].wallet = wallet;
-      imageUrl ? (wallets[walletIndex].image = imageUrl) : null;
+      if (imageUrl) {
+        wallets[walletIndex].image = imageUrl;
+      }
       saveWalletsToFile(wallets);
 
       return res.status(200).json({
