@@ -44,7 +44,7 @@ export default async function handler(req: any, res: NextApiResponse) {
 
   try {
     await runMiddleware(req as any, res as any, uploadMiddleware);
-    const imageUrl = `/uploads/${req?.file?.filename}`;
+    const imageUrl = `/api/uploads/${req?.file?.filename}`;
     res.status(200).json({ url: imageUrl });
   } catch (error:any) {
     res.status(500).json({ error: `Something went wrong! ${error?.message}` });
