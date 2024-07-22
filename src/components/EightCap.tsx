@@ -9,7 +9,7 @@ const EightCap = () => {
         <div className="w-full md:w-1/2">
           <div className="relative w-full lg:w-3/4 h-[250px] border-primary/60  border rounded-lg">
             <Image
-              src="/images/eightcap.jpg"
+              src="/images/eightcap.png"
               alt="Eightcap"
                 width={250}
                 height={130}
