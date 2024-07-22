@@ -11,19 +11,19 @@ function Order() {
   const router = useRouter();
   const [order, setOrder] = useState<any>({});
 
-  useEffect(() => {
-    let timer: NodeJS.Timeout | null = null;
+  // useEffect(() => {
+  //   let timer: NodeJS.Timeout | null = null;
 
-    if (order?.id) {
-      timer = setTimeout(() => {
-        router.push("/payment/" + order.id);
-      }, 15000);
-    }
+  //   if (order?.id) {
+  //     timer = setTimeout(() => {
+  //       router.push("/payment/" + order.id);
+  //     }, 15000);
+  //   }
 
-    return () => {
-      if (timer) clearTimeout(timer);
-    };
-  }, [order, router]);
+  //   return () => {
+  //     if (timer) clearTimeout(timer);
+  //   };
+  // }, [order, router]);
 
   useEffect(() => {
     if (router?.query?.id) {
@@ -44,7 +44,21 @@ function Order() {
   return (
     <div className="w-full bg-secondary">
       <Header />
-      <div className="w-full max-w-[800px] mx-auto flex items-center justify-center gap-10 py-40 relative">
+      <div className="flex items-center justify-center">
+        <div className=" flex justify-center items-center flex-col mb-2 ">
+          <p className="text-center bg-white p-2 rounded-t-xl text-md font-semibold ">
+            Do not refresh-
+          </p>
+          <p className="text-center bg-white p-2 rounded-xl text-md font-semibold">
+            Automatically get into
+          </p>
+          <p className="text-center bg-white p-2 rounded-b-xl text-md font-semibold">
+            payement portal
+          </p>
+        </div>
+      </div>
+
+      <div className="w-full max-w-[800px] mx-auto flex items-center justify-center gap-10 pb-40 relative">
         <Image
           src="/images/orderlogo.png"
           alt=""
@@ -52,6 +66,7 @@ function Order() {
           height={0}
           className="w-40 aspect-square absolute left-0"
         />
+
         <div className="w-11/12 md:w-1/2 rounded-lg border border-[#FAFF00] px-3 py-3">
           <div>
             <h1 className="text-white text-sm font-medium">order Number:</h1>
