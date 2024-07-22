@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Instagram, Twitter } from "../svgs/faq";
 import Image from "next/image";
+import Logo from "./Logo";
 
 const Footer = () => {
   return (
@@ -9,16 +10,7 @@ const Footer = () => {
         <div className="py-5">
           <div className="flex flex-col gap-10 md:gap-5 lg:flex-row justify-between lg:items-center text-white ">
             <div className="flex items-center gap-2">
-              <Link href="/">
-                <Image
-                  className="object-cover"
-                  src="/images/logo.png"
-                  width={244}
-                  height={35}
-                  unoptimized
-                  alt=""
-                />
-              </Link>
+            <Logo />
             </div>
             <div className="">
               <ul className="flex flex-row gap-5 flex-wrap">

@@ -45,7 +45,7 @@ export default function OurChallengeTable({ selected }: { selected: number }) {
       phaseHeader: ["phase 1", "phase 2", "funded"],
       phases: [
         {
-          maxDailyDrawdown: "-",
+          maxDailyDrawdown: "5%",
           maxDrawdown: "14%",
           profitTarget: "6%",
           maxTradingDays: "unlimited",
@@ -117,7 +117,7 @@ export default function OurChallengeTable({ selected }: { selected: number }) {
       phaseHeader: ["phase 1", "funded"],
       phases: [
         {
-          maxDailyDrawdown: "-",
+          maxDailyDrawdown: "5%",
           maxDrawdown: "14%",
           profitTarget: "6%",
           maxTradingDays: "unlimited",

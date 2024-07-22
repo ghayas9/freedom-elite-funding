@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
+import Logo from "./Logo";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -16,7 +17,7 @@ export default function Header() {
   ];
   return (
     <div className="mx-auto max-w-[1200px] flex justify-between items-center py-[16px] px-2 lg:py-4">
-      <Image src="/images/logo.png" alt="logo" width={244} height={35} onClick={()=>router?.push("/")} />
+      <Logo />
       <div
         className={`  ${
           open ? "left-0" : "-left-[100%] lg:left-0"
@@ -26,7 +27,9 @@ export default function Header() {
           <Link
             key={index}
             href={link.link}
-            className={` ${router?.pathname === link?.link ? "text-primary underline" : ""}`}
+            className={` ${
+              router?.pathname === link?.link ? "text-primary underline" : ""
+            }`}
           >
             {link.name}
           </Link>

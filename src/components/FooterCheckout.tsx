@@ -1,11 +1,12 @@
 import Image from "next/image";
 import { FaInstagram, FaTelegramPlane } from "react-icons/fa";
+import Logo from "./Logo";
 
 const FooterCheckout = () => {
   return (
     <div className="max-w-[1200px] pb-5 mx-auto">
       <div className="border-customYellow border rounded-2xl w-full p-6">
-        <Image src="/images/logo.png" alt="logo" width={244} height={35} />
+      <Logo />
         <div className="flex flex-wrap justify-between mt-4 gap-y-4">
           <div className="w-full lg:w-1/4 flex flex-col order-1">
             <p className="text-white/50">

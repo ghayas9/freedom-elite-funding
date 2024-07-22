@@ -508,9 +508,7 @@ export default function Checkout() {
                       <p className="text-black font-medium">
                         {" "}
                         - $
-                        {(couponResult?.discount *
-                          (parseInt(price?.price || "0") + add?.price)) /
-                          100}
+                        {couponResult?.discount + " %"}
                       </p>
                     </div>
                   ) : null}
@@ -534,7 +532,7 @@ export default function Checkout() {
                     </p>
                     <div className="border flex flex-grow rounded-lg border-gray-400 py-1 px-2">
                       <input
-                        className="flex flex-grow rounded-lg text-gray-700 leading-tight focus:outline-none focus:shadow-outline min-w-[0px]"
+                        className="flex flex-grow rounded-lg text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-0"
                         type="text"
                         placeholder="Enter a coupon"
                         value={appliedCoupon}
@@ -679,7 +677,7 @@ export default function Checkout() {
                         onChange={() => [
                           handlePaymentMethodChange("Tether"),
                           setSelectWallet(
-                            "fb506b12-dde6-4513-b987-eade02aa2c4d"
+                            "430efdcd-be00-4e5f-af2a-29ef7572dc50"
                           ),
                         ]}
                         className={`appearance-none border border-customYellow rounded-full w-2 h-2 ${
@@ -731,7 +729,13 @@ export default function Checkout() {
                         name="paymentMethod"
                         value="Litecoin"
                         checked={selectedPaymentMethod === "Litecoin"}
-                        onChange={() => handlePaymentMethodChange("Litecoin")}
+                        // onChange={() => handlePaymentMethodChange("Litecoin")}
+                        onChange={() => [
+                          handlePaymentMethodChange("Litecoin"),
+                          setSelectWallet(
+                            "fb506b12-dde6-4513-b987-eade02aa2c4d"
+                          ),
+                        ]}
                         className={`appearance-none border border-customYellow rounded-full w-2 h-2 ${
                           selectedPaymentMethod === "Litecoin"
                             ? " bg-yellow-300 checked:bg-yellow-300"
