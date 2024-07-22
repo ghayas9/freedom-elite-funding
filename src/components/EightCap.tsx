@@ -7,17 +7,16 @@ const EightCap = () => {
     <div className="max-w-[1200px] mx-auto flex  justify-between items-center gap-x-16 px-2">
       <div className=" w-full  flex flex-col md:flex-row">
         <div className="w-full md:w-1/2">
-          <div className="relative w-full lg:w-3/4 h-[250px]">
+          <div className="relative w-full lg:w-3/4 h-[250px] border-primary/60  border rounded-lg">
             <Image
-              fill
-              src="/images/eightcap.png"
+              src="/images/eightcap (3).png"
               alt="Eightcap"
-              //   width={350}
-              //   height={350}
-              //   objectFit="cover"
-              className="rounded-lg absolute"
+                width={250}
+                height={130}
+                objectFit="cover"
+              
             />
-            <div className="absolute top-[100px] px-6 justify-start items-start flex flex-col text-white rounded-lg">
+            <div className=" px-6 justify-start items-start flex flex-col text-white rounded-lg">
               <p className="font-medium text-sm mb-2 mt-1">
                 Certified Challenges with Taurex
               </p>
