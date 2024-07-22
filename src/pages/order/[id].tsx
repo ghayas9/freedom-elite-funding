@@ -11,19 +11,19 @@ function Order() {
   const router = useRouter();
   const [order, setOrder] = useState<any>({});
 
-  // useEffect(() => {
-  //   let timer: NodeJS.Timeout | null = null;
+  useEffect(() => {
+    let timer: NodeJS.Timeout | null = null;
 
-  //   if (order?.id) {
-  //     timer = setTimeout(() => {
-  //       router.push("/payment/" + order.id);
-  //     }, 15000);
-  //   }
+    if (order?.id) {
+      timer = setTimeout(() => {
+        router.push("/payment/" + order.id);
+      }, 15000);
+    }
 
-  //   return () => {
-  //     if (timer) clearTimeout(timer);
-  //   };
-  // }, [order, router]);
+    return () => {
+      if (timer) clearTimeout(timer);
+    };
+  }, [order, router]);
 
   useEffect(() => {
     if (router?.query?.id) {
