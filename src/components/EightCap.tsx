@@ -20,7 +20,7 @@ const EightCap = () => {
               <p className="font-medium text-sm mb-2 mt-1">
                 Certified Challenges with Taurex
               </p>
-              <p className="text-[8px] text-gray-500 mt-2 w-[95%]">
+              <p className="text-[12px] text-gray-500 mt-2 w-[95%]">
                 The Challenges offered by Freedom Funding are Certified
                 Challenges with Zenfinex Global Limited. Freedom Funding is
                 referred to Zenfinex Global only and Zenfinex Global administers
