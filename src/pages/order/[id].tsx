@@ -44,19 +44,18 @@ function Order() {
   return (
     <div className="w-full bg-secondary">
       <Header />
-      <div className="flex items-center justify-center">
-        <div className=" flex justify-center items-center flex-col mb-2 ">
-          <p className="text-center bg-white p-2 rounded-t-xl text-md font-semibold ">
-            Do not refresh-
-          </p>
-          <p className="text-center bg-white p-2 rounded-xl text-md font-semibold">
-            Automatically get into
-          </p>
-          <p className="text-center bg-white p-2 rounded-b-xl text-md font-semibold">
-            payement portal
-          </p>
+        <div className="flex justify-center items-center w-11/12 md:w-1/2 mx-auto mt-10">
+        <div className="  rounded-lg border border-[#FAFF00] px-3 py-3 bg-white flex items-start gap-2 mb-4 ">
+          <Image
+            className="aspect-square"
+            src="/images/notification.png"
+            alt=""
+            width={18}
+            height={18}
+          />
+          <p className="text-[14px] font-semibold "> Do not refresh- Automatically get into payment portal</p>
         </div>
-      </div>
+        </div>
 
       <div className="w-full max-w-[800px] mx-auto flex items-center justify-center gap-10 pb-40 relative">
         <Image
