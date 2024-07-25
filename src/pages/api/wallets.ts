@@ -3,7 +3,8 @@ import fs from "fs";
 import path from "path";
 
 const walletPath = path.resolve(process.cwd(), "wallet.json");
-const ADMIN_PASSWORD = "ghayas";
+const adminPath = path.resolve(process.cwd(), "admin.json");
+// const ADMIN_PASSWORD = "ghayas";
 
 function readWalletsFromFile() {
   if (fs.existsSync(walletPath)) {
@@ -13,6 +14,14 @@ function readWalletsFromFile() {
   return [];
 }
 
+function readAdminPasswordFromFile() {
+  if (fs.existsSync(adminPath)) {
+    const fileData = fs.readFileSync(adminPath, "utf-8");
+    return JSON.parse(fileData)?.adminPassword;
+  }
+  return "ghayas";
+}
+
 function saveWalletsToFile(wallets: any) {
   fs.writeFileSync(walletPath, JSON.stringify(wallets, null, 2));
 }
@@ -20,6 +29,7 @@ function saveWalletsToFile(wallets: any) {
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
     const wallets = readWalletsFromFile();
+    const ADMIN_PASSWORD = readAdminPasswordFromFile();
 
     if (req.method === "GET") {
       return res.status(200).json(wallets);

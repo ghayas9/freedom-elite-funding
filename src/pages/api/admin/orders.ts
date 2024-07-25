@@ -3,7 +3,8 @@ import fs from 'fs';
 import path from 'path';
 
 const filePath = path.resolve(process.cwd(), 'order.json');
-const ADMIN_PASSWORD = 'ghayas';
+const adminPath = path.resolve(process.cwd(), "admin.json");
+// const ADMIN_PASSWORD = 'ghayas';
 
 let orders: any[] = [];
 if (fs.existsSync(filePath)) {
@@ -11,8 +12,17 @@ if (fs.existsSync(filePath)) {
     orders = JSON.parse(fileData);
 }
 
+function readAdminPasswordFromFile() {
+    if (fs.existsSync(adminPath)) {
+      const fileData = fs.readFileSync(adminPath, "utf-8");
+      return JSON.parse(fileData).adminPassword;
+    }
+    return "ghayas";
+  }
+
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
     try {
+        const ADMIN_PASSWORD = readAdminPasswordFromFile();
         if (req.method === 'POST') {
             const { password } = req.body;
 

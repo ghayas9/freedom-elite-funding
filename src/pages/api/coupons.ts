@@ -4,7 +4,8 @@ import fs from 'fs';
 import path from 'path';
 
 const couponPath = path.resolve(process.cwd(), 'coupons.json');
-const ADMIN_PASSWORD = 'ghayas';
+const adminPath = path.resolve(process.cwd(), "admin.json");
+// const ADMIN_PASSWORD = 'ghayas';
 
 function readCouponsFromFile() {
     if (fs.existsSync(couponPath)) {
@@ -14,6 +15,14 @@ function readCouponsFromFile() {
     return [];
 }
 
+function readAdminPasswordFromFile() {
+    if (fs.existsSync(adminPath)) {
+      const fileData = fs.readFileSync(adminPath, "utf-8");
+      return JSON.parse(fileData).adminPassword;
+    }
+    return "ghayas";
+  }
+
 function saveCouponsToFile(coupons: any) {
     fs.writeFileSync(couponPath, JSON.stringify(coupons, null, 2));
 }
@@ -21,6 +30,7 @@ function saveCouponsToFile(coupons: any) {
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     try {
         let coupons = readCouponsFromFile();
+        const ADMIN_PASSWORD = readAdminPasswordFromFile();
 
         if (req.method === 'GET') {
             // Return all coupons

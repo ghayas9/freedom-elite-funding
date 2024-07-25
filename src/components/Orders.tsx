@@ -35,7 +35,7 @@ const Orders = ({ password }: { password: string }) => {
     }
 
     if (error) {
-        return <div>Error: {error}</div>;
+        return <div>Please login again</div>;
     }
 
     return (

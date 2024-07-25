@@ -89,11 +89,18 @@ const AdminWallets = () => {
     }
   };
 
-  const handleLogin = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleLogin = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsAuthenticated(true);
-    setError(null);
-  };
+    try {
+        const response = await axios.post('/api/admin/login', { password });
+        if (response.status === 200) {
+            setIsAuthenticated(true);
+            setError(null);
+        }
+    } catch (err: any) {
+        setError(err.response?.data?.message || 'Invalid password');
+    }
+};
 
   if (!isAuthenticated) {
     return (

@@ -31,9 +31,23 @@ const AdminOrders = () => {
         }
     };
 
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    // const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    //     e.preventDefault();
+    //     fetchOrders(password);
+    // };
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        fetchOrders(password);
+        try {
+            const response = await axios.post('/api/admin/login', { password });
+            if (response.status === 200) {
+                setIsAuthenticated(true);
+                fetchOrders(password);
+                setError(null);
+            }
+        } catch (err: any) {
+            setError(err.response?.data?.message || 'Invalid password');
+        }
     };
 
     if (!isAuthenticated) {
