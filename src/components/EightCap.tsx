@@ -7,7 +7,7 @@ const EightCap = () => {
     <div className="max-w-[1200px] mx-auto flex  justify-between items-center gap-x-16 px-2">
       <div className=" w-full  flex flex-col md:flex-row">
         <div className="w-full md:w-1/2">
-          <div className="relative w-full lg:w-3/4 h-[250px] border-primary/60  border rounded-lg">
+          <div className="relative w-full lg:w-3/4  border-primary/60  border rounded-lg">
             <Image
               src="/images/eightcap.png"
               alt="Eightcap"
