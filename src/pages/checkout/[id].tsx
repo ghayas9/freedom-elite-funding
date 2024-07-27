@@ -20,8 +20,10 @@ import { toast } from "react-toastify";
 const schema = yup?.object()?.shape({
   email: yup?.string()?.required("Email is required"),
   firstname: yup?.string()?.required("First name is required"),
+  lastname: yup?.string(),
   country: yup?.string(),
   address: yup?.string()?.required("Address is required"),
+  company: yup?.string(),
   town: yup?.string()?.required("Town is required"),
   state: yup?.string()?.required("State is required"),
   phone: yup?.string()?.required("Phone number is required"),
@@ -75,6 +77,7 @@ export default function Checkout() {
         url: "/api/order",
         data: {
           ...data,
+          country,
           price:
             parseInt(price?.price || "0") +
             add?.price -
@@ -204,6 +207,7 @@ export default function Checkout() {
                         className="border border-gray-400 rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                         type="text"
                         placeholder="Last Name"
+                        {...register('lastname')}
                       />
                     </div>
                   </div>
@@ -215,6 +219,7 @@ export default function Checkout() {
                       className="border border-gray-400 rounded w-full py-3 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                       type="text"
                       placeholder="Email Address"
+                      {...register('company')}
                     />
                   </div>
                   <div className="mb-4">
@@ -231,6 +236,7 @@ export default function Checkout() {
                           (option) => option.value === country
                         ) as any
                       }
+                     
                     />
                   </div>
 

@@ -52,8 +52,8 @@ export default function Home() {
     <Layout>
       <div className="max-w-[1200px] mx-auto relative">
         <div className="w-full flex justify-between text-center">
-          <div className="flex flex-col items-center justify-center">
-            <h2 className="bg-gradient-to-r from-primary to-[#ffffff] text-transparent bg-clip-text text-3xl lg:text-5xl font-bold mb-[15px] mt-[78px] text-center">
+          <div className="flex flex-col items-center justify-center z-[-9999]">
+            <h2 className="bg-gradient-to-r from-primary to-[#ffffff]  text-transparent bg-clip-text text-3xl lg:text-5xl font-bold mb-[15px] mt-[78px] text-center">
               Frequently Asked Questions
             </h2>
             <p className="lg:text-lg font-medium text-white/60 text-center  md:w-[684px] w-full mb-[84px]">
@@ -61,7 +61,7 @@ export default function Home() {
               <br />
             </p>
           </div>
-          <div className="flex absolute right-0 top-10">
+          <div className="flex absolute right-0 top-10 z-10">
             <Image
               src="/images/faqImage.png"
               alt=""

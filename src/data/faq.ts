@@ -48,7 +48,7 @@ export default function Faq({ key }: { key: string }) {
       {
         question: "Is there a consistency rule with HFT Challenge?",
         answer:
-          "Profit Consistency: The purpose of the profit consistency rule is to help traders establish a pattern of consistent profits and steer clear of the risks associated with trading based on emotions. For example in one step power challenge: If by the end of a 30 day period, your account has a total profit of $10,000, then no single trade can account for more than 25% of $10,000, which is $2,500. Once a payout withdrawal request is submitted any trades breaching this rule will be considered a soft breach and we will remove the invalid trades while keeping account access. You can refer to the schedule of assessment to check the profit consistency as it can vary depending on the challenge. Lot Size Consistency: The lot size consistency rule is applied once a payout withdrawal request has been submitted, to ensure consistency within your trading. To satisfy the Lot Size Consistency Rule your average trade size is used to calculate your trading range. The range is determined by adding 100% to your average trade size to determine the maximum value and subtracting 75% to determine the minimum value. Once a payout withdrawal request is submitted any trades breaching this rule will be considered a soft breach and we will remove the invalid trades while keeping account access. Note: trades are aggregated when placed within a 30 second window into one position for both profit and lot consistency. Lot Size Consistency Range Calculation: Total Lot Volume Traded/Trades Executed: Lot Size Average. Lot Size Average x 0.25: Bottom Of Consistency Range. Lot Size Average x 2.00: Top Of Consistency Range.",
+          "Profit Consistency: The purpose of the profit consistency rule is to help traders establish a pattern of consistent profits and steer clear of the risks associated with trading based on emotions. For example in one HFT - Fast passing: If by the end of a 30 day period, your account has a total profit of $10,000, then no single trade can account for more than 25% of $10,000, which is $2,500. Once a payout withdrawal request is submitted any trades breaching this rule will be considered a soft breach and we will remove the invalid trades while keeping account access. You can refer to the schedule of assessment to check the profit consistency as it can vary depending on the challenge. Lot Size Consistency: The lot size consistency rule is applied once a payout withdrawal request has been submitted, to ensure consistency within your trading. To satisfy the Lot Size Consistency Rule your average trade size is used to calculate your trading range. The range is determined by adding 100% to your average trade size to determine the maximum value and subtracting 75% to determine the minimum value. Once a payout withdrawal request is submitted any trades breaching this rule will be considered a soft breach and we will remove the invalid trades while keeping account access. Note: trades are aggregated when placed within a 30 second window into one position for both profit and lot consistency. Lot Size Consistency Range Calculation: Total Lot Volume Traded/Trades Executed: Lot Size Average. Lot Size Average x 0.25: Bottom Of Consistency Range. Lot Size Average x 2.00: Top Of Consistency Range.",
       },
       {
         question: "How is the drawdown calculated?",
@@ -63,7 +63,7 @@ export default function Faq({ key }: { key: string }) {
       {
         question: "Can I get a reset with the HFT Challenge?",
         answer:
-          "No, we do not offer Reset with HFT Challenge. Only Freedom Challenge.",
+          "Yes, we do not offer Reset with HFT Challenge. Only Freedom Challenge.",
       },
       {
         question: "When I get refunded challenge fees?",
@@ -75,7 +75,7 @@ export default function Faq({ key }: { key: string }) {
     return [
       {
         question: "Can I get the reset promotion with the HFT challenge?",
-        answer: "Yes, it is not eligible for the HFT Challenge.",
+        answer: "Yes, it is eligible for the HFT Challenge.",
       },
       {
         question:
@@ -98,7 +98,7 @@ export default function Faq({ key }: { key: string }) {
       {
         question: "What is the Spread and Commissions?",
         answer: `
-            Freedom Elite funding is partnered with Eightcap as our broker, to offer industry leading spreads and commissions for traders. To understand the account offerings that we use, see here:
+            Freedom Elite funding is partnered with Taurex as our broker, to offer industry leading spreads and commissions for traders. To understand the account offerings that we use, see here:
             https://www.eightcap.com/en/trading/trading-conditions/spreads/`,
       },
       {
