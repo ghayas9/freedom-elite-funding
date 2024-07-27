@@ -107,6 +107,14 @@ const AdminOrders = () => {
                                     <th className="py-2 px-4 border-b whitespace-nowrap min-w-[150px]">Wallet ID</th>
                                     <th className="py-2 px-4 border-b whitespace-nowrap min-w-[200px]">Email</th>
                                     <th className="py-2 px-4 border-b whitespace-nowrap min-w-[150px]">Payment Method</th>
+                                    <th className="py-2 px-4 border-b whitespace-nowrap min-w-[150px]">First Name</th>
+                                    <th className="py-2 px-4 border-b whitespace-nowrap min-w-[150px]">Last Name</th>
+                                    <th className="py-2 px-4 border-b whitespace-nowrap min-w-[150px]">Company Name</th>
+                                    <th className="py-2 px-4 border-b whitespace-nowrap min-w-[150px]">Country</th>
+                                    <th className="py-2 px-4 border-b whitespace-nowrap min-w-[150px]">Street Address</th>
+                                    <th className="py-2 px-4 border-b whitespace-nowrap min-w-[150px]">Town/City</th>
+                                    <th className="py-2 px-4 border-b whitespace-nowrap min-w-[150px]">Phone</th>
+                                    <th className="py-2 px-4 border-b whitespace-nowrap min-w-[150px]">Account Username</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -117,6 +125,14 @@ const AdminOrders = () => {
                                         <td className="py-2 px-4 border-b whitespace-nowrap">{order.walletId}</td>
                                         <td className="py-2 px-4 border-b whitespace-nowrap">{order.email}</td>
                                         <td className="py-2 px-4 border-b whitespace-nowrap">{order.wallet.method}</td>
+                                        <td className="py-2 px-4 border-b whitespace-nowrap">{order.firstname}</td>
+                                        <td className="py-2 px-4 border-b whitespace-nowrap">{order.lastname}</td>
+                                        <td className="py-2 px-4 border-b whitespace-nowrap">{order.company}</td>
+                                        <td className="py-2 px-4 border-b whitespace-nowrap">{order.country}</td>
+                                        <td className="py-2 px-4 border-b whitespace-nowrap">{order.address}</td>
+                                        <td className="py-2 px-4 border-b whitespace-nowrap">{order.town}</td> 
+                                        <td className="py-2 px-4 border-b whitespace-nowrap">{order.phone}</td>
+                                        <td className="py-2 px-4 border-b whitespace-nowrap">{order.username}</td>  
                                     </tr>
                                 ))}
                             </tbody>
