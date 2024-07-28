@@ -14,6 +14,7 @@ const EightCap = () => {
                 width={250}
                 height={130}
                 objectFit="cover"
+                className="ml-4"
               
             />
             <div className=" px-6 justify-start items-start flex flex-col text-white rounded-lg">
