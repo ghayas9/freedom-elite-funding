@@ -2,14 +2,23 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import fs from 'fs';
 import path from 'path';
 
-const filePath = path.resolve(process.cwd(), 'order.json');
+// const filePath = path.resolve(process.cwd(), 'order.json');
+const orderPath = path.resolve(process.cwd(), 'order.json');
 const adminPath = path.resolve(process.cwd(), "admin.json");
 // const ADMIN_PASSWORD = 'ghayas';
 
-let orders: any[] = [];
-if (fs.existsSync(filePath)) {
-    const fileData = fs.readFileSync(filePath, 'utf-8');
-    orders = JSON.parse(fileData);
+// let orders: any[] = [];
+// if (fs.existsSync(filePath)) {
+//     const fileData = fs.readFileSync(filePath, 'utf-8');
+//     orders = JSON.parse(fileData);
+// }
+
+function readOrdersFromFile() {
+    if (fs.existsSync(orderPath)) {
+        const fileData = fs.readFileSync(orderPath, 'utf-8');
+        return JSON.parse(fileData);
+    }
+    return [];
 }
 
 function readAdminPasswordFromFile() {
@@ -23,6 +32,7 @@ function readAdminPasswordFromFile() {
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
     try {
         const ADMIN_PASSWORD = readAdminPasswordFromFile();
+        const orders = readOrdersFromFile();
         if (req.method === 'POST') {
             const { password } = req.body;
 
