@@ -1,15 +1,16 @@
 import nodemailer from "nodemailer";
 import { NextApiRequest, NextApiResponse } from "next";
 
-const SENDER_EMAIL = "Support@freedomelitefunding.com";
-const PASSWORD = "Freedom0123@"
-
-
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const { first,last, email, message } = req.body;
+  const SENDER_EMAIL = process.env.SENDER_EMAIL
+  const PASSWORD = process.env.PASSWORD
+
+  console.log(SENDER_EMAIL,PASSWORD)
+
+  const { first, last, email, message } = req.body;
 
   try {
     const transport = nodemailer.createTransport({
@@ -30,12 +31,8 @@ export default async function handler(
 
     const mailOptions = {
       from: SENDER_EMAIL,
-      to: [
-        "ghayasudin999@gmail.com",
-        "jashiforlife@gmail.com",
-        "support@freedomelitefunding.com"
-      ],
-      subject: `Mail from ${first + " "+ last} | ${email}`,
+      to: ["jashiforlife@gmail.com", "support@freedomelitefunding.com"],
+      subject: `Mail from ${first + " " + last} | ${email}`,
       text: message,
     };
 
