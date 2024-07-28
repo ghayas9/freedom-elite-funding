@@ -21,7 +21,7 @@ export default function Header() {
       <div
         className={`  ${
           open ? "left-0" : "-left-[100%] lg:left-0"
-        } flex flex-col lg:flex-row absolute z-50  items-center lg:justify-end lg:relative lg:top-0 lg:bg-transparent lg:p-0 bg-black w-full gap-4 p-4 top-16 lg:items-center text-white gap-x-[40px] text-[14px] transition-all duration-700 ease-in `}
+        } flex flex-col lg:flex-row absolute z-50 items-center lg:justify-end lg:relative lg:top-0 lg:bg-transparent lg:p-0 bg-black w-full gap-4 p-4 top-16 lg:items-center text-white gap-x-[40px] text-[14px] transition-all duration-700 ease-in `}
       >
         {links.map((link, index) => (
           <Link

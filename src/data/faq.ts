@@ -98,8 +98,7 @@ export default function Faq({ key }: { key: string }) {
       {
         question: "What is the Spread and Commissions?",
         answer: `
-            Freedom Elite funding is partnered with Taurex as our broker, to offer industry leading spreads and commissions for traders. To understand the account offerings that we use, see here:
-            https://www.eightcap.com/en/trading/trading-conditions/spreads/`,
+            Freedom Elite funding is partnered with Taurex as our broker, to offer industry leading spreads and commissions for traders`,
       },
       {
         question: "What are the challenge profit targets?",
