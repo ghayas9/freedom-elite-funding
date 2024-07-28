@@ -19,7 +19,7 @@ const Orders = ({ password }: { password: string }) => {
         const fetchOrders = async () => {
             try {
                 const response = await axios.post('/api/admin/orders', { password });
-                setOrders(response.data.slice(0, 5));
+                setOrders(response.data);
             } catch (err: any) {
                 setError(err.message || 'An error occurred while fetching orders');
             } finally {
