@@ -40,10 +40,10 @@ export default function Payout() {
       id: "cbf2a5eb-4bc0-4a32-97bc-aa47fab2f7b8",
       price: "320.55",
     },
-    // {
-    //   id: "6c6b9989-db3c-40ee-9426-0cf14f07ac49",
-    //   price: "3056.10",
-    // },
+    {
+      id: "6c6b9989-db3c-40ee-9426-0cf14f07ac49",
+      price: "3056.10",
+    },
   ];
   return (
     <Layout>
