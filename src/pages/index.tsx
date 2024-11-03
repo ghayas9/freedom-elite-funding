@@ -9,6 +9,7 @@ import OurChallenges from "@/components/OurChallenges";
 import JoinTelegram from "@/components/JoinTelegram";
 import { useCountUp } from "react-countup";
 import EightCap from "@/components/EightCap";
+import Head from "next/head";
 
 export default function Index() {
   const indicatorRef = useRef(null);
