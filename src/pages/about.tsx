@@ -1,5 +1,6 @@
 import Layout from "@/components/Layout";
 import WhatPeopleSay from "@/components/WhatPeopleSay";
+import Head from "next/head";
 import Image from "next/image";
 import React from "react";
 
@@ -36,6 +37,13 @@ export default function about() {
   ];
   return (
     <Layout>
+      <Head>
+        <title>About Freedom Elite Funding: Your Trusted Futures Prop Firm</title>
+        <meta
+          name="description"
+          content="Learn more about Freedom Elite Funding, an established prop firm focused on high-frequency trading. Discover our mission to support traders and our commitment to excellence in the prop trading industry."
+        />
+      </Head>
       <div className="max-w-[1200px] mx-auto px-2 flex flex-col items-center justify-center ">
         <h2 className="bg-gradient-to-r from-primary to-[#ffffff] text-transparent bg-clip-text text-3xl lg:text-5xl font-bold py-2 mt-[78px]">
           About Us

@@ -4,6 +4,7 @@ import Image from "next/image";
 import Layout from "@/components/Layout";
 import Faq from "@/data/faq";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 interface Faqs {
   question: string;
@@ -50,6 +51,27 @@ export default function Home() {
 
   return (
     <Layout>
+      <Head>
+      <title>Frequently Asked Questions: Your Guide to High-Frequency Trading and Prop Firms</title>
+        <meta
+          name="description"
+          content="Find answers to your questions about HFT high-frequency trading, our funded prop firm services, and the benefits of joining a trading prop firm. Empower your trading experience with us!"
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebPage",
+              name: "FAQ",
+              url: "https://freedomelitefunding.com/faq",
+              description:
+                "Your guide to HFT and our funded prop firm services.",
+            }),
+          }}
+        />
+      </Head>
+
       <div className="max-w-[1200px] mx-auto relative">
         <div className="w-full flex justify-between text-center">
           <div className="flex flex-col items-center justify-center z-[-9999]">

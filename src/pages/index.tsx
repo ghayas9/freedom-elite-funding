@@ -117,6 +117,20 @@ export default function Index() {
 
   return (
     <Layout>
+      <Head>
+      <title>Welcome to Freedom Elite Funding: Your Path to High-Frequency Trading Success</title>
+        <meta
+          name="description"
+          content="Discover Freedom Elite Funding, your premier HFT prop firm specializing in high-frequency trading. Join us to access competitive challenges and become a funded prop firm trader today!"
+        />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          "name": "Home",
+          "url": "https://freedomelitefunding.com/",
+          "description": "Discover Freedom Elite Funding, your premier HFT prop firm specializing in high-frequency trading."
+        })}} />
+      </Head>
       <div className="max-w-[1200px] grid mx-auto grid-cols-1 md:grid-cols-2 px-2 mt-16 p-10 gap-y-5  lg:py-20">
         <div className="w-full gap-5 flex flex-col justify-center ">
           <h1 className="text-2xl lg:text-5xl font-bold text-white p-0 m-0">

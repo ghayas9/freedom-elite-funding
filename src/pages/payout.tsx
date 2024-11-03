@@ -1,5 +1,6 @@
 import Layout from "@/components/Layout";
 import WhatPeopleSay from "@/components/WhatPeopleSay";
+import Head from "next/head";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import React from "react";
@@ -46,6 +47,13 @@ export default function Payout() {
   ];
   return (
     <Layout>
+       <Head>
+        <title>Fast and Reliable Payouts: Experience Our Futures Prop Firm Advantage</title>
+        <meta
+          name="description"
+          content="Enjoy quick and dependable payouts with Freedom Elite Funding, a leading futures prop firm. Learn about our payout process and how we ensure you receive your profits on time in the world of trading high frequency."
+        />
+      </Head>
       <div className="max-w-[1200px] mx-auto px-2 flex flex-col items-center justify-center ">
         <h2 className="bg-gradient-to-r from-primary to-[#ffffff] text-transparent bg-clip-text text-3xl lg:text-5xl font-bold py-2 mt-[78px]">
           Payout Collection

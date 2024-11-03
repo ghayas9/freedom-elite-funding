@@ -2,14 +2,35 @@ import JoinTelegram from "@/components/JoinTelegram";
 import Layout from "@/components/Layout";
 import OurChallengeTable from "@/components/OurChallengeTable";
 import WhatPeopleSay from "@/components/WhatPeopleSay";
+import Head from "next/head";
 import Image from "next/image";
 import React, { useState } from "react";
 
 export default function Page() {
-
-  const [selected , setSelected] = useState(0)
+  const [selected, setSelected] = useState(0);
   return (
     <Layout>
+      <Head>
+      <title>Choose Your Trading Challenge: Get Funded with Our Prop Firm</title>
+        <meta
+          name="description"
+          content="Explore our Forex trading challenges and high-frequency trading opportunities at Freedom Elite Funding. Join our trading prop firm and use our exclusive HFT coupon to save on your challenge!"
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebPage",
+              name: "Buy Challenges",
+              url: "https://freedomelitefunding.com/buy-challenges",
+              description:
+                "Explore our Forex trading challenges and high-frequency trading opportunities.",
+            }),
+          }}
+        />
+      </Head>
+
       <div className="max-w-[1200px] mx-auto mb-24 px-2 ">
         <div className="flex flex-col items-center justify-center">
           <h2 className="bg-gradient-to-r from-primary to-[#ffffff] text-transparent bg-clip-text text-3xl lg:text-5xl font-bold mb-[15px] mt-[78px]">
@@ -40,7 +61,8 @@ export default function Page() {
                           Challenge
                         </h2>
                         <p className="text-[#9F9F9F]">
-                        Choose your preferred challenge and register for evaluation and receive your login instantly.
+                          Choose your preferred challenge and register for
+                          evaluation and receive your login instantly.
                         </p>
                         <p className="text-primary underline underline-offset-4"></p>
                       </div>
@@ -69,7 +91,9 @@ export default function Page() {
                           Skills
                         </h2>
                         <p className="text-[#9F9F9F]">
-                        Prove your skills by passing all our trading objectives shown in the dashboard. Once you have completed this you will receive your funded account.
+                          Prove your skills by passing all our trading
+                          objectives shown in the dashboard. Once you have
+                          completed this you will receive your funded account.
                         </p>
                         <p className="text-primary underline underline-offset-4"></p>
                       </div>
@@ -97,7 +121,9 @@ export default function Page() {
                           <span className="text-primary">Start </span>Earning
                         </h2>
                         <p className="text-[#9F9F9F]">
-                        Once you have passed your evaluation you will receive your funded account and be able to withdraw up to 90% of profits and join our scaling plan.
+                          Once you have passed your evaluation you will receive
+                          your funded account and be able to withdraw up to 90%
+                          of profits and join our scaling plan.
                         </p>
                         <p className="text-primary underline underline-offset-4"></p>
                       </div>
@@ -111,41 +137,45 @@ export default function Page() {
       </div>
 
       <div className="max-w-[1200px] mx-auto px-2 flex flex-col items-center justify-center">
-      <div className="grid grid-cols-1 md:grid-cols-2 py-[10px] px-2  md:p-[10px]  gap-2 md:gap-10 md:bg-white/10 rounded-lg md:rounded-full mb-10 mt-5">
-        <div>
-          <div className=" text-primary -mb-2 md:mb-1 md:-mt-5 px-2 text-[10px] flex items-center justify-center">
-            <div className=" border border-primary rounded-full px-2 text-[10px] flex items-center gap-1 justify-center">
-              <span>No Consistency Rules</span>
+        <div className="grid grid-cols-1 md:grid-cols-2 py-[10px] px-2  md:p-[10px]  gap-2 md:gap-10 md:bg-white/10 rounded-lg md:rounded-full mb-10 mt-5">
+          <div>
+            <div className=" text-primary -mb-2 md:mb-1 md:-mt-5 px-2 text-[10px] flex items-center justify-center">
+              <div className=" border border-primary rounded-full px-2 text-[10px] flex items-center gap-1 justify-center">
+                <span>No Consistency Rules</span>
+              </div>
             </div>
+            <button
+              // type="submit"
+              onClick={() => setSelected(0)}
+              className={`flex justify-center items-center gap-2 rounded-full px-3 py-2 lg:px-8 lg:py-3 font-medium  w-full sm:py-2  ${
+                selected === 0 ? "bg-primary text-black " : "text-white"
+              }  `}
+            >
+              Freedom Challenges
+            </button>
           </div>
-          <button
-            // type="submit"
-            onClick={()=>setSelected(0)}
-            className={`flex justify-center items-center gap-2 rounded-full px-3 py-2 lg:px-8 lg:py-3 font-medium  w-full sm:py-2  ${selected === 0 ? "bg-primary text-black " :"text-white"}  `}
-          >
-            Freedom Challenges
-          </button>
-        </div>
-        <div>
-          <div className="text-primary -mb-2 md:mb-1 md:-mt-5 px-2 text-[10px] flex items-center  justify-center">
-            <div className=" border  border-primary rounded-full px-2 text-[10px] flex items-center gap-1 justify-center">
-              <span>Pass it Fast</span>
+          <div>
+            <div className="text-primary -mb-2 md:mb-1 md:-mt-5 px-2 text-[10px] flex items-center  justify-center">
+              <div className=" border  border-primary rounded-full px-2 text-[10px] flex items-center gap-1 justify-center">
+                <span>Pass it Fast</span>
+              </div>
             </div>
+            <button
+              // type="submit"
+              onClick={() => setSelected(1)}
+              className={`flex justify-center items-center gap-2 rounded-full px-3 py-2 lg:px-8 lg:py-3 font-medium   w-full sm:py-2  ${
+                selected === 1 ? "bg-primary text-black" : "text-white"
+              }`}
+            >
+              HFT
+            </button>
           </div>
-          <button
-            // type="submit"
-            onClick={()=>setSelected(1)}
-            className={`flex justify-center items-center gap-2 rounded-full px-3 py-2 lg:px-8 lg:py-3 font-medium   w-full sm:py-2  ${selected === 1 ? "bg-primary text-black" :"text-white"}`}
-          >
-            HFT
-          </button>
         </div>
+        <OurChallengeTable selected={selected} />
       </div>
-      <OurChallengeTable selected={selected}/>
-    </div>
 
-    <WhatPeopleSay />
-    <JoinTelegram />
+      <WhatPeopleSay />
+      <JoinTelegram />
     </Layout>
   );
 }

@@ -2,6 +2,7 @@ import JoinTelegram from "@/components/JoinTelegram";
 import Layout from "@/components/Layout";
 import Spanner from "@/components/Spanner";
 import axios from "axios";
+import Head from "next/head";
 import Image from "next/image";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
@@ -46,6 +47,13 @@ export default function ContactUs() {
   };
   return (
     <Layout>
+      <Head>
+        <title>Get in Touch with Freedom Elite Funding: Your Go-To Forex Prop Firm</title>
+        <meta
+          name="description"
+          content="Have questions about our funded prop firm or high-frequency trading opportunities? Contact Freedom Elite Funding today! Our team is here to assist you in your trading journey."
+        />
+      </Head>
       <div className="flex flex-col items-center justify-center">
         <h2 className="bg-gradient-to-r from-primary to-[#ffffff] text-transparent bg-clip-text text-3xl lg:text-5xl font-bold mb-[15px] mt-[78px]">
           Contact Us
